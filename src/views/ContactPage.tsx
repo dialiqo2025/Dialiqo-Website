@@ -34,6 +34,7 @@ import { SectionHeader } from '../components/common/SectionHeader';
 import { CTASection } from '../components/common/CTASection';
 import { Button } from '../components/common/Button';
 import { GLOBAL_OFFICES } from '../data/dialiqoData';
+import { typo } from '@/lib/typography';
 
 interface ContactPageProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -154,7 +155,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto text-white"
+            className={`${typo.heroTitle} leading-tight max-w-4xl mx-auto text-white`}
           >
             Connect With Dialiqo Solutions Architects
           </motion.h1>
@@ -163,7 +164,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
+            className={`${typo.subtitle} text-slate-300 max-w-3xl mx-auto`}
           >
             Whether you are building sub-300ms Voice AI pipelines, modernizing legacy carrier SIP trunks, or conducting a zero-trust telecom audit, our team is ready to assist across 5 regional hubs.
           </motion.p>
@@ -225,14 +226,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
           <div className="lg:col-span-7 bg-white dark:bg-slate-900 p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl space-y-6">
             <div>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider">
+                <span className={`${typo.eyebrow} text-blue-600 dark:text-blue-400 font-mono`}>
                   Enterprise Inquiry Desk
                 </span>
                 <span className="text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2.5 py-1 rounded-full font-bold border border-emerald-500/20">
                   Engineers On Duty
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-1">
+              <h2 className={`${typo.contentTitle} text-slate-900 dark:text-white mt-1`}>
                 Send a Direct Technical Message
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
@@ -249,7 +250,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
                 <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto border border-emerald-500/30">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white">
+                <h3 className={`${typo.contentTitle} text-slate-900 dark:text-white`}>
                   Inquiry Transmitted Successfully!
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto leading-relaxed">
@@ -418,7 +419,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-emerald-400 animate-ping" />
-                  <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">
+                  <span className={`${typo.eyebrow} text-emerald-400`}>
                     WhatsApp Desk Active
                   </span>
                 </div>
@@ -428,7 +429,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
               </div>
 
               <div className="space-y-2">
-                <h3 className="text-2xl font-extrabold text-white flex items-center gap-2">
+                <h3 className={`${typo.contentTitle} text-white flex items-center gap-2`}>
                   <MessageCircle className="w-6 h-6 text-emerald-400" />
                   WhatsApp Quick Connect
                 </h3>
@@ -476,7 +477,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
                 <span>Tier-3 Carrier Emergency Line</span>
               </div>
 
-              <h4 className="text-lg font-extrabold text-slate-900 dark:text-white">
+              <h4 className={`${typo.cardTitle} text-slate-900 dark:text-white`}>
                 Active Client Incident Escalation
               </h4>
 
@@ -502,7 +503,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
                 <Calendar className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Calendly Embedded Booking Widget</span>
               </div>
-              <h2 className="text-3xl font-extrabold text-white">
+              <h2 className={`${typo.sectionTitle} text-white`}>
                 Book a 30-Minute Architecture Discovery Session
               </h2>
               <p className="text-xs sm:text-sm text-slate-300 max-w-2xl">
@@ -533,7 +534,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="text-2xl font-extrabold text-white">Meeting Confirmed!</h3>
+                <h3 className={`${typo.contentTitle} text-white`}>Meeting Confirmed!</h3>
                 <p className="text-xs text-slate-300 mt-2">
                   Calendar invitation sent to <span className="font-bold text-cyan-400">{bookingDetails.email}</span>.
                 </p>
@@ -553,7 +554,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* STEP 1: SELECT TOPIC */}
               <div className="space-y-4 p-6 rounded-2xl bg-slate-800/50 border border-slate-700/60">
-                <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
+                <span className={`${typo.eyebrow} text-cyan-400 font-mono`}>
                   1. Select Discussion Topic
                 </span>
                 <div className="space-y-2">
@@ -580,7 +581,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
 
               {/* STEP 2: SELECT TIME SLOT */}
               <div className="space-y-4 p-6 rounded-2xl bg-slate-800/50 border border-slate-700/60">
-                <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
+                <span className={`${typo.eyebrow} text-cyan-400 font-mono`}>
                   2. Pick Available Time Slot
                 </span>
                 <div className="text-xs font-mono text-slate-300 pb-1">
@@ -605,7 +606,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
 
               {/* STEP 3: ATTENDEE DETAILS */}
               <form onSubmit={handleBookingSubmit} className="space-y-4 p-6 rounded-2xl bg-slate-800/50 border border-slate-700/60">
-                <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
+                <span className={`${typo.eyebrow} text-cyan-400 font-mono`}>
                   3. Enter Attendee Info
                 </span>
 
@@ -736,7 +737,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white">
+                  <h3 className={`${typo.contentTitle} text-slate-900 dark:text-white`}>
                     {selectedOffice.city}, {selectedOffice.country}
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-1">
@@ -831,7 +832,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenCons
         <section className="py-8 bg-slate-100/70 dark:bg-slate-900/50 rounded-3xl p-8 border border-slate-200 dark:border-slate-800 space-y-6">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
-              <h3 className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+              <h3 className={`${typo.contentTitle} text-slate-900 dark:text-white flex items-center gap-2`}>
                 <Clock className="w-5 h-5 text-blue-600" />
                 Global Business & Operational Hours
               </h3>

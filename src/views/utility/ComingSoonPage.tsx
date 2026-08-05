@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Sparkles, CheckCircle2 } from 'lucide-react';
 import { Button } from '../../components/common/Button';
+import { typo } from '@/lib/typography';
 
 interface UtilityPageProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -30,11 +31,11 @@ export const ComingSoonPage: React.FC<UtilityPageProps> = ({ onNavigate }) => {
           <span>Next-Gen Platform Launch Preview</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+        <h1 className={`${typo.heroTitle} leading-tight`}>
           Dialiqo Voice AI v4.0 Quantum Edge Engine
         </h1>
 
-        <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        <p className={`${typo.subtitle} text-slate-300 max-w-2xl mx-auto`}>
           We are deploying our breakthrough sub-150ms multi-modal speech synthesis and zero-jitter eBPF kernel packet routers.
         </p>
 
@@ -60,7 +61,7 @@ export const ComingSoonPage: React.FC<UtilityPageProps> = ({ onNavigate }) => {
 
         {/* VIP Early Access Form */}
         <div className="p-8 rounded-3xl bg-slate-900/90 border border-slate-800 max-w-lg mx-auto space-y-4">
-          <h3 className="text-lg font-extrabold text-white">Join VIP Beta Access List</h3>
+          <h3 className={`${typo.cardTitle} text-white`}>Join VIP Beta Access List</h3>
           <p className="text-xs text-slate-400">Receive priority API keys and private documentation before official release.</p>
 
           {subscribed ? (

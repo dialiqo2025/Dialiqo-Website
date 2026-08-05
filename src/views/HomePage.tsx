@@ -21,6 +21,7 @@ import {
 import { Button } from "../components/common/Button";
 import { TestimonialsSection } from "../components/common/TestimonialsSection";
 import { SERVICES_DATA, STATS_METRICS, TECHNOLOGIES_DATA } from "../data/dialiqoData";
+import { typo } from "@/lib/typography";
 
 interface HomePageProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -157,11 +158,11 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="absolute inset-0 bg-slate-950/85" />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950/90" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-5xl mt-8 mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-blue-400 font-semibold tracking-[0.2em] uppercase text-xs mb-5"
+            className={`${typo.eyebrow} text-blue-400 mb-5`}
           > Ultimate Solutions
           </motion.p>
 
@@ -169,7 +170,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.1] uppercase"
+            className={`${typo.heroTitle} text-white leading-[1.1]`}
           >
             Own Your Communication Platform
             <br className="hidden sm:block" /> by Customizing Every Layer
@@ -179,7 +180,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.16 }}
-            className="mt-5 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto"
+            className={`mt-5 ${typo.subtitle} text-slate-300 max-w-2xl mx-auto`}
           >
             Carrier-grade VoIP, sub-300ms Voice AI, and cloud engineering built
             for enterprises that need full control of every protocol layer.
@@ -238,10 +239,10 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-[0.2em] mb-3">
+            <p className={`${typo.eyebrow} text-blue-600 dark:text-blue-400 mb-3`}>
               Features
             </p>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            <h2 className={`${typo.sectionTitle} text-slate-900 dark:text-white`}>
               Specialized and Tailor-Made Solutions
             </h2>
           </div>
@@ -327,7 +328,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         />
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+            <h2 className={`${typo.sectionTitle} leading-tight`}>
               Our Mission is to Deliver Growth and Efficiency
             </h2>
             <p className="mt-5 text-slate-300 leading-relaxed max-w-lg">
@@ -402,7 +403,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            <h2 className={`${typo.sectionTitle} text-slate-900 dark:text-white`}>
               Dialiqo&apos;s Cutting-Edge VoIP &amp; AI Development Services
             </h2>
             <p className="mt-4 text-slate-600 dark:text-slate-400">
@@ -428,7 +429,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <div className="absolute top-6 right-6 w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="pr-14 text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className={`pr-14 ${typo.cardTitle} text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors`}>
                     {service.title}
                   </h3>
                   <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
@@ -459,10 +460,10 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
+            <div className={`inline-flex items-center gap-2 ${typo.eyebrow} text-blue-600 dark:text-blue-400 mb-3`}>
               <Building2 className="w-4 h-4" /> About Dialiqo
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            <h2 className={`${typo.sectionTitle} text-slate-900 dark:text-white`}>
               Leading VoIP &amp; Voice AI Development Company
             </h2>
             <p className="mt-5 text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -532,7 +533,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         />
         <div className="absolute inset-0 bg-slate-950/80" />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className={`${typo.sectionTitle} text-white`}>
             Your Go-To VoIP &amp; Voice AI Development Company
           </h2>
           <p className="mt-4 text-slate-300">
@@ -558,7 +559,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            <h2 className={`${typo.sectionTitle} text-slate-900 dark:text-white`}>
               Ready To Get Started?
             </h2>
             <p className="mt-5 text-slate-600 dark:text-slate-400 leading-relaxed max-w-md">
@@ -582,7 +583,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             {formSent ? (
               <div className="py-10 text-center">
                 <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold">Message received</h3>
+                <h3 className={`${typo.contentTitle}`}>Message received</h3>
                 <p className="mt-2 text-sm text-slate-400">
                   We&apos;ll be in touch shortly.
                 </p>

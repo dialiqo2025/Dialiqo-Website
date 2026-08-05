@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles, Shield, CheckCircle2, PhoneCall } from 'lucide-react';
 import { Button } from './Button';
+import { typo } from '@/lib/typography';
 
 interface CTASectionProps {
   title?: string;
@@ -32,7 +33,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6"
+          className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 ${typo.eyebrow} mb-6`}
         >
           <Sparkles className="w-3.5 h-3.5" /> Enterprise Advisory & Architecture
         </motion.div>
@@ -42,7 +43,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight"
+          className={`${typo.sectionTitle} text-white leading-tight`}
         >
           {title}
         </motion.h2>
@@ -52,7 +53,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-4 text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed"
+          className={`mt-4 ${typo.subtitle} text-slate-300 max-w-2xl mx-auto`}
         >
           {description}
         </motion.p>

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, Calendar, Clock, CheckCircle2, Loader2, Sparkles, Phone, Mail, Building, User } from 'lucide-react';
 import { Button } from './Button';
 import { SERVICES_DATA } from '../../data/dialiqoData';
+import { typo } from '@/lib/typography';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -79,7 +80,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
               <div className="inline-flex p-4 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 mb-6 border border-emerald-200 dark:border-emerald-800">
                 <CheckCircle2 className="w-12 h-12" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+              <h3 className={`${typo.contentTitle} text-slate-900 dark:text-white`}>
                 Consultation Request Confirmed
               </h3>
               <p className="mt-2 text-slate-600 dark:text-slate-400 max-w-md mx-auto">
@@ -109,11 +110,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
             </div>
           ) : (
             <div>
-              <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-2">
+              <div className={`flex items-center gap-2 text-blue-600 dark:text-blue-400 ${typo.eyebrow} mb-2`}>
                 <Sparkles className="w-4 h-4" />
                 Enterprise Architecture Booking
               </div>
-              <h2 id="consultation-modal-title" className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
+              <h2 id="consultation-modal-title" className={`${typo.contentTitle} text-slate-900 dark:text-white`}>
                 Book Free Technical Consultation
               </h2>
               <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">

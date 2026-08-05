@@ -5,6 +5,7 @@ import { SectionHeader } from '../components/common/SectionHeader';
 import { CTASection } from '../components/common/CTASection';
 import { Button } from '../components/common/Button';
 import { SOLUTIONS_DATA } from '../data/dialiqoData';
+import { typo } from '@/lib/typography';
 
 interface SolutionsPageProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -31,7 +32,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate, onOpen
                 <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400">
                   {sol.tagline}
                 </span>
-                <h3 className="text-3xl font-bold text-slate-900 dark:text-white">{sol.title}</h3>
+                <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white`}>{sol.title}</h3>
                 <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
                   {sol.description}
                 </p>

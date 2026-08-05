@@ -1,6 +1,8 @@
 "use client";
-import React from 'react';
-import { motion } from 'motion/react';
+
+import React from "react";
+import { motion } from "motion/react";
+import { typo } from "@/lib/typography";
 
 interface SectionHeaderProps {
   eyebrow?: string;
@@ -16,17 +18,19 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,
   description,
   centered = true,
-  className = '',
-  action
+  className = "",
+  action,
 }) => {
   return (
-    <div className={`mb-12 md:mb-16 ${centered ? 'text-center mx-auto max-w-3xl' : 'max-w-2xl'} ${className}`}>
+    <div
+      className={`mb-12 md:mb-16 ${centered ? "text-center mx-auto max-w-3xl" : "max-w-2xl"} ${className}`}
+    >
       {eyebrow && (
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-950/60 rounded-full border border-blue-200/60 dark:border-blue-800/60"
+          className={`inline-flex items-center gap-2 px-3 py-1 mb-4 ${typo.eyebrow} text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 rounded-full border border-blue-200/60 dark:border-blue-800/60`}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse" />
           {eyebrow}
@@ -38,7 +42,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.1 }}
-        className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white"
+        className={`${typo.sectionTitle} text-slate-900 dark:text-white`}
       >
         {title}
       </motion.h2>
@@ -49,7 +53,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-4 text-lg text-slate-600 dark:text-slate-400 leading-relaxed"
+          className={`mt-4 ${typo.subtitle} text-slate-600 dark:text-slate-400`}
         >
           {description}
         </motion.p>

@@ -5,6 +5,7 @@ import { Building, Award, Shield, Users, CheckCircle2, Globe, Sparkles, Heart } 
 import { SectionHeader } from '../components/common/SectionHeader';
 import { CTASection } from '../components/common/CTASection';
 import { LEADERSHIP_TEAM, GLOBAL_OFFICES, TRUST_BADGES } from '../data/dialiqoData';
+import { typo } from '@/lib/typography';
 
 interface AboutPageProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -36,7 +37,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenConsulta
             <div className="p-3 w-fit rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 font-bold">
               Mission
             </div>
-            <h3 className="text-2xl font-bold">Our Mission</h3>
+            <h3 className={typo.cardTitle}>Our Mission</h3>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base">
               To empower global enterprises with resilient software architecture, sub-300ms Voice AI agents, carrier-grade SIP networks, and world-class developer talent.
             </p>
@@ -46,7 +47,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenConsulta
             <div className="p-3 w-fit rounded-xl bg-cyan-100 dark:bg-cyan-950 text-cyan-600 font-bold">
               Vision
             </div>
-            <h3 className="text-2xl font-bold">Our Vision</h3>
+            <h3 className={typo.cardTitle}>Our Vision</h3>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-base">
               To be the premier technology partner for Fortune 500 and high-growth companies building mission-critical digital products.
             </p>

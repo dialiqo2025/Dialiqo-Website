@@ -32,6 +32,7 @@ import { SectionHeader } from '../components/common/SectionHeader';
 import { CTASection } from '../components/common/CTASection';
 import { CASE_STUDIES_DATA } from '../data/dialiqoData';
 import { CaseStudyItem } from '../types';
+import { typo } from '@/lib/typography';
 
 interface CaseStudyDetailPageProps {
   slug: string;
@@ -89,10 +90,10 @@ export const CaseStudyDetailPage: React.FC<CaseStudyDetailPageProps> = ({
 
           {/* Title & Summary */}
           <div className="space-y-4 max-w-4xl">
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white">
+            <h1 className={`${typo.heroTitle} leading-tight text-white`}>
               {cs.title}
             </h1>
-            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-normal">
+            <p className={`${typo.subtitle} text-slate-300 font-normal`}>
               {cs.summary}
             </p>
           </div>
@@ -602,7 +603,7 @@ export const CaseStudiesPage: React.FC<{
                 <span className="text-slate-400">&bull; {featuredCaseStudy.location}</span>
               </div>
 
-              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+              <h2 className={`${typo.heroTitle} leading-tight`}>
                 {featuredCaseStudy.title}
               </h2>
 
@@ -709,7 +710,7 @@ export const CaseStudiesPage: React.FC<{
                   <span className="text-slate-500 dark:text-slate-400">{cs.location}</span>
                 </div>
 
-                <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug`}>
                   {cs.title}
                 </h3>
 

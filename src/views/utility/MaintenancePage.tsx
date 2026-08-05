@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { RefreshCw } from 'lucide-react';
+import { typo } from '@/lib/typography';
 
 interface UtilityPageProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -16,7 +17,7 @@ export const MaintenancePage: React.FC<UtilityPageProps> = () => {
           <span>Scheduled Core Switch Maintenance</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
+        <h1 className={typo.heroTitle}>
           System Maintenance in Progress
         </h1>
 

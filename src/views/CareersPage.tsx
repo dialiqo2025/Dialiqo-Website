@@ -42,6 +42,7 @@ import { CTASection } from '../components/common/CTASection';
 import { Button } from '../components/common/Button';
 import { JOB_OPENINGS_DATA } from '../data/dialiqoData';
 import { JobOpening } from '../types';
+import { typo } from '@/lib/typography';
 
 interface CareersPageProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -286,7 +287,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({ onNavigate, onOpenCons
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto text-white"
+            className={`${typo.heroTitle} leading-tight max-w-4xl mx-auto text-white`}
           >
             Shape the Future of Real-Time Voice AI & Telecom
           </motion.h1>
@@ -295,7 +296,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({ onNavigate, onOpenCons
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
+            className={`${typo.subtitle} text-slate-300 max-w-3xl mx-auto`}
           >
             We are building sub-300ms real-time voice streaming engines, global SIP edge proxy clusters, and zero-trust AI security for fortune 500 enterprises. Work remotely with world-class peers.
           </motion.p>
@@ -372,7 +373,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({ onNavigate, onOpenCons
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center border border-blue-200 dark:border-blue-800">
                   <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
+                <h3 className={`${typo.contentTitle} text-slate-900 dark:text-white`}>
                   {pillar.title}
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -414,7 +415,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({ onNavigate, onOpenCons
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
+                  <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white`}>
                     {ben.title}
                   </h3>
 
@@ -495,7 +496,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({ onNavigate, onOpenCons
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors`}>
                     {job.title}
                   </h3>
 
@@ -540,7 +541,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({ onNavigate, onOpenCons
         {/* Open Spontaneous Application Banner */}
         <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-blue-900/30 via-slate-900 to-slate-900 border border-blue-800/60 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-2 text-center sm:text-left">
-            <h3 className="text-xl font-extrabold text-white">Don't see an exact match?</h3>
+            <h3 className={`${typo.contentTitle} text-white`}>Don't see an exact match?</h3>
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
               We are always eager to meet world-class C++ VoIP developers, Rust systems specialists, and AI researchers. Send us your portfolio for future openings.
             </p>
@@ -579,7 +580,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({ onNavigate, onOpenCons
                   </span>
                 </div>
 
-                <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
+                <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white`}>
                   {stepItem.title}
                 </h3>
 
@@ -707,7 +708,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({ onNavigate, onOpenCons
                   <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto border border-emerald-500/30">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white">
+                  <h3 className={`${typo.contentTitle} text-slate-900 dark:text-white`}>
                     Application Received!
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto leading-relaxed">
@@ -720,10 +721,10 @@ export const CareersPage: React.FC<CareersPageProps> = ({ onNavigate, onOpenCons
               ) : (
                 <div className="space-y-6">
                   <div>
-                    <span className="text-xs font-mono text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider">
+                    <span className={`${typo.eyebrow} text-blue-600 dark:text-blue-400 font-mono`}>
                       Engineering Career Application
                     </span>
-                    <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">
+                    <h3 className={`${typo.contentTitle} text-slate-900 dark:text-white mt-1`}>
                       {activeJob ? activeJob.title : 'Spontaneous Application'}
                     </h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">

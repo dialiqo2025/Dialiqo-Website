@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Calculator, TrendingUp, DollarSign, ShieldAlert, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '../common/Button';
+import { typo } from '@/lib/typography';
 
 interface RoiCalculatorProps {
   onOpenConsultation: () => void;
@@ -29,11 +30,11 @@ export const RoiCalculator: React.FC<RoiCalculatorProps> = ({ onOpenConsultation
   return (
     <div className="my-16 rounded-3xl border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-white via-slate-50 to-blue-50/40 dark:from-slate-900 dark:via-slate-900/90 dark:to-slate-950 p-6 sm:p-10 shadow-xl">
       <div className="max-w-3xl mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-3">
+        <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 ${typo.eyebrow} mb-3`}>
           <Calculator className="w-3.5 h-3.5" />
           Enterprise ROI & Telecom Savings Simulator
         </div>
-        <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+        <h3 className={`${typo.contentTitle} text-slate-900 dark:text-white`}>
           Calculate Your Annual Dialiqo Optimization Savings
         </h3>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">

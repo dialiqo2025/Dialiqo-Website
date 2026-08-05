@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Cookie as CookieIcon, Sliders, CheckCircle2 } from 'lucide-react';
 import { Button } from '../../components/common/Button';
+import { typo } from '@/lib/typography';
 
 interface UtilityPageProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -37,7 +38,7 @@ export const CookiePolicyPage: React.FC<UtilityPageProps> = () => {
             <CookieIcon className="w-3.5 h-3.5 text-cyan-400" />
             <span>Browser Storage & Preferences</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
+          <h1 className={typo.heroTitle}>
             Cookie Policy & Preference Center
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl font-mono">
@@ -51,7 +52,7 @@ export const CookiePolicyPage: React.FC<UtilityPageProps> = () => {
         <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white">
+              <h2 className={`${typo.contentTitle} text-slate-900 dark:text-white`}>
                 Cookie Preferences
               </h2>
               <p className="text-xs text-slate-500 font-mono mt-1">
@@ -133,7 +134,7 @@ export const CookiePolicyPage: React.FC<UtilityPageProps> = () => {
 
         {/* Inventory Table */}
         <div className="bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-          <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
+          <h3 className={`${typo.contentTitle} text-slate-900 dark:text-white`}>
             Active Cookie Inventory
           </h3>
           <div className="overflow-x-auto">

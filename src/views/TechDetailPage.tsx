@@ -10,6 +10,7 @@ import { SectionHeader } from '../components/common/SectionHeader';
 import { CTASection } from '../components/common/CTASection';
 import { TECHNOLOGIES_DATA } from '../data/dialiqoData';
 import { TechnologyItem } from '../types';
+import { typo } from '@/lib/typography';
 
 interface TechDetailPageProps {
   techSlug: string;
@@ -67,13 +68,13 @@ export const TechDetailPage: React.FC<TechDetailPageProps> = ({
       {/* 1. HERO */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-blue-50/50 via-slate-50 to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 border-b border-slate-200 dark:border-slate-800 text-center">
         <div className="max-w-4xl mx-auto space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100/80 dark:bg-blue-950/80 border border-blue-200 dark:border-blue-900 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase font-mono tracking-wider">
+          <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100/80 dark:bg-blue-950/80 border border-blue-200 dark:border-blue-900 text-blue-600 dark:text-blue-400 ${typo.eyebrow} font-mono`}>
             {getTechIcon(tech.iconName)} {tech.category}
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          <h1 className={`${typo.heroTitle} text-slate-900 dark:text-white`}>
             {tech.name} Engineering Practice
           </h1>
-          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
+          <p className={`${typo.subtitle} text-slate-600 dark:text-slate-300 max-w-3xl mx-auto font-normal`}>
             {tech.heroDesc}
           </p>
           <div className="pt-4 flex flex-wrap justify-center gap-4">
@@ -289,7 +290,7 @@ export const TechnologiesPage: React.FC<{ onNavigate: (p: string, s?: string) =>
                   </span>
                   {getTechIcon(t.iconName)}
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors`}>
                   {t.name}
                 </h3>
                 <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">

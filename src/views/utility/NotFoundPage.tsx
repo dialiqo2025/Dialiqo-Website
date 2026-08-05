@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { AlertTriangle, Search, Home } from 'lucide-react';
 import { Button } from '../../components/common/Button';
+import { typo } from '@/lib/typography';
 
 interface UtilityPageProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -35,7 +36,7 @@ export const NotFoundPage: React.FC<UtilityPageProps> = ({ onNavigate }) => {
         </h1>
 
         <div className="space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+          <h2 className={`${typo.contentTitle} text-white`}>
             Packet Dropped: Requested Path Does Not Exist
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto leading-relaxed">

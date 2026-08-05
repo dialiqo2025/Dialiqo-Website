@@ -98,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
 
             {/* Technologies Dropdown */}
-            <div className="relative">
+            {/* <div className="relative">
               <Link
                 href="/technologies"
                 aria-expanded={activeMegaMenu === 'technologies'}
@@ -110,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Technologies
                 <ChevronDown className="w-3.5 h-3.5 opacity-70" />
               </Link>
-            </div>
+            </div> */}
 
             {/* Solutions Dropdown */}
             <div className="relative">

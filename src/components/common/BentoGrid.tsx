@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowUpRight, Cpu, PhoneCall, Mic, Cloud, Bot, Shield, Zap, Globe } from 'lucide-react';
 import { ServiceItem } from '../../types';
+import { typo } from '@/lib/typography';
 
 interface BentoGridProps {
   services: ServiceItem[];
@@ -55,7 +56,7 @@ export const BentoGrid: React.FC<BentoGridProps> = ({ services, onSelectService 
                   )}
                 </div>
 
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex items-center gap-2">
+                <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex items-center gap-2`}>
                   {service.title}
                   <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-blue-600" />
                 </h3>

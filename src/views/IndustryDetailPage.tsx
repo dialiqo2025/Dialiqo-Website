@@ -11,6 +11,7 @@ import { SectionHeader } from '../components/common/SectionHeader';
 import { CTASection } from '../components/common/CTASection';
 import { INDUSTRIES_DATA, CASE_STUDIES_DATA } from '../data/dialiqoData';
 import { IndustryItem } from '../types';
+import { typo } from '@/lib/typography';
 
 // Helper component to render dynamic Lucide icon based on iconName
 const IndustryIcon: React.FC<{ iconName?: string; className?: string }> = ({ iconName, className = "w-6 h-6" }) => {
@@ -55,14 +56,14 @@ export const IndustryDetailPage: React.FC<IndustryDetailPageProps> = ({
       {/* 1. HERO */}
       <section className="relative px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-blue-50/50 via-slate-50 to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 border-b border-slate-200 dark:border-slate-800 text-center">
         <div className="max-w-4xl mx-auto space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider border border-blue-200 dark:border-blue-800/60">
+          <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 ${typo.eyebrow} border border-blue-200 dark:border-blue-800/60`}>
             <IndustryIcon iconName={industry.iconName} className="w-4 h-4 text-blue-500" />
             <span>Vertical Specialization</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          <h1 className={`${typo.heroTitle} text-slate-900 dark:text-white`}>
             {industry.title}
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className={`${typo.subtitle} text-slate-600 dark:text-slate-300 max-w-2xl mx-auto`}>
             {industry.heroDesc}
           </p>
           <div className="pt-4 flex justify-center gap-4">
@@ -152,7 +153,7 @@ export const IndustryDetailPage: React.FC<IndustryDetailPageProps> = ({
                 <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">{caseStudy.clientName}</span>
                 <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover:text-blue-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </div>
-              <h3 className="text-2xl font-bold group-hover:text-blue-300 transition-colors">{caseStudy.title}</h3>
+              <h3 className={`${typo.cardTitle} group-hover:text-blue-300 transition-colors`}>{caseStudy.title}</h3>
               <p className="mt-3 text-sm text-slate-300 leading-relaxed">{caseStudy.summary}</p>
             </div>
           </div>
@@ -251,7 +252,7 @@ export const IndustriesPage: React.FC<{ onNavigate: (p: string, s?: string) => v
                   </div>
                   <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors`}>
                   {i.title}
                 </h3>
                 <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">

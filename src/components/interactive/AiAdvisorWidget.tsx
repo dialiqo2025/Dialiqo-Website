@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Bot, Send, Loader2, ArrowRight, CheckCircle2, ShieldCheck, Cpu } from 'lucide-react';
 import { Button } from '../common/Button';
+import { typo } from '@/lib/typography';
 
 interface AiAdvisorWidgetProps {
   onOpenConsultation: () => void;
@@ -43,11 +44,11 @@ export const AiAdvisorWidget: React.FC<AiAdvisorWidgetProps> = ({ onOpenConsulta
   return (
     <div className="my-16 rounded-3xl border border-blue-200 dark:border-blue-900/60 bg-gradient-to-br from-blue-50/60 via-white to-cyan-50/40 dark:from-slate-900 dark:via-slate-900/90 dark:to-slate-950 p-6 sm:p-10 shadow-xl">
       <div className="max-w-3xl mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-3 border border-blue-200 dark:border-blue-800">
+        <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 ${typo.eyebrow} mb-3 border border-blue-200 dark:border-blue-800`}>
           <Sparkles className="w-3.5 h-3.5 animate-spin" />
           Interactive AI Architecture Advisor
         </div>
-        <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+        <h3 className={`${typo.contentTitle} text-slate-900 dark:text-white`}>
           Get Instant AI-Generated Architectural Blueprint
         </h3>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">

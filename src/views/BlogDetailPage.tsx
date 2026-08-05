@@ -35,6 +35,7 @@ import { SectionHeader } from '../components/common/SectionHeader';
 import { CTASection } from '../components/common/CTASection';
 import { RESOURCES_DATA } from '../data/dialiqoData';
 import { ResourceItem } from '../types';
+import { typo } from '@/lib/typography';
 
 interface BlogDetailPageProps {
   slug: string;
@@ -208,7 +209,7 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
           </div>
 
           {/* Title */}
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white max-w-4xl">
+          <h1 className={`${typo.heroTitle} leading-tight text-white max-w-4xl`}>
             {post.title}
           </h1>
 
@@ -267,7 +268,7 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
             
             {/* Social Sharing Box */}
             <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-              <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
+              <div className={`${typo.eyebrow} text-slate-500 dark:text-slate-400 font-mono`}>
                 Share Article
               </div>
               <div className="flex items-center gap-2">
@@ -322,7 +323,7 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
             {/* Table of Contents Box */}
             {post.toc && post.toc.length > 0 && (
               <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-                <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                <div className={`${typo.eyebrow} text-slate-500 dark:text-slate-400 font-mono flex items-center gap-1.5`}>
                   <BookOpen className="w-3.5 h-3.5 text-blue-500" /> Table of Contents
                 </div>
                 <nav className="space-y-1.5 text-xs font-mono">
@@ -345,7 +346,7 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
 
             {/* Author Quick Card */}
             <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-              <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
+              <div className={`${typo.eyebrow} text-slate-500 dark:text-slate-400 font-mono`}>
                 Written By
               </div>
               <div className="flex items-center gap-3">
@@ -371,7 +372,7 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
           
           {/* Article Executive Summary */}
           <div className="p-6 sm:p-8 rounded-3xl bg-blue-50/60 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/50 text-slate-800 dark:text-slate-200 leading-relaxed text-base sm:text-lg font-normal shadow-sm">
-            <div className="text-xs font-mono text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <div className={`${typo.eyebrow} text-blue-600 dark:text-blue-400 font-mono mb-2 flex items-center gap-1.5`}>
               <Sparkles className="w-4 h-4 text-blue-500" /> Key Takeaway Brief
             </div>
             {post.summary}
@@ -382,7 +383,7 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
             <div className="space-y-12 text-slate-800 dark:text-slate-200 leading-relaxed">
               {post.sections.map((sec, sIdx) => (
                 <section id={sec.id} key={sIdx} className="space-y-6 scroll-mt-28">
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight border-b border-slate-200 dark:border-slate-800 pb-3">
+                  <h2 className={`${typo.contentTitle} text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-3`}>
                     {sec.title}
                   </h2>
 
@@ -469,7 +470,7 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
           {/* COMMENTS & DISCUSSION PLACEHOLDER */}
           <section id="comments" className="pt-12 border-t border-slate-200 dark:border-slate-800 space-y-8">
             <div className="flex items-center justify-between">
-              <h3 className="text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+              <h3 className={`${typo.contentTitle} text-slate-900 dark:text-white flex items-center gap-2`}>
                 <MessageSquare className="w-5 h-5 text-blue-500" /> Technical Discussion ({comments.length})
               </h3>
               <span className="text-xs font-mono text-slate-500">Moderated Engineering Community</span>
@@ -611,7 +612,7 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950 text-blue-400 text-xs font-mono font-bold border border-blue-800">
                 <Mail className="w-3.5 h-3.5" /> Bi-Weekly Telecom & AI Research
               </div>
-              <h3 className="text-2xl font-extrabold text-white">
+              <h3 className={`${typo.contentTitle} text-white`}>
                 Subscribe to Dialiqo Engineering Briefings
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
@@ -698,7 +699,7 @@ export const BlogListingPage: React.FC<{
                 <span className="text-slate-400">&bull; {featuredPost.readTime}</span>
               </div>
 
-              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+              <h2 className={`${typo.heroTitle} leading-tight`}>
                 {featuredPost.title}
               </h2>
 
@@ -812,7 +813,7 @@ export const BlogListingPage: React.FC<{
                   <span>{post.readTime}</span>
                 </div>
 
-                <h3 className="text-xl font-extrabold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug`}>
                   {post.title}
                 </h3>
 

@@ -11,6 +11,7 @@ import { CTASection } from '../components/common/CTASection';
 import { ServiceIllustration } from '../components/common/ServiceIllustration';
 import { SERVICES_DATA, CASE_STUDIES_DATA } from '../data/dialiqoData';
 import { ServiceItem } from '../types';
+import { typo } from '@/lib/typography';
 
 interface ServiceDetailPageProps {
   serviceSlug: string;
@@ -42,7 +43,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider border border-blue-200 dark:border-blue-800"
+            className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 ${typo.eyebrow} border border-blue-200 dark:border-blue-800`}
           >
             <Layers className="w-3.5 h-3.5" />
             {service.category} Practice Area
@@ -52,7 +53,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+            className={`${typo.heroTitle} text-slate-900 dark:text-white`}
           >
             {service.title}
           </motion.h1>
@@ -61,7 +62,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed"
+            className={`${typo.subtitle} text-slate-600 dark:text-slate-300 max-w-3xl mx-auto`}
           >
             {service.heroDescription}
           </motion.p>
@@ -330,7 +331,7 @@ export const ServicesPage: React.FC<{ onNavigate: (p: string, s?: string) => voi
             >
               <div>
                 <span className="text-xs font-mono text-blue-600 dark:text-blue-400 font-semibold">{s.category}</span>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mt-1">{s.title}</h3>
+                <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white mt-1`}>{s.title}</h3>
                 <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{s.shortDesc}</p>
               </div>
               <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-blue-600 dark:text-blue-400 flex items-center justify-between">

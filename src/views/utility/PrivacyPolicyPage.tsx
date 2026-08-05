@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Shield, CheckCircle2, Lock } from 'lucide-react';
+import { typo } from '@/lib/typography';
 
 interface UtilityPageProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -30,7 +31,7 @@ export const PrivacyPolicyPage: React.FC<UtilityPageProps> = () => {
             <Shield className="w-3.5 h-3.5 text-cyan-400" />
             <span>Legal & Data Compliance</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
+          <h1 className={typo.heroTitle}>
             Privacy Policy & Data Protection
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl font-mono">
@@ -44,7 +45,7 @@ export const PrivacyPolicyPage: React.FC<UtilityPageProps> = () => {
         {/* Sticky Table of Contents Sidebar */}
         <div className="lg:col-span-4">
           <div className="sticky top-28 p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-            <h3 className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
+            <h3 className={`${typo.eyebrow} text-slate-400`}>
               Document Index
             </h3>
             <nav className="space-y-1">
@@ -78,7 +79,7 @@ export const PrivacyPolicyPage: React.FC<UtilityPageProps> = () => {
         {/* Content Column */}
         <div className="lg:col-span-8 bg-white dark:bg-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-10 text-sm leading-relaxed text-slate-700 dark:text-slate-300">
           <section id="overview" className="space-y-3">
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white font-mono">
+            <h2 className={`${typo.contentTitle} text-slate-900 dark:text-white font-mono`}>
               1. Overview & Scope
             </h2>
             <p>
@@ -90,7 +91,7 @@ export const PrivacyPolicyPage: React.FC<UtilityPageProps> = () => {
           </section>
 
           <section id="data-collected" className="space-y-3 pt-6 border-t border-slate-100 dark:border-slate-800">
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white font-mono">
+            <h2 className={`${typo.contentTitle} text-slate-900 dark:text-white font-mono`}>
               2. Information We Collect
             </h2>
             <p>We collect information in three main categories:</p>
@@ -108,7 +109,7 @@ export const PrivacyPolicyPage: React.FC<UtilityPageProps> = () => {
           </section>
 
           <section id="voice-ai-data" className="space-y-3 pt-6 border-t border-slate-100 dark:border-slate-800">
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white font-mono">
+            <h2 className={`${typo.contentTitle} text-slate-900 dark:text-white font-mono`}>
               3. Voice AI & Stream Processing Safeguards
             </h2>
             <div className="p-4 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/80 space-y-2">
@@ -122,7 +123,7 @@ export const PrivacyPolicyPage: React.FC<UtilityPageProps> = () => {
           </section>
 
           <section id="use-of-data" className="space-y-3 pt-6 border-t border-slate-100 dark:border-slate-800">
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white font-mono">
+            <h2 className={`${typo.contentTitle} text-slate-900 dark:text-white font-mono`}>
               4. How We Use Information
             </h2>
             <p>Information is processed solely for legitimate business purposes:</p>
@@ -135,7 +136,7 @@ export const PrivacyPolicyPage: React.FC<UtilityPageProps> = () => {
           </section>
 
           <section id="data-sharing" className="space-y-3 pt-6 border-t border-slate-100 dark:border-slate-800">
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white font-mono">
+            <h2 className={`${typo.contentTitle} text-slate-900 dark:text-white font-mono`}>
               5. Sub-processors & Carrier Peering
             </h2>
             <p>
@@ -144,7 +145,7 @@ export const PrivacyPolicyPage: React.FC<UtilityPageProps> = () => {
           </section>
 
           <section id="data-security" className="space-y-3 pt-6 border-t border-slate-100 dark:border-slate-800">
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white font-mono">
+            <h2 className={`${typo.contentTitle} text-slate-900 dark:text-white font-mono`}>
               6. Security & Encryption Standards
             </h2>
             <p>
@@ -153,7 +154,7 @@ export const PrivacyPolicyPage: React.FC<UtilityPageProps> = () => {
           </section>
 
           <section id="user-rights" className="space-y-3 pt-6 border-t border-slate-100 dark:border-slate-800">
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white font-mono">
+            <h2 className={`${typo.contentTitle} text-slate-900 dark:text-white font-mono`}>
               7. Your Rights (GDPR & CCPA)
             </h2>
             <p>
@@ -162,7 +163,7 @@ export const PrivacyPolicyPage: React.FC<UtilityPageProps> = () => {
           </section>
 
           <section id="contact-dpo" className="space-y-3 pt-6 border-t border-slate-100 dark:border-slate-800">
-            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white font-mono">
+            <h2 className={`${typo.contentTitle} text-slate-900 dark:text-white font-mono`}>
               8. Contact Data Protection Officer
             </h2>
             <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 font-mono text-xs space-y-2">

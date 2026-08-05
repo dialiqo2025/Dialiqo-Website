@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, Clock } from 'lucide-react';
 import { Button } from '../../components/common/Button';
+import { typo } from '@/lib/typography';
 
 interface UtilityPageProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -28,7 +29,7 @@ export const ThankYouPage: React.FC<UtilityPageProps> = ({ onNavigate }) => {
           <span className="px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-bold border border-emerald-200 dark:border-emerald-800">
             Inquiry Transmitted & Registered
           </span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white">
+          <h1 className={`${typo.heroTitle} text-slate-900 dark:text-white`}>
             Thank You for Reaching Out to Dialiqo!
           </h1>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
@@ -54,7 +55,7 @@ export const ThankYouPage: React.FC<UtilityPageProps> = ({ onNavigate }) => {
 
         {/* Next Steps Timeline */}
         <div className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-left space-y-6">
-          <h3 className="text-lg font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+          <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white flex items-center gap-2`}>
             <Clock className="w-5 h-5 text-blue-500" />
             What Happens Next?
           </h3>

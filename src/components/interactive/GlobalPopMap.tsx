@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Globe, Server, Radio, Shield, MapPin, CheckCircle2 } from 'lucide-react';
 import { GLOBAL_OFFICES } from '../../data/dialiqoData';
+import { typo } from '@/lib/typography';
 
 export const GlobalPopMap: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState(GLOBAL_OFFICES[0]);
@@ -14,11 +15,11 @@ export const GlobalPopMap: React.FC = () => {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-3xl mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-3">
+        <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 ${typo.eyebrow} mb-3`}>
           <Globe className="w-3.5 h-3.5" />
           Global Carrier Edge Network
         </div>
-        <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+        <h3 className={`${typo.contentTitle} text-white`}>
           Sub-20ms Telephony Edge Presence Across 5 Continents
         </h3>
         <p className="mt-2 text-sm text-slate-400">
