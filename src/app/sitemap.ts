@@ -2,11 +2,17 @@ import type { MetadataRoute } from "next";
 import {
   SERVICES_DATA,
   INDUSTRIES_DATA,
-  TECHNOLOGIES_DATA,
-  CASE_STUDIES_DATA,
   RESOURCES_DATA,
 } from "@/data/dialiqoData";
 import { SITE_URL } from "@/lib/routes";
+
+/** Tech pages kept as redirect targets from live VoIP stack URLs. */
+const INDEXED_TECH_SLUGS = [
+  "freeswitch",
+  "asterisk",
+  "kamailio",
+  "opensips",
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -16,11 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/services",
     "/industries",
-    "/technologies",
     "/solutions",
-    "/case-studies",
     "/resources",
-    "/careers",
     "/contact",
     "/privacy-policy",
     "/terms-conditions",
@@ -46,17 +49,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
-    ...TECHNOLOGIES_DATA.map((t) => ({
-      url: `${SITE_URL}/technologies/${t.slug}`,
+    ...INDEXED_TECH_SLUGS.map((slug) => ({
+      url: `${SITE_URL}/technologies/${slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.6,
-    })),
-    ...CASE_STUDIES_DATA.map((c) => ({
-      url: `${SITE_URL}/case-studies/${c.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
     })),
     ...RESOURCES_DATA.map((r) => ({
       url: `${SITE_URL}/resources/${r.slug}`,

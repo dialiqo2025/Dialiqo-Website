@@ -85,3 +85,13 @@ export function pathToPage(pathname: string): PageType {
 export const SITE_URL = "https://dialiqo.com";
 export const DEFAULT_OG_IMAGE =
   "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80";
+
+/** Live-site-aligned primary nav destinations (clean Next paths). */
+export const PRIMARY_NAV = [
+  { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Blog", href: "/resources" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+] as const;

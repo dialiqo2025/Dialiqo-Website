@@ -7,10 +7,16 @@ import { Logo } from "../common/Logo";
 import {
   SERVICES_DATA,
   INDUSTRIES_DATA,
-  TECHNOLOGIES_DATA,
   TRUST_BADGES,
 } from "../../data/dialiqoData";
 import { pageToPath } from "@/lib/routes";
+
+const LIVE_TECH_LINKS = [
+  { name: "FreeSWITCH", slug: "freeswitch" },
+  { name: "Asterisk", slug: "asterisk" },
+  { name: "Kamailio", slug: "kamailio" },
+  { name: "OpenSIPS", slug: "opensips" },
+] as const;
 
 interface FooterProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -128,11 +134,11 @@ export const Footer: React.FC<FooterProps> = ({
 
           <div>
             <h5 className="text-xs font-semibold uppercase text-slate-200 tracking-wider mb-4 font-mono">
-              Technologies
+              VoIP Stack
             </h5>
             <ul className="space-y-2.5 text-xs text-slate-400">
-              {TECHNOLOGIES_DATA.slice(0, 6).map((t) => (
-                <li key={t.id}>
+              {LIVE_TECH_LINKS.map((t) => (
+                <li key={t.slug}>
                   <Link
                     href={pageToPath("technology-detail", t.slug)}
                     className={linkClass}
@@ -155,23 +161,18 @@ export const Footer: React.FC<FooterProps> = ({
                 </Link>
               </li>
               <li>
-                <Link href="/case-studies" className={linkClass}>
-                  Case Studies & ROI
+                <Link href="/solutions" className={linkClass}>
+                  Solutions & Products
                 </Link>
               </li>
               <li>
                 <Link href="/resources" className={linkClass}>
-                  Engineering Blog & Whitepapers
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className={linkClass}>
-                  Careers (We&apos;re Hiring)
+                  Blog
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className={linkClass}>
-                  Global Contact & Offices
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -235,18 +236,6 @@ export const Footer: React.FC<FooterProps> = ({
               className="hover:text-slate-300 transition-colors"
             >
               Cookie Policy
-            </Link>
-            <Link
-              href="/coming-soon"
-              className="hover:text-slate-300 transition-colors"
-            >
-              v4.0 Preview
-            </Link>
-            <Link
-              href="/maintenance"
-              className="hover:text-amber-400 transition-colors"
-            >
-              System Status
             </Link>
           </div>
         </div>

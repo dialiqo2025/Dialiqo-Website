@@ -1,4 +1,8 @@
 import type { NextConfig } from "next";
+import {
+  LIVE_TO_NEXT_REDIRECTS,
+  expandRedirects,
+} from "./src/lib/liveRedirects";
 
 const nextConfig: NextConfig = {
   trailingSlash: false,
@@ -9,6 +13,9 @@ const nextConfig: NextConfig = {
         hostname: "images.unsplash.com",
       },
     ],
+  },
+  async redirects() {
+    return expandRedirects(LIVE_TO_NEXT_REDIRECTS);
   },
 };
 

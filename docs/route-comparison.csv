@@ -1,0 +1,114 @@
+Current project route,Live website route,Status
+/,/,Match
+/about,/about-us/,Related
+/contact,/contact/,Match
+/thank-you,/thank-you/,Match
+/services,/services/,Match
+/resources,/blog/,Related
+/solutions,/voip-solution/,Related
+/solutions,/products/,Related
+/industries,,Current only
+/technologies,,Current only
+/privacy-policy,,Current only*
+/terms-conditions,,Current only*
+/cookie-policy,,Current only*
+/search,,Current only
+/careers,,Current only (redirects to /about)
+/case-studies,,Current only (redirects to /resources)
+/case-studies/[slug],,Current only (redirects)
+/coming-soon,,Current only (redirects to /)
+/maintenance,,Current only (redirects to /)
+/services/voip-development,/services/voip/,Related
+/services/ai-development,/services/ai-ml-development-services/,Related
+/services/ai-chatbot-development,/services/ai-ml-development-services/chatbot-services/,Related
+/services/ai-agent-development,,Current only
+/services/voice-ai-solutions,/services/ai-voicebot-connector/,Related
+/services/web-development,/services/mobile-web/web-development/,Related
+/services/mobile-app-development,/services/mobile-web/mobile-development/,Related
+/services/flutter-development,,Current only
+/services/android-development,,Current only
+/services/ios-development,,Current only
+/services/react-development,,Current only
+/services/nextjs-development,,Current only
+/services/laravel-development,,Current only
+/services/nodejs-development,,Current only
+/services/devops,/services/devops-consulting-services/,Related
+/services/cloud-engineering,,Current only
+/services/qa-testing,/services/qa-testing-services/,Related
+/services/ui-ux-design,,Current only
+/services/staff-augmentation,/services/staff-augmentation/,Match
+/services/software-consulting,/voip-consulting/,Related
+,/services/mobile-web/,Live only
+,/services/ai-ml-development-services/sentiment-analysis/,Live only
+,/services/ai-ml-development-services/face-recognition-solution/,Live only
+,/services/qa-testing-services/api-testing-services/,Live only
+,/services/qa-testing-services/qa-automation/,Live only
+,/services/qa-testing-services/voip-testing-services/,Live only
+/technologies/freeswitch,/services/voip/freeswitch-development/,Related
+/technologies/asterisk,/services/voip/asterisk/,Related
+/technologies/kamailio,/services/voip/kamailio-development-services/,Related
+/technologies/opensips,/services/voip/opensips/,Related
+/technologies/react,,Current only
+/technologies/nextjs,,Current only
+/technologies/flutter,,Current only
+/technologies/laravel,,Current only
+/technologies/nodejs,,Current only
+/technologies/php,,Current only
+/technologies/python,,Current only
+/technologies/java,,Current only
+/technologies/dotnet,,Current only
+/technologies/docker,,Current only
+/technologies/kubernetes,,Current only
+/technologies/aws,,Current only
+/technologies/azure,,Current only
+/technologies/google-cloud,,Current only
+/technologies/openai,,Current only
+/technologies/claude,,Current only
+/technologies/gemini,,Current only
+/industries/healthcare,/voip-solutions-for-healthcare/,Related
+/industries/finance,/voip-solutions-for-fintech/,Related
+/industries/insurance,/voip-solutions-for-insurance/,Related
+/industries/retail,/voip-solutions-for-ecommerce/,Related
+/industries/education,/voip-solutions-for-education/,Related
+/industries/telecommunications,/voip-solutions-for-telecom/,Related
+/industries/logistics,/voip-solutions-for-logistics/,Related
+/industries/real-estate,/voip-solutions-for-real-estate/,Related
+/industries/hospitality,/voip-solutions-for-hotels/,Related
+/industries/travel,/voip-solutions-for-travel-agencies/,Related
+/industries/manufacturing,,Current only
+/industries/government,,Current only
+/industries/energy,,Current only
+/industries/construction,,Current only
+/industries/automotive,,Current only
+,/voip-solutions-for-call-centers/,Live only
+,/voip-solutions-for-enterprises/,Live only
+,/voip-solutions-for-saas-companies/,Live only
+,/voip-solutions-for-recruitment/,Live only
+,/voip-solution/session-border-controller/,Live only
+,/voip-solution/webrtc-solutions/,Live only
+,/voip-solution/unified-communications-solutions/,Live only
+,/voip-solution/interactive-voice-response-solutions/,Live only
+,/voip-solution/class-4-softswitch-solution/,Live only
+,/voip-solution/class-5-softswitch-solutions/,Live only
+,/voip-solution/mobile-virtual-network-operator-solution/,Live only
+,/voip-solution/mvno-billing-solution/,Live only
+,/products/voip-billing-solution/,Live only
+,/products/contact-center-solutions/,Live only
+,/hire-voip-developers/,Live only
+,/hire-freeswitch-developers/,Live only
+,/hire-asterisk-developers/,Live only
+,/hire-kamailio-developers/,Live only
+,/hire-open-sips-developers/,Live only
+,/hire-webrtc-developers/,Live only
+,/voip-migration/,Live only
+,/itexpo-2025/,Live only
+/resources/architecting-sub-300ms-voice-ai,,Current only
+/resources/kamailio-vs-opensips-enterprise-sbc,,Current only
+/resources/securing-enterprise-llm-rag-pipelines,,Current only
+/resources/carrier-grade-sip-ddos-mitigation-ebpf,,Current only
+/resources/webrtc-opus-codec-tuning-low-bandwidth,,Current only
+/resources/building-multi-tenant-telecom-saas-kubernetes,,Current only
+/case-studies/global-telecom-carrier-voip,,Current only
+/case-studies/healthcare-ai-patient-triage,,Current only
+/case-studies/fintech-sip-fraud-prevention,,Current only
+/case-studies/retail-supply-chain-ai,,Current only
