@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Search, ChevronDown, Menu, X, ArrowRight
 } from 'lucide-react';
-import { Button } from '../common/Button';
+import { LinkButton } from '../common/LinkButton';
 import { Logo } from '../common/Logo';
 import { SERVICES_DATA, INDUSTRIES_DATA, SOLUTIONS_DATA } from '../../data/dialiqoData';
 import { pageToPath } from '@/lib/routes';
@@ -23,6 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenConsultation,
   onOpenSearch
 }) => {
+  void onOpenConsultation;
   const [scrolled, setScrolled] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState<'services' | 'industries' | 'solutions' | 'company' | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -38,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
       {/* Top Notification Bar */}
-      <div className="bg-slate-950 text-white text-[11px] sm:text-xs py-1.5 px-4 text-center border-b border-slate-800 flex items-center justify-center gap-2 font-mono">
+      {/* <div className="bg-slate-950 text-white text-[11px] sm:text-xs py-1.5 px-4 text-center border-b border-slate-800 flex items-center justify-center gap-2 font-mono">
         <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
         <span>Dialiqo Telemetry Edge v4.2 Active: Sub-300ms Voice AI & 99.999% SLA Carrier Fabric</span>
         <button
@@ -47,7 +48,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           Book Briefing &rarr;
         </button>
-      </div>
+      </div> */}
 
       {/* Main Glassmorphic Header */}
       <nav
@@ -162,14 +163,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             {/* Schedule Demo CTA */}
-            <Button
-              onClick={onOpenConsultation}
+            <LinkButton
+              href="/contact"
               variant="glow"
               size="sm"
               icon={<ArrowRight className="w-3.5 h-3.5" />}
             >
               Book Consultation
-            </Button>
+            </LinkButton>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -365,14 +366,14 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 Contact
               </Link>
-              <Button
-                onClick={() => { onOpenConsultation(); setMobileMenuOpen(false); }}
-                variant="glow"
-                className="w-full justify-center"
-                icon={<ArrowRight className="w-4 h-4" />}
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/25"
               >
                 Book Consultation
-              </Button>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </motion.div>
           )}
         </AnimatePresence>
