@@ -52,7 +52,7 @@ export const organizationJsonLd = {
   "@type": "Organization",
   name: "Dialiqo Ultimate Solutions Inc.",
   url: SITE_URL,
-  logo: `${SITE_URL}/logo.png`,
+  logo: `${SITE_URL}/header-logo.png`,
   description:
     "Enterprise Voice AI Agents, SIP Infrastructure, and Cloud Engineering Solutions.",
   contactPoint: {
@@ -73,11 +73,6 @@ export const websiteJsonLd = {
   "@type": "WebSite",
   name: "Dialiqo",
   url: SITE_URL,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${SITE_URL}/search?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
 };
 
 export function breadcrumbJsonLd(

@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     images: [DEFAULT_OG_IMAGE],
   },
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23020617'/><path d='M8 16C8 11.5817 11.5817 8 16 8C20.4183 8 24 11.5817 24 16C24 20.4183 20.4183 24 16 24' stroke='%2338BDF8' stroke-width='3' stroke-linecap='round'/><circle cx='16' cy='16' r='3' fill='%232563EB'/></svg>",
+    icon: "/icon.svg",
   },
   other: {
     "theme-color": "#020617",

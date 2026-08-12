@@ -18,9 +18,12 @@ import {
   Users,
   Building2,
 } from "lucide-react";
+import Link from "next/link";
 import { Button } from "../components/common/Button";
+import { LinkButton } from "../components/common/LinkButton";
 import { TestimonialsSection } from "../components/common/TestimonialsSection";
 import { SERVICES_DATA, STATS_METRICS, TECHNOLOGIES_DATA } from "../data/dialiqoData";
+import { pageToPath } from "@/lib/routes";
 import { typo } from "@/lib/typography";
 
 interface HomePageProps {
@@ -200,14 +203,14 @@ export const HomePage: React.FC<HomePageProps> = ({
             >
               Book Consultation
             </Button>
-            <Button
-              onClick={() => onNavigate("services")}
+            <LinkButton
+              href="/services"
               variant="outline"
               size="lg"
               className="!border-white/30 !text-white hover:!bg-white/10"
             >
               Explore Services
-            </Button>
+            </LinkButton>
           </motion.div>
 
           <motion.div
@@ -337,15 +340,15 @@ export const HomePage: React.FC<HomePageProps> = ({
               SIP, Voice AI, and cloud platforms — measured in latency, SLA, and
               total cost of ownership.
             </p>
-            <Button
-              onClick={() => onNavigate("about")}
+            <LinkButton
+              href="/about"
               variant="primary"
               size="md"
               className="mt-8"
               icon={<ArrowRight className="w-4 h-4" />}
             >
               Learn More
-            </Button>
+            </LinkButton>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
@@ -378,23 +381,22 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section className="py-10 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-            {TECH_LOGOS.map((name) => (
-              <button
-                key={name}
-                type="button"
-                onClick={() => {
-                  const match = TECHNOLOGIES_DATA.find(
-                    (t) => t.name.toLowerCase().includes(name.toLowerCase()) ||
-                      name.toLowerCase().includes(t.slug)
-                  );
-                  if (match) onNavigate("technology-detail", match.slug);
-                  else onNavigate("technologies");
-                }}
-                className="text-sm sm:text-base font-bold tracking-wide text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase font-mono cursor-pointer"
-              >
-                {name}
-              </button>
-            ))}
+            {TECH_LOGOS.map((name) => {
+              const match = TECHNOLOGIES_DATA.find(
+                (t) => t.name.toLowerCase().includes(name.toLowerCase()) ||
+                  name.toLowerCase().includes(t.slug)
+              );
+              const href = match ? pageToPath("technology-detail", match.slug) : "/technologies";
+              return (
+                <Link
+                  key={name}
+                  href={href}
+                  className="text-sm sm:text-base font-bold tracking-wide text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase font-mono"
+                >
+                  {name}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -416,42 +418,44 @@ export const HomePage: React.FC<HomePageProps> = ({
             {featuredServices.map((service, idx) => {
               const Icon = SERVICE_ICONS[idx % SERVICE_ICONS.length];
               return (
-                <motion.button
+                <motion.div
                   key={service.id}
-                  type="button"
-                  onClick={() => onNavigate("service-detail", service.slug)}
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.04 }}
-                  className="text-left group relative bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-7 shadow-sm hover:shadow-xl hover:border-blue-500/40 transition-all cursor-pointer"
                 >
-                  <div className="absolute top-6 right-6 w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className={`pr-14 ${typo.cardTitle} text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors`}>
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
-                    {service.shortDesc}
-                  </p>
-                  <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400">
-                    Learn more <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </motion.button>
+                  <Link
+                    href={pageToPath("service-detail", service.slug)}
+                    className="block group relative bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-7 shadow-sm hover:shadow-xl hover:border-blue-500/40 transition-all h-full"
+                  >
+                    <div className="absolute top-6 right-6 w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h3 className={`pr-14 ${typo.cardTitle} text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors`}>
+                      {service.title}
+                    </h3>
+                    <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
+                      {service.shortDesc}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400">
+                      Learn more <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </Link>
+                </motion.div>
               );
             })}
           </div>
 
           <div className="mt-10 text-center">
-            <Button
-              onClick={() => onNavigate("services")}
+            <LinkButton
+              href="/services"
               variant="outline"
               size="md"
               icon={<ArrowRight className="w-4 h-4" />}
             >
               View All Services
-            </Button>
+            </LinkButton>
           </div>
         </div>
       </section>
@@ -487,15 +491,15 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </li>
               ))}
             </ul>
-            <Button
-              onClick={() => onNavigate("about")}
+            <LinkButton
+              href="/about"
               variant="primary"
               size="md"
               className="mt-8"
               icon={<ArrowRight className="w-4 h-4" />}
             >
               Learn More
-            </Button>
+            </LinkButton>
           </div>
 
           <div className="relative">

@@ -47,12 +47,9 @@ export const Footer: React.FC<FooterProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="pb-12 border-b border-slate-800 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
-            <Logo
-              variant="dark"
-              size="md"
-              onClick={() => onNavigate("home")}
-              className="mb-3"
-            />
+            <Link href="/" aria-label="Dialiqo home" className="inline-block mb-3">
+              <Logo variant="dark" size="md" />
+            </Link>
             <p className="text-slate-400 max-w-xl text-base leading-relaxed">
               Global technology partner specializing in Carrier-Grade VoIP
               Switching, Sub-300ms Voice AI Agents, Enterprise Web & Mobile

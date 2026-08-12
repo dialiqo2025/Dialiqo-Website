@@ -30,11 +30,13 @@ import {
   ChevronRight,
   ShieldAlert
 } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '../components/common/Button';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { CTASection } from '../components/common/CTASection';
 import { RESOURCES_DATA } from '../data/dialiqoData';
 import { ResourceItem } from '../types';
+import { pageToPath } from '@/lib/routes';
 import { typo } from '@/lib/typography';
 
 interface BlogDetailPageProps {
@@ -185,13 +187,13 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-5xl mx-auto space-y-8 relative z-10">
           {/* Breadcrumb Back Button */}
-          <button
-            onClick={() => onNavigate('resources')}
-            className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-slate-400 hover:text-cyan-400 transition-colors group cursor-pointer"
+          <Link
+            href="/resources"
+            className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-slate-400 hover:text-cyan-400 transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span>Back to Engineering Blog</span>
-          </button>
+          </Link>
 
           {/* Category & Tags */}
           <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
@@ -568,10 +570,10 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {relatedPosts.map(rel => (
-                <div
+                <Link
                   key={rel.id}
-                  onClick={() => onNavigate('resource-detail', rel.slug)}
-                  className="group rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden cursor-pointer hover:border-blue-500/80 transition-all shadow-sm flex flex-col justify-between"
+                  href={pageToPath('resource-detail', rel.slug)}
+                  className="group block rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-blue-500/80 transition-all shadow-sm flex flex-col justify-between"
                 >
                   <div className="relative h-36 overflow-hidden">
                     <img
@@ -601,7 +603,7 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
                       </span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </section>
@@ -721,14 +723,13 @@ export const BlogListingPage: React.FC<{
               </div>
 
               <div className="pt-2">
-                <Button
-                  onClick={() => onNavigate('resource-detail', featuredPost.slug)}
-                  variant="primary"
-                  className="cursor-pointer inline-flex items-center gap-2"
+                <Link
+                  href={pageToPath('resource-detail', featuredPost.slug)}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-xl transition-colors"
                 >
                   <span>Read Full Article</span>
                   <ArrowRight className="w-4 h-4" />
-                </Button>
+                </Link>
               </div>
             </div>
 
@@ -790,8 +791,10 @@ export const BlogListingPage: React.FC<{
               key={post.id}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              onClick={() => onNavigate('resource-detail', post.slug)}
-              className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/80 hover:shadow-2xl transition-all cursor-pointer flex flex-col justify-between group"
+            >
+            <Link
+              href={pageToPath('resource-detail', post.slug)}
+              className="block p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/80 hover:shadow-2xl transition-all flex flex-col justify-between group h-full"
             >
               <div className="space-y-4">
                 {/* Cover Thumbnail */}
@@ -848,6 +851,7 @@ export const BlogListingPage: React.FC<{
                   Read &rarr;
                 </span>
               </div>
+            </Link>
             </motion.div>
           ))}
         </div>

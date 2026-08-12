@@ -1,16 +1,19 @@
 "use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import { 
   ArrowRight, CheckCircle2, ChevronDown, Clock, ShieldCheck, Cpu, PhoneCall, 
   Layers, ArrowUpRight, HelpCircle, AlertCircle, Sparkles, Building
 } from 'lucide-react';
 import { Button } from '../components/common/Button';
+import { LinkButton } from '../components/common/LinkButton';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { CTASection } from '../components/common/CTASection';
 import { ServiceIllustration } from '../components/common/ServiceIllustration';
 import { SERVICES_DATA, CASE_STUDIES_DATA } from '../data/dialiqoData';
 import { ServiceItem } from '../types';
+import { pageToPath } from '@/lib/routes';
 import { typo } from '@/lib/typography';
 
 interface ServiceDetailPageProps {
@@ -37,6 +40,17 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pt-28 pb-16">
+      {/* BREADCRUMB */}
+      <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-2">
+        <ol className="flex items-center gap-2 text-xs font-mono text-slate-500">
+          <li><Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</Link></li>
+          <li aria-hidden="true">/</li>
+          <li><Link href="/services" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services</Link></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" className="text-slate-900 dark:text-white font-semibold truncate max-w-[200px]">{service.title}</li>
+        </ol>
+      </nav>
+
       {/* 1. HERO SECTION */}
       <section className="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-blue-50/50 via-slate-50 to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-5xl mx-auto text-center space-y-6">
@@ -76,9 +90,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
             <Button onClick={onOpenConsultation} variant="glow" size="lg" icon={<ArrowRight className="w-5 h-5" />}>
               Schedule Technical Consultation
             </Button>
-            <Button onClick={() => onNavigate('contact')} variant="outline" size="lg">
+            <LinkButton href="/contact" variant="outline" size="lg">
               Talk to Solutions Engineer
-            </Button>
+            </LinkButton>
           </motion.div>
         </div>
       </section>
@@ -255,15 +269,15 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedCaseStudies.map(cs => (
-                <div
+                <Link
                   key={cs.id}
-                  onClick={() => onNavigate('case-study-detail', cs.slug)}
-                  className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-blue-500 cursor-pointer transition-all"
+                  href={pageToPath('case-study-detail', cs.slug)}
+                  className="block p-6 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition-all"
                 >
                   <div className="text-xs font-mono text-blue-600 font-bold mb-1">{cs.clientName}</div>
                   <h4 className="text-lg font-bold text-slate-900 dark:text-white">{cs.title}</h4>
                   <p className="text-xs text-slate-500 mt-2 line-clamp-2">{cs.summary}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -324,10 +338,10 @@ export const ServicesPage: React.FC<{ onNavigate: (p: string, s?: string) => voi
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES_DATA.map(s => (
-            <div
+            <Link
               key={s.id}
-              onClick={() => onNavigate('service-detail', s.slug)}
-              className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 hover:shadow-xl transition-all cursor-pointer flex flex-col justify-between"
+              href={pageToPath('service-detail', s.slug)}
+              className="block p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 hover:shadow-xl transition-all flex flex-col justify-between"
             >
               <div>
                 <span className="text-xs font-mono text-blue-600 dark:text-blue-400 font-semibold">{s.category}</span>
@@ -338,7 +352,7 @@ export const ServicesPage: React.FC<{ onNavigate: (p: string, s?: string) => voi
                 <span>Explore Service Template &rarr;</span>
                 <ArrowUpRight className="w-4 h-4" />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

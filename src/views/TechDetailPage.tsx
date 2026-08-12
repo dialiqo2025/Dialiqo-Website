@@ -1,15 +1,18 @@
 "use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowRight, CheckCircle2, ChevronDown, ChevronRight, Cpu, Code, Terminal, Server, 
   Sparkles, Cloud, Smartphone, Shield, Phone, Search, Layers, Check, HelpCircle
 } from 'lucide-react';
 import { Button } from '../components/common/Button';
+import { LinkButton } from '../components/common/LinkButton';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { CTASection } from '../components/common/CTASection';
 import { TECHNOLOGIES_DATA } from '../data/dialiqoData';
 import { TechnologyItem } from '../types';
+import { pageToPath } from '@/lib/routes';
 import { typo } from '@/lib/typography';
 
 interface TechDetailPageProps {
@@ -46,23 +49,23 @@ export const TechDetailPage: React.FC<TechDetailPageProps> = ({
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pt-28 pb-16">
       {/* BREADCRUMB */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-        <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
-          <button 
-            onClick={() => onNavigate('home')} 
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition-all cursor-pointer"
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-mono text-slate-500">
+          <Link 
+            href="/" 
+            className="hover:text-blue-600 dark:hover:text-blue-400 transition-all"
           >
             Home
-          </button>
+          </Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <button 
-            onClick={() => onNavigate('technologies')} 
-            className="hover:text-blue-600 dark:hover:text-blue-400 transition-all cursor-pointer"
+          <Link 
+            href="/technologies" 
+            className="hover:text-blue-600 dark:hover:text-blue-400 transition-all"
           >
             Technologies
-          </button>
+          </Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           <span className="text-slate-900 dark:text-white font-semibold">{tech.name}</span>
-        </div>
+        </nav>
       </div>
 
       {/* 1. HERO */}
@@ -81,9 +84,9 @@ export const TechDetailPage: React.FC<TechDetailPageProps> = ({
             <Button onClick={onOpenConsultation} variant="glow" size="lg" icon={<ArrowRight className="w-5 h-5" />}>
               Build With {tech.name}
             </Button>
-            <Button onClick={() => onNavigate('technologies')} variant="secondary" size="lg">
+            <LinkButton href="/technologies" variant="secondary" size="lg">
               Explore All 21 Stack Practices
-            </Button>
+            </LinkButton>
           </div>
         </div>
       </section>
@@ -280,27 +283,30 @@ export const TechnologiesPage: React.FC<{ onNavigate: (p: string, s?: string) =>
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              onClick={() => onNavigate('technology-detail', t.slug)}
-              className="group p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 hover:shadow-2xl transition-all cursor-pointer flex flex-col justify-between"
             >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono text-blue-600 dark:text-blue-400 font-semibold px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-950/80 border border-blue-100 dark:border-blue-900">
-                    {t.category}
-                  </span>
-                  {getTechIcon(t.iconName)}
+              <Link
+                href={pageToPath('technology-detail', t.slug)}
+                className="group block p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 hover:shadow-2xl transition-all h-full flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-mono text-blue-600 dark:text-blue-400 font-semibold px-2.5 py-1 rounded-md bg-blue-50 dark:bg-blue-950/80 border border-blue-100 dark:border-blue-900">
+                      {t.category}
+                    </span>
+                    {getTechIcon(t.iconName)}
+                  </div>
+                  <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors`}>
+                    {t.name}
+                  </h3>
+                  <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    {t.shortDesc}
+                  </p>
                 </div>
-                <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors`}>
-                  {t.name}
-                </h3>
-                <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  {t.shortDesc}
-                </p>
-              </div>
-              <div className="mt-8 pt-4 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-blue-600 dark:text-blue-400 flex items-center justify-between group-hover:translate-x-1 transition-all">
-                <span>Explore Technology Practice</span>
-                <ArrowRight className="w-4 h-4" />
-              </div>
+                <div className="mt-8 pt-4 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-blue-600 dark:text-blue-400 flex items-center justify-between group-hover:translate-x-1 transition-all">
+                  <span>Explore Technology Practice</span>
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>

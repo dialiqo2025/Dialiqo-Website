@@ -11,5 +11,14 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function Home() {
-  return <HomePageClient />;
+  return (
+    <>
+      <link
+        rel="preload"
+        as="image"
+        href="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=80"
+      />
+      <HomePageClient />
+    </>
+  );
 }

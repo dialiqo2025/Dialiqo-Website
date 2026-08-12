@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   ArrowRight, CheckCircle2, ChevronDown, Building, ShieldCheck, AlertCircle, Sparkles,
@@ -11,6 +12,7 @@ import { SectionHeader } from '../components/common/SectionHeader';
 import { CTASection } from '../components/common/CTASection';
 import { INDUSTRIES_DATA, CASE_STUDIES_DATA } from '../data/dialiqoData';
 import { IndustryItem } from '../types';
+import { pageToPath } from '@/lib/routes';
 import { typo } from '@/lib/typography';
 
 // Helper component to render dynamic Lucide icon based on iconName
@@ -145,9 +147,9 @@ export const IndustryDetailPage: React.FC<IndustryDetailPageProps> = ({
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <SectionHeader eyebrow="Featured Story" title="Proven Industry Success" />
-            <div
-              onClick={() => onNavigate('case-study-detail', caseStudy.slug)}
-              className="p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 cursor-pointer hover:border-blue-500 transition-all group"
+            <Link
+              href={pageToPath('case-study-detail', caseStudy.slug)}
+              className="block p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 hover:border-blue-500 transition-all group"
             >
               <div className="flex justify-between items-start mb-2">
                 <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">{caseStudy.clientName}</span>
@@ -155,7 +157,7 @@ export const IndustryDetailPage: React.FC<IndustryDetailPageProps> = ({
               </div>
               <h3 className={`${typo.cardTitle} group-hover:text-blue-300 transition-colors`}>{caseStudy.title}</h3>
               <p className="mt-3 text-sm text-slate-300 leading-relaxed">{caseStudy.summary}</p>
-            </div>
+            </Link>
           </div>
         </section>
       )}
@@ -240,10 +242,10 @@ export const IndustriesPage: React.FC<{ onNavigate: (p: string, s?: string) => v
         {/* Grid of 15 Industry Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {filteredIndustries.map(i => (
-            <div
+            <Link
               key={i.id}
-              onClick={() => onNavigate('industry-detail', i.slug)}
-              className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 hover:shadow-xl transition-all cursor-pointer flex flex-col justify-between group"
+              href={pageToPath('industry-detail', i.slug)}
+              className="block p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 hover:shadow-xl transition-all flex flex-col justify-between group"
             >
               <div>
                 <div className="flex justify-between items-start mb-4">
@@ -278,7 +280,7 @@ export const IndustriesPage: React.FC<{ onNavigate: (p: string, s?: string) => v
                 <span>Explore {i.title.split(' ')[0]} Blueprint</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
