@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Always use class-based dark mode (not system preference). */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   html {
     font-family: var(--font-plus-jakarta), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -7,6 +10,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color-scheme: dark;
   }
 
   code, pre, kbd, samp, .font-mono {

@@ -18,7 +18,12 @@ import {
 import { TestimonialItem } from '../../types';
 import { TESTIMONIALS_DATA, TESTIMONIAL_TRUST_STATS } from '../../data/dialiqoData';
 import { SectionHeader } from './SectionHeader';
-import { Button } from './Button';
+import Link from "next/link";
+import {
+  linkButtonBase,
+  linkButtonSizes,
+  linkButtonVariants,
+} from "./linkButtonStyles";
 
 interface TestimonialsSectionProps {
   testimonials?: TestimonialItem[];
@@ -104,7 +109,8 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
 
   return (
     <section 
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-950/80 overflow-hidden border-y border-slate-200/80 dark:border-slate-800"
+      className="testimonials-section relative py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-950/80 overflow-hidden border-y border-slate-200/80 dark:border-slate-800"
+      aria-labelledby="testimonials-heading"
       onMouseEnter={() => setIsAutoPlayActive(false)}
       onMouseLeave={() => setIsAutoPlayActive(true)}
     >
@@ -115,8 +121,9 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
       <div className="max-w-7xl mx-auto relative z-10 space-y-12">
         {/* Section Header */}
         <SectionHeader
-          eyebrow="Testimonials"
-          title="Trusted by Businesses Worldwide"
+          id="testimonials-heading"
+          eyebrow="our clients"
+          title="What Our Clients' Say"
           description="See what our clients say about partnering with Dialiqo to build scalable, secure, and innovative software solutions."
         />
 
@@ -270,18 +277,15 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         </div>
 
         {/* CTA BUTTON TO CASE STUDIES */}
-        {onNavigate && (
-          <div className="pt-4 text-center">
-            <Button
-              onClick={() => onNavigate('case-studies')}
-              variant="outline"
-              size="lg"
-              icon={<ArrowRight className="w-4 h-4" />}
-            >
-              View More Success Stories & Case Studies
-            </Button>
-          </div>
-        )}
+        <div className="pt-4 text-center">
+          <Link
+            href="/case-studies"
+            className={`${linkButtonBase} ${linkButtonSizes.lg} ${linkButtonVariants.outline} gap-2`}
+          >
+            <span>View More Success Stories &amp; Case Studies</span>
+            <ArrowRight className="w-4 h-4 shrink-0" aria-hidden="true" />
+          </Link>
+        </div>
       </div>
     </section>
   );

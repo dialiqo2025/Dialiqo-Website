@@ -50,22 +50,58 @@ export function buildMetadata({
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Dialiqo Ultimate Solutions Inc.",
+  name: "Dialiqo Technologies LLP",
   url: SITE_URL,
   logo: `${SITE_URL}/header-logo.png`,
   description:
-    "Enterprise Voice AI Agents, SIP Infrastructure, and Cloud Engineering Solutions.",
+    "Dialiqo is a leading VoIP Development Company delivering custom VoIP software solutions using FreeSWITCH, Asterisk, Kamailio & OpenSIPS.",
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+1-415-890-3400",
+    telephone: "+91-9974542501",
     contactType: "customer service",
-    email: "contact@dialiqo.com",
+    email: "info@dialiqo.com",
     availableLanguage: ["English"],
   },
   sameAs: [
-    "https://github.com/dialiqo",
-    "https://linkedin.com/company/dialiqo",
+    "https://www.linkedin.com/company/dialiqo-technologies/",
+    "https://wa.me/919974542501",
   ],
+};
+
+export const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Dialiqo Technologies LLP - VoIP Software Development Company",
+  url: SITE_URL,
+  logo: `${SITE_URL}/header-logo.png`,
+  image: `${SITE_URL}/header-logo.png`,
+  description:
+    "Custom VoIP software solutions using FreeSWITCH, Asterisk, Kamailio & OpenSIPS for businesses worldwide.",
+  telephone: "+91-9974542501",
+  email: "info@dialiqo.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "E509 Ganesh Glory 11",
+    addressLocality: "Ahmedabad",
+    addressCountry: "IN",
+  },
+  priceRange: "$$",
+};
+
+export const professionalServiceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Dialiqo Technologies LLP - Contact Center Solutions, Cloud Communications",
+  url: SITE_URL,
+  description:
+    "Enterprise VoIP development, contact center solutions, and cloud communication platforms.",
+  telephone: "+91-9974542501",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "E509 Ganesh Glory 11",
+    addressLocality: "Ahmedabad",
+    addressCountry: "IN",
+  },
 };
 
 export const websiteJsonLd = {

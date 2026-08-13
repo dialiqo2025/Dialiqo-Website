@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({
   void onOpenConsultation;
 
   return (
-    <footer className="bg-slate-950 text-slate-300 pt-14 pb-8 border-t border-slate-800 text-sm">
+    <footer id="site-footer" className="site-footer bg-slate-950 text-slate-300 pt-14 pb-8 border-t border-slate-800 text-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Brand */}

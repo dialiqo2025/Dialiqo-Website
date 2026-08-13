@@ -37,7 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+    <header id="site-header" className="site-header fixed top-0 left-0 right-0 z-40 transition-all duration-300">
       {/* Top Notification Bar */}
       {/* <div className="bg-slate-950 text-white text-[11px] sm:text-xs py-1.5 px-4 text-center border-b border-slate-800 flex items-center justify-center gap-2 font-mono">
         <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -52,6 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Main Glassmorphic Header */}
       <nav
+        id="site-navigation"
         aria-label="Primary Navigation"
         onMouseLeave={() => setActiveMegaMenu(null)}
         className={`w-full transition-all duration-200 border-b ${
@@ -67,9 +68,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           </Link>
 
           {/* Navigation Links (Desktop) */}
-          <div className="hidden lg:flex items-center gap-1 font-medium text-sm text-slate-700 dark:text-slate-300">
+          <ul className="menu hidden lg:flex items-center gap-1 font-medium text-sm text-slate-700 dark:text-slate-300 list-none m-0 p-0">
             {/* Services Dropdown */}
-            <div className="relative">
+            <li className="relative">
               <Link
                 href="/services"
                 aria-expanded={activeMegaMenu === 'services'}
@@ -81,10 +82,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Services
                 <ChevronDown className="w-3.5 h-3.5 opacity-70" />
               </Link>
-            </div>
+            </li>
 
             {/* Industries Dropdown */}
-            <div className="relative">
+            <li className="relative">
               <Link
                 href="/industries"
                 aria-expanded={activeMegaMenu === 'industries'}
@@ -96,12 +97,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Industries
                 <ChevronDown className="w-3.5 h-3.5 opacity-70" />
               </Link>
-            </div>
-
-            {/* Technologies removed — not a primary live-site nav section */}
+            </li>
 
             {/* Solutions / Products (maps from live /voip-solution & /products) */}
-            <div className="relative">
+            <li className="relative">
               <Link
                 href="/solutions"
                 aria-expanded={activeMegaMenu === 'solutions'}
@@ -113,9 +112,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Solutions
                 <ChevronDown className="w-3.5 h-3.5 opacity-70" />
               </Link>
-            </div>
+            </li>
 
             {/* Blog */}
+            <li>
             <Link
               href="/resources"
               className={`px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
@@ -125,17 +125,22 @@ export const Navbar: React.FC<NavbarProps> = ({
               Blog
             </Link>
 
-            {/* Company */}
-            <Link
-              href="/about"
-              onMouseEnter={() => setActiveMegaMenu('company')}
-              className={`px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
-                currentPage === 'about' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
-              }`}
-            >
-              Company
-            </Link>
+            </li>
 
+            {/* Company */}
+            <li>
+              <Link
+                href="/about"
+                onMouseEnter={() => setActiveMegaMenu('company')}
+                className={`px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
+                  currentPage === 'about' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
+                }`}
+              >
+                Company
+              </Link>
+            </li>
+
+            <li>
             <Link
               href="/contact"
               className={`px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
@@ -144,7 +149,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               Contact
             </Link>
-          </div>
+            </li>
+          </ul>
 
           {/* Right Action Tools */}
           <div className="hidden sm:flex items-center gap-3">
@@ -157,9 +163,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Search className="w-3.5 h-3.5" />
               <span>Search</span>
-              <kbd className="hidden md:inline-block px-1.5 py-0.5 text-[10px] bg-slate-200 dark:bg-slate-800 rounded font-mono text-slate-600 dark:text-slate-300">
+              {/* <kbd className="hidden md:inline-block px-1.5 py-0.5 text-[10px] bg-slate-200 dark:bg-slate-800 rounded font-mono text-slate-600 dark:text-slate-300">
                 ⌘K
-              </kbd>
+              </kbd> */}
             </button>
 
             {/* Schedule Demo CTA */}

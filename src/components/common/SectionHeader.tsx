@@ -11,6 +11,8 @@ interface SectionHeaderProps {
   centered?: boolean;
   className?: string;
   action?: React.ReactNode;
+  /** Applied to the h2 for aria-labelledby on parent sections */
+  id?: string;
 }
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -20,6 +22,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   centered = true,
   className = "",
   action,
+  id,
 }) => {
   return (
     <div
@@ -38,6 +41,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       )}
 
       <motion.h2
+        id={id}
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
