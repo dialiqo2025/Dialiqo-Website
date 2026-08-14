@@ -1,0 +1,370 @@
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Compass,
+  Lock,
+  Search,
+  Shield,
+  Smartphone,
+  Sparkles,
+  Users,
+  Workflow,
+  Zap,
+} from "lucide-react";
+import { ServerLinkButton } from "@/components/common/ServerLinkButton";
+import { ServiceIllustration } from "@/components/common/ServiceIllustration";
+import { HomeContactForm } from "@/components/home/HomeContactForm";
+import { VoipProcessSteps } from "@/components/services/VoipProcessSteps";
+import { MobileDevelopmentServices } from "@/components/services/MobileDevelopmentServices";
+import { MobileDevelopmentFaq } from "@/components/services/MobileDevelopmentFaq";
+import {
+  MOBILE_DEV_CONTACT,
+  MOBILE_DEV_CROSS,
+  MOBILE_DEV_CTA_BAND,
+  MOBILE_DEV_HERO,
+  MOBILE_DEV_INDUSTRIES,
+  MOBILE_DEV_INTRO,
+  MOBILE_DEV_PILLARS,
+  MOBILE_DEV_SERVICES,
+  MOBILE_DEV_WHAT,
+} from "@/lib/mobileDevelopmentPageData";
+import { typo } from "@/lib/typography";
+
+const PILLAR_ICONS = [
+  Compass,
+  Search,
+  Sparkles,
+  Workflow,
+  Shield,
+  Smartphone,
+  Users,
+  Zap,
+];
+const WHAT_ICONS = [Sparkles, Smartphone, Workflow, Zap, Lock, Compass];
+
+const CTA_IMAGE =
+  "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=2000&q=80";
+
+export function MobileDevelopmentServicePage() {
+  return (
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+      <nav
+        aria-label="Breadcrumb"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-2"
+      >
+        <ol className="flex items-center gap-2 text-xs font-mono text-slate-500">
+          <li>
+            <Link
+              href="/"
+              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Home
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li>
+            <Link
+              href="/services"
+              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Services
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li>
+            <Link
+              href="/services/mobile-web"
+              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Mobile & Web
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li
+            aria-current="page"
+            className="text-slate-900 dark:text-white font-semibold"
+          >
+            Mobile Development
+          </li>
+        </ol>
+      </nav>
+
+      <section
+        className="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-16 lg:py-20 border-b border-slate-200 dark:border-slate-800"
+        aria-labelledby="md-hero-heading"
+      >
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-blue-50 via-slate-50 to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950"
+          aria-hidden="true"
+        />
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="relative order-2 lg:order-1">
+            <div
+              className="absolute -inset-4 bg-blue-500/10 rounded-4xl blur-2xl"
+              aria-hidden="true"
+            />
+            <div className="relative">
+              <ServiceIllustration slug="mobile-app-development" />
+            </div>
+          </div>
+          <div className="order-1 lg:order-2">
+            <h1
+              id="md-hero-heading"
+              className={`${typo.heroTitle} text-slate-900 dark:text-white`}
+            >
+              {MOBILE_DEV_HERO.title}
+            </h1>
+            <p
+              className={`mt-6 ${typo.subtitle} text-slate-600 dark:text-slate-300`}
+            >
+              {MOBILE_DEV_HERO.description}
+            </p>
+            <ServerLinkButton
+              href="/contact"
+              variant="glow"
+              size="lg"
+              className="mt-8"
+              icon={<ArrowRight className="w-5 h-5" aria-hidden="true" />}
+            >
+              {MOBILE_DEV_HERO.cta}
+            </ServerLinkButton>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950 text-white"
+        aria-labelledby="md-intro-heading"
+      >
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 id="md-intro-heading" className={`${typo.sectionTitle} text-white`}>
+              {MOBILE_DEV_INTRO.title}
+            </h2>
+            <p className={`mt-5 ${typo.subtitle} text-slate-300`}>
+              {MOBILE_DEV_INTRO.description}
+            </p>
+            <ServerLinkButton
+              href="#md-pillars"
+              variant="outline"
+              size="lg"
+              className="mt-8 border-white/30 bg-transparent text-white hover:bg-white/10"
+              icon={<ArrowRight className="w-5 h-5" aria-hidden="true" />}
+            >
+              {MOBILE_DEV_INTRO.cta}
+            </ServerLinkButton>
+          </div>
+          <div className="relative">
+            <ServiceIllustration slug="mobile-app-development" />
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="md-pillars"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800"
+        aria-labelledby="md-pillars-heading"
+      >
+        <div className="max-w-7xl mx-auto">
+          <header className="text-center max-w-3xl mx-auto mb-14">
+            <h2
+              id="md-pillars-heading"
+              className={`${typo.sectionTitle} text-slate-900 dark:text-white`}
+            >
+              {MOBILE_DEV_PILLARS.title}
+            </h2>
+            <p
+              className={`mt-4 ${typo.subtitle} text-slate-600 dark:text-slate-400`}
+            >
+              {MOBILE_DEV_PILLARS.description}
+            </p>
+          </header>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {MOBILE_DEV_PILLARS.items.map((item, i) => {
+              const Icon = PILLAR_ICONS[i % PILLAR_ICONS.length];
+              return (
+                <article
+                  key={item}
+                  className="flex items-center gap-3 p-5 rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800"
+                >
+                  <div
+                    className="shrink-0 w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center"
+                    aria-hidden="true"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+                    {item}
+                  </h3>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-950"
+        aria-labelledby="md-what-heading"
+      >
+        <div className="max-w-7xl mx-auto">
+          <header className="text-center max-w-3xl mx-auto mb-14">
+            <h2
+              id="md-what-heading"
+              className={`${typo.sectionTitle} text-slate-900 dark:text-white`}
+            >
+              {MOBILE_DEV_WHAT.title}
+            </h2>
+          </header>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {MOBILE_DEV_WHAT.items.map((item, i) => {
+              const Icon = WHAT_ICONS[i % WHAT_ICONS.length];
+              return (
+                <article
+                  key={item.title}
+                  className="rounded-2xl bg-slate-950 text-white p-7 border border-slate-800"
+                >
+                  <div
+                    className="w-11 h-11 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center mb-5"
+                    aria-hidden="true"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className={typo.cardTitle}>{item.title}</h3>
+                  <p className="mt-3 text-sm text-slate-300 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800"
+        aria-labelledby="md-industries-heading"
+      >
+        <div className="max-w-7xl mx-auto">
+          <header className="text-center max-w-3xl mx-auto mb-14">
+            <h2
+              id="md-industries-heading"
+              className={`${typo.sectionTitle} text-slate-900 dark:text-white`}
+            >
+              {MOBILE_DEV_INDUSTRIES.title}
+            </h2>
+            <p
+              className={`mt-4 ${typo.subtitle} text-slate-600 dark:text-slate-400`}
+            >
+              {MOBILE_DEV_INDUSTRIES.description}
+            </p>
+          </header>
+          <VoipProcessSteps steps={MOBILE_DEV_INDUSTRIES.steps} variant="circles" />
+        </div>
+      </section>
+
+      <section
+        className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        aria-labelledby="md-cta-heading"
+      >
+        <Image
+          src={CTA_IMAGE}
+          alt=""
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-slate-950/85" aria-hidden="true" />
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <h2 id="md-cta-heading" className={`${typo.sectionTitle} text-white`}>
+            {MOBILE_DEV_CTA_BAND.title}
+          </h2>
+          <ServerLinkButton
+            href="/contact"
+            variant="glow"
+            size="lg"
+            className="mt-8"
+            icon={<ArrowRight className="w-5 h-5" aria-hidden="true" />}
+          >
+            {MOBILE_DEV_CTA_BAND.cta}
+          </ServerLinkButton>
+        </div>
+      </section>
+
+      <section
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950 text-white"
+        aria-labelledby="md-services-heading"
+      >
+        <div className="max-w-7xl mx-auto">
+          <h2
+            id="md-services-heading"
+            className={`${typo.sectionTitle} text-white text-center mb-10`}
+          >
+            {MOBILE_DEV_SERVICES.title}
+          </h2>
+          <MobileDevelopmentServices />
+        </div>
+      </section>
+
+      <section
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800"
+        aria-labelledby="md-cross-heading"
+      >
+        <div className="max-w-4xl mx-auto text-center">
+          <h2
+            id="md-cross-heading"
+            className={`${typo.sectionTitle} text-slate-900 dark:text-white`}
+          >
+            {MOBILE_DEV_CROSS.title}
+          </h2>
+          {MOBILE_DEV_CROSS.paragraphs.map((paragraph) => (
+            <p
+              key={paragraph}
+              className={`mt-5 ${typo.subtitle} text-slate-600 dark:text-slate-400`}
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-950"
+        aria-labelledby="md-faq-heading"
+      >
+        <div className="max-w-7xl mx-auto">
+          <h2
+            id="md-faq-heading"
+            className={`${typo.sectionTitle} text-slate-900 dark:text-white text-center mb-12`}
+          >
+            Frequently Asked Questions
+          </h2>
+          <MobileDevelopmentFaq />
+        </div>
+      </section>
+
+      <section
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"
+        aria-labelledby="md-contact-heading"
+      >
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2
+              id="md-contact-heading"
+              className={`${typo.sectionTitle} text-slate-900 dark:text-white`}
+            >
+              {MOBILE_DEV_CONTACT.title}
+            </h2>
+            <p
+              className={`mt-5 ${typo.subtitle} text-slate-600 dark:text-slate-400`}
+            >
+              {MOBILE_DEV_CONTACT.description}
+            </p>
+          </div>
+          <HomeContactForm />
+        </div>
+      </section>
+    </div>
+  );
+}

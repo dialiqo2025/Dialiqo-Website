@@ -41,15 +41,15 @@ export const SERVICES_MEGA_MENU = {
         },
         {
           label: "Asterisk",
-          href: pageToPath("technology-detail", "asterisk"),
+          href: "/services/voip/asterisk",
         },
         {
           label: "OpenSIPS",
-          href: pageToPath("technology-detail", "opensips"),
+          href: "/services/voip/opensips",
         },
         {
           label: "Kamailio",
-          href: pageToPath("technology-detail", "kamailio"),
+          href: "/services/voip/kamailio-development-services",
         },
       ],
     },
@@ -59,11 +59,11 @@ export const SERVICES_MEGA_MENU = {
       items: [
         {
           label: "Web Development",
-          href: pageToPath("service-detail", "web-development"),
+          href: "/services/mobile-web/web-development",
         },
         {
           label: "Mobile Development",
-          href: pageToPath("service-detail", "mobile-app-development"),
+          href: "/services/mobile-web/mobile-development",
         },
       ],
     },
@@ -73,15 +73,15 @@ export const SERVICES_MEGA_MENU = {
       items: [
         {
           label: "VoIP Testing",
-          href: pageToPath("service-detail", "qa-testing-services"),
+          href: "/services/qa-testing-services/voip-testing-services",
         },
         {
           label: "QA Automation",
-          href: pageToPath("service-detail", "qa-testing-services"),
+          href: "/services/qa-testing-services/qa-automation",
         },
         {
           label: "API Testing",
-          href: pageToPath("service-detail", "qa-testing-services"),
+          href: "/services/qa-testing-services/api-testing-services",
         },
       ],
     },

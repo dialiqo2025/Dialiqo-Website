@@ -27,14 +27,6 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
     destination: "/services/qa-testing-services",
   },
 
-  // VoIP stack (live service paths → tech detail pages)
-  { source: "/services/voip/asterisk", destination: "/technologies/asterisk" },
-  {
-    source: "/services/voip/kamailio-development-services",
-    destination: "/technologies/kamailio",
-  },
-  { source: "/services/voip/opensips", destination: "/technologies/opensips" },
-
   // AI / QA / Mobile-Web children
   {
     source: "/services/ai-ml-development-services/chatbot-services",
@@ -51,26 +43,6 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   {
     source: "/services/ai-voicebot-connector",
     destination: "/services/voice-ai-solutions",
-  },
-  {
-    source: "/services/qa-testing-services/api-testing-services",
-    destination: "/services/qa-testing-services",
-  },
-  {
-    source: "/services/qa-testing-services/qa-automation",
-    destination: "/services/qa-testing-services",
-  },
-  {
-    source: "/services/qa-testing-services/voip-testing-services",
-    destination: "/services/qa-testing-services",
-  },
-  {
-    source: "/services/mobile-web/web-development",
-    destination: "/services/web-development",
-  },
-  {
-    source: "/services/mobile-web/mobile-development",
-    destination: "/services/mobile-app-development",
   },
 
   // Consulting / migration / hire
