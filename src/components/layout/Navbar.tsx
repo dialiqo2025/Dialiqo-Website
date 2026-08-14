@@ -2,13 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Search, ChevronDown, Menu, X, ArrowRight
-} from 'lucide-react';
+import { Search, ChevronDown, Menu, X, ArrowRight, Headphones, Receipt, CheckCircle2 } from 'lucide-react';
 import { LinkButton } from '../common/LinkButton';
 import { Logo } from '../common/Logo';
-import { SERVICES_DATA, INDUSTRIES_DATA, SOLUTIONS_DATA } from '../../data/dialiqoData';
-import { pageToPath } from '@/lib/routes';
+import {
+  SERVICES_MEGA_MENU,
+  PRODUCTS_MEGA_MENU,
+  VOIP_SOLUTIONS_MEGA_MENU,
+  INDUSTRIES_MEGA_MENU,
+} from '@/lib/navMenus';
 
 interface NavbarProps {
   currentPage: string;
@@ -25,7 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   void onOpenConsultation;
   const [scrolled, setScrolled] = useState(false);
-  const [activeMegaMenu, setActiveMegaMenu] = useState<'services' | 'industries' | 'solutions' | 'company' | null>(null);
+  const [activeMegaMenu, setActiveMegaMenu] = useState<'services' | 'products' | 'solutions' | 'industries' | 'company' | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -79,7 +81,37 @@ export const Navbar: React.FC<NavbarProps> = ({
                   currentPage === 'services' || currentPage === 'service-detail' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
-                Services
+                Service
+                <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+              </Link>
+            </li>
+
+            {/* Our Products */}
+            <li className="relative">
+              <Link
+                href="/solutions"
+                aria-expanded={activeMegaMenu === 'products'}
+                onMouseEnter={() => setActiveMegaMenu('products')}
+                className={`flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
+                  currentPage === 'solutions' || currentPage === 'solution-detail' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
+                }`}
+              >
+                Our Products
+                <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+              </Link>
+            </li>
+
+            {/* VoIP Solution */}
+            <li className="relative">
+              <Link
+                href="/solutions"
+                aria-expanded={activeMegaMenu === 'solutions'}
+                onMouseEnter={() => setActiveMegaMenu('solutions')}
+                className={`flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
+                  currentPage === 'solutions' || currentPage === 'solution-detail' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
+                }`}
+              >
+                VoIP Solution
                 <ChevronDown className="w-3.5 h-3.5 opacity-70" />
               </Link>
             </li>
@@ -99,21 +131,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               </Link>
             </li>
 
-            {/* Solutions / Products (maps from live /voip-solution & /products) */}
-            <li className="relative">
-              <Link
-                href="/solutions"
-                aria-expanded={activeMegaMenu === 'solutions'}
-                onMouseEnter={() => setActiveMegaMenu('solutions')}
-                className={`flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
-                  currentPage === 'solutions' || currentPage === 'solution-detail' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
-                }`}
-              >
-                Solutions
-                <ChevronDown className="w-3.5 h-3.5 opacity-70" />
-              </Link>
-            </li>
-
             {/* Blog */}
             <li>
             <Link
@@ -127,28 +144,17 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             </li>
 
-            {/* Company */}
+            {/* Company — About Us & Contact Us stay here */}
             <li>
               <Link
                 href="/about"
                 onMouseEnter={() => setActiveMegaMenu('company')}
                 className={`px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
-                  currentPage === 'about' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
+                  currentPage === 'about' || currentPage === 'contact' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
                 Company
               </Link>
-            </li>
-
-            <li>
-            <Link
-              href="/contact"
-              className={`px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
-                currentPage === 'contact' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
-              }`}
-            >
-              Contact
-            </Link>
             </li>
           </ul>
 
@@ -216,36 +222,80 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div className="max-w-7xl mx-auto">
                 {activeMegaMenu === 'services' && (
                   <div>
-                    <div className="flex justify-between items-center pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
-                      <div>
-                        <h4 className="text-base font-bold text-slate-900 dark:text-white">Our Engineering Services</h4>
-                        <p className="text-xs text-slate-500">Carrier-grade telecom, voice AI, and enterprise web solutions.</p>
+                    <div className="flex justify-between items-start gap-6 pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
+                      <div className="max-w-xl">
+                        <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                          {SERVICES_MEGA_MENU.heading}
+                        </h4>
+                        <p className="text-xs text-slate-500 mt-1">
+                          {SERVICES_MEGA_MENU.description}
+                        </p>
                       </div>
                       <Link
                         href="/services"
                         onClick={() => setActiveMegaMenu(null)}
-                        className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                        className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 shrink-0"
                       >
-                        View All 20+ Services &rarr;
+                        View All Services &rarr;
                       </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                      {SERVICES_DATA.slice(0, 8).map(s => (
-                        <Link
-                          key={s.id}
-                          href={pageToPath('service-detail', s.slug)}
-                          onClick={() => setActiveMegaMenu(null)}
-                          className="group p-3 rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-900 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-800"
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                      {/* Core Services */}
+                      <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-800">
+                        <div className="font-bold text-sm text-blue-600 dark:text-blue-400 mb-3 uppercase tracking-wide">
+                          {SERVICES_MEGA_MENU.coreServices.title}
+                        </div>
+                        <ul className="space-y-2 list-none m-0 p-0">
+                          {SERVICES_MEGA_MENU.coreServices.items.map((item) => (
+                            <li key={item.label}>
+                              <Link
+                                href={item.href}
+                                onClick={() => setActiveMegaMenu(null)}
+                                className="group flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                              >
+                                <ArrowRight className="w-3.5 h-3.5 text-blue-500 opacity-70 group-hover:opacity-100 shrink-0" />
+                                <span>{item.label}</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Category groups */}
+                      {SERVICES_MEGA_MENU.groups.map((group) => (
+                        <div
+                          key={group.title}
+                          className="p-3 rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-900 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-800"
                         >
-                          <div className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 flex items-center justify-between">
-                            {s.title}
-                            {s.badge && <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400">{s.badge}</span>}
-                          </div>
-                          <div className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mt-1">
-                            {s.shortDesc}
-                          </div>
-                        </Link>
+                          {group.href ? (
+                            <Link
+                              href={group.href}
+                              onClick={() => setActiveMegaMenu(null)}
+                              className="font-bold text-sm text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wide"
+                            >
+                              {group.title}
+                            </Link>
+                          ) : (
+                            <div className="font-bold text-sm text-slate-900 dark:text-white uppercase tracking-wide">
+                              {group.title}
+                            </div>
+                          )}
+                          <ul className="mt-3 space-y-2 list-none m-0 p-0">
+                            {group.items.map((item) => (
+                              <li key={item.label}>
+                                <Link
+                                  href={item.href}
+                                  onClick={() => setActiveMegaMenu(null)}
+                                  className="group flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                                >
+                                  <ArrowRight className="w-3 h-3 text-blue-500 opacity-70 group-hover:opacity-100 shrink-0" />
+                                  <span>{item.label}</span>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -253,63 +303,156 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                 {activeMegaMenu === 'industries' && (
                   <div>
-                    <div className="flex justify-between items-center pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Industries Served</h4>
+                    <div className="flex justify-between items-start gap-6 pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
+                      <div>
+                        <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                          {INDUSTRIES_MEGA_MENU.heading}
+                        </h4>
+                        <p className="text-xs text-slate-500 mt-1">
+                          {INDUSTRIES_MEGA_MENU.description}
+                        </p>
+                      </div>
                       <Link
                         href="/industries"
                         onClick={() => setActiveMegaMenu(null)}
-                        className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                        className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline shrink-0"
                       >
                         Explore All Industries &rarr;
                       </Link>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                      {INDUSTRIES_DATA.map(i => (
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                      {INDUSTRIES_MEGA_MENU.items.map((item) => (
                         <Link
-                          key={i.id}
-                          href={pageToPath('industry-detail', i.slug)}
+                          key={item.label}
+                          href={item.href}
                           onClick={() => setActiveMegaMenu(null)}
-                          className="group p-3 rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-900 transition-all"
+                          className="group flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-blue-500/40 hover:bg-blue-50/40 dark:hover:bg-slate-900 transition-all"
                         >
-                          <div className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                            {i.title}
-                          </div>
-                          <div className="text-xs text-slate-500 line-clamp-1 mt-1">
-                            {i.shortDesc}
-                          </div>
+                          <span className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                            <CheckCircle2 className="w-4 h-4" />
+                          </span>
+                          <span className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 uppercase tracking-wide">
+                            {item.label}
+                          </span>
                         </Link>
                       ))}
                     </div>
                   </div>
                 )}
 
-                {activeMegaMenu === 'solutions' && (
+                {activeMegaMenu === 'products' && (
                   <div>
-                    <div className="flex justify-between items-center pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
-                      <h4 className="text-base font-bold text-slate-900 dark:text-white">Enterprise Software Solutions</h4>
+                    <div className="flex justify-between items-start gap-6 pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
+                      <div>
+                        <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                          {PRODUCTS_MEGA_MENU.heading}
+                        </h4>
+                        <p className="text-xs text-slate-500 mt-1">
+                          {PRODUCTS_MEGA_MENU.description}
+                        </p>
+                      </div>
                       <Link
                         href="/solutions"
                         onClick={() => setActiveMegaMenu(null)}
-                        className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                        className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline shrink-0"
+                      >
+                        Browse All Products &rarr;
+                      </Link>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                      {/* Product list */}
+                      <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                        <div className="font-bold text-sm text-blue-600 dark:text-blue-400 mb-3 uppercase tracking-wide">
+                          Our Products
+                        </div>
+                        <ul className="space-y-2.5 list-none m-0 p-0">
+                          {PRODUCTS_MEGA_MENU.links.map((item) => (
+                            <li key={item.label}>
+                              <Link
+                                href={item.href}
+                                onClick={() => setActiveMegaMenu(null)}
+                                className="group flex items-center gap-2 text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase tracking-wide"
+                              >
+                                <ArrowRight className="w-3.5 h-3.5 text-blue-500 opacity-70 group-hover:opacity-100 shrink-0" />
+                                <span>{item.label}</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Featured product cards */}
+                      {PRODUCTS_MEGA_MENU.featured.map((product) => {
+                        const Icon =
+                          product.label === "Contact Center" ? Headphones : Receipt;
+                        return (
+                          <Link
+                            key={product.label}
+                            href={product.href}
+                            onClick={() => setActiveMegaMenu(null)}
+                            className="group p-5 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-blue-500/40 hover:bg-blue-50/40 dark:hover:bg-slate-900 transition-all"
+                          >
+                            <div className="w-11 h-11 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+                              <Icon className="w-5 h-5" />
+                            </div>
+                            <div className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 uppercase tracking-wide">
+                              {product.label}
+                            </div>
+                            <div className="text-xs text-blue-600 dark:text-blue-400 mt-1 font-mono">
+                              {product.tagline}
+                            </div>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-3 mt-2 leading-relaxed">
+                              {product.description}
+                            </p>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {activeMegaMenu === 'solutions' && (
+                  <div>
+                    <div className="flex justify-between items-start gap-6 pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
+                      <div>
+                        <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                          {VOIP_SOLUTIONS_MEGA_MENU.heading}
+                        </h4>
+                        <p className="text-xs text-slate-500 mt-1">
+                          {VOIP_SOLUTIONS_MEGA_MENU.description}
+                        </p>
+                      </div>
+                      <Link
+                        href="/solutions"
+                        onClick={() => setActiveMegaMenu(null)}
+                        className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline shrink-0"
                       >
                         Browse All Solutions &rarr;
                       </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      {SOLUTIONS_DATA.map(sol => (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {VOIP_SOLUTIONS_MEGA_MENU.items.map((item) => (
                         <Link
-                          key={sol.id}
-                          href="/solutions"
+                          key={item.label}
+                          href={item.href}
                           onClick={() => setActiveMegaMenu(null)}
-                          className="group p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-blue-500/40 hover:bg-blue-50/40 dark:hover:bg-slate-900 transition-all"
+                          className="group relative flex items-center gap-3 overflow-hidden p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-blue-500/40 hover:bg-blue-50/40 dark:hover:bg-slate-900 transition-all"
                         >
-                          <div className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-blue-600">
-                            {sol.title}
-                          </div>
-                          <div className="text-xs text-blue-600 dark:text-blue-400 mt-1 font-mono">{sol.tagline}</div>
-                          <div className="text-xs text-slate-500 line-clamp-2 mt-2">{sol.description}</div>
+                          <span className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                            <CheckCircle2 className="w-4 h-4" />
+                          </span>
+                          <span className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 uppercase tracking-wide">
+                            {item.label}
+                          </span>
+                          <span
+                            className="absolute right-3 bottom-1 text-4xl font-black text-slate-100 dark:text-slate-800 select-none pointer-events-none"
+                            aria-hidden="true"
+                          >
+                            {item.number}
+                          </span>
                         </Link>
                       ))}
                     </div>
@@ -323,7 +466,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       onClick={() => setActiveMegaMenu(null)}
                       className="p-4 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900"
                     >
-                      <div className="font-bold text-sm text-slate-900 dark:text-white">About Dialiqo</div>
+                      <div className="font-bold text-sm text-slate-900 dark:text-white">About Us</div>
                       <div className="text-xs text-slate-500 mt-1">Our story, mission, timeline, and leadership.</div>
                     </Link>
 
@@ -332,7 +475,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       onClick={() => setActiveMegaMenu(null)}
                       className="p-4 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900"
                     >
-                      <div className="font-bold text-sm text-slate-900 dark:text-white">Global Contact & Offices</div>
+                      <div className="font-bold text-sm text-slate-900 dark:text-white">Contact Us</div>
                       <div className="text-xs text-slate-500 mt-1">San Francisco, London, Singapore, Dubai, Tokyo.</div>
                     </Link>
                   </div>
@@ -355,22 +498,25 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Home
               </Link>
               <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
-                Services
+                Service
+              </Link>
+              <Link href="/solutions" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
+                Our Products
+              </Link>
+              <Link href="/solutions" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
+                VoIP Solution
               </Link>
               <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 Industries
-              </Link>
-              <Link href="/solutions" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
-                Solutions
               </Link>
               <Link href="/resources" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 Blog
               </Link>
               <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
-                About
+                About Us
               </Link>
               <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
-                Contact
+                Contact Us
               </Link>
               <Link
                 href="/contact"

@@ -88,10 +88,11 @@ export const DEFAULT_OG_IMAGE =
 
 /** Live-site-aligned primary nav destinations (clean Next paths). */
 export const PRIMARY_NAV = [
-  { label: "Services", href: "/services" },
+  { label: "Service", href: "/services" },
+  { label: "Our Products", href: "/solutions" },
+  { label: "VoIP Solution", href: "/solutions" },
   { label: "Industries", href: "/industries" },
-  { label: "Solutions", href: "/solutions" },
   { label: "Blog", href: "/resources" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact Us", href: "/contact" },
 ] as const;

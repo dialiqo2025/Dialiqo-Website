@@ -15,6 +15,47 @@ export const ServiceIllustration: React.FC<ServiceIllustrationProps> = ({ slug }
   // Normalize slug for robust matching
   const normalizedSlug = slug.toLowerCase();
 
+  // 1b. QA TESTING
+  if (normalizedSlug.includes('qa')) {
+    return (
+      <div className="p-6 rounded-3xl bg-slate-900 border border-slate-800 text-white relative overflow-hidden shadow-2xl">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-emerald-600/10 pointer-events-none" />
+        <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-blue-600/20 text-blue-400 border border-blue-500/30">
+              <Shield className="w-6 h-6" />
+            </div>
+            <div>
+              <h4 className="font-bold text-base text-white">Quality Assurance Matrix</h4>
+              <p className="text-xs text-slate-400 font-mono">VoIP · Automation · API Validation</p>
+            </div>
+          </div>
+          <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-mono font-bold">
+            Bug-Free
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+          <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col items-center">
+            <CheckCircle2 className="w-5 h-5 text-blue-400 mb-2" />
+            <div className="font-bold text-sm text-slate-200">VoIP Testing</div>
+            <div className="mt-1 text-[10px] text-slate-500 font-mono">Call Quality / MOS</div>
+          </div>
+          <div className="p-4 rounded-xl bg-blue-950/40 border border-blue-800/60 flex flex-col items-center">
+            <Zap className="w-5 h-5 text-cyan-400 mb-2" />
+            <div className="font-bold text-sm text-cyan-200">QA Automation</div>
+            <div className="mt-1 text-[10px] text-cyan-400/80 font-mono">CI / Regression</div>
+          </div>
+          <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col items-center">
+            <FileCode className="w-5 h-5 text-emerald-400 mb-2" />
+            <div className="font-bold text-sm text-slate-200">API Testing</div>
+            <div className="mt-1 text-[10px] text-slate-500 font-mono">Security / Perf</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // 1. VOIP DEVELOPMENT
   if (normalizedSlug.includes('voip')) {
     return (

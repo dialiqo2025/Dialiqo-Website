@@ -19,24 +19,15 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   // Services hubs
   { source: "/services/voip", destination: "/services/voip-development" },
   {
-    source: "/services/ai-ml-development-services",
-    destination: "/services/ai-development",
+    source: "/services/devops",
+    destination: "/services/devops-consulting-services",
   },
   {
-    source: "/services/devops-consulting-services",
-    destination: "/services/devops",
+    source: "/services/qa-testing",
+    destination: "/services/qa-testing-services",
   },
-  {
-    source: "/services/qa-testing-services",
-    destination: "/services/qa-testing",
-  },
-  { source: "/services/mobile-web", destination: "/services/web-development" },
 
   // VoIP stack (live service paths → tech detail pages)
-  {
-    source: "/services/voip/freeswitch-development",
-    destination: "/technologies/freeswitch",
-  },
   { source: "/services/voip/asterisk", destination: "/technologies/asterisk" },
   {
     source: "/services/voip/kamailio-development-services",
@@ -63,15 +54,15 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   },
   {
     source: "/services/qa-testing-services/api-testing-services",
-    destination: "/services/qa-testing",
+    destination: "/services/qa-testing-services",
   },
   {
     source: "/services/qa-testing-services/qa-automation",
-    destination: "/services/qa-testing",
+    destination: "/services/qa-testing-services",
   },
   {
     source: "/services/qa-testing-services/voip-testing-services",
-    destination: "/services/qa-testing",
+    destination: "/services/qa-testing-services",
   },
   {
     source: "/services/mobile-web/web-development",

@@ -46,22 +46,22 @@ export const HOME_SERVICES = [
   {
     title: "AI-ML",
     desc: "Stay Ahead of the Curve with Our Innovative AI/ML Development. We help you transform data into actionable insights that provide efficiency and drive growth for your business.",
-    slug: "ai-development",
+    slug: "ai-ml-development-services",
   },
   {
     title: "DevOps",
     desc: "Offering Customized DevOps Solutions for Superior Performance. Our DevOps services are designed to ensure faster delivery, enhanced collaboration, and superior performance.",
-    slug: "devops",
+    slug: "devops-consulting-services",
   },
   {
     title: "QA Services",
     desc: "QA Services That Ensure Highest Quality. Our performance oriented services make sure that your software delivers in an efficient, reliable and secure manner for your business needs.",
-    slug: "qa-testing",
+    slug: "qa-testing-services",
   },
   {
     title: "Mobile & Web",
     desc: "Advanced Web and Mobile Development Services. We integrate the latest technologies to ensure a seamless experience while maintaining security, performance, and innovation.",
-    slug: "web-development",
+    slug: "mobile-web",
   },
   {
     title: "Staff Augmentation",

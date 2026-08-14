@@ -24,11 +24,11 @@ const linkClass = "text-slate-400 hover:text-white transition-colors";
 
 const OUR_SERVICES = [
   { label: "VoIP Development", slug: "voip-development" },
-  { label: "AI-ML Development", slug: "ai-development" },
+  { label: "AI-ML Development", slug: "ai-ml-development-services" },
   { label: "Web Development", slug: "web-development" },
   { label: "Mobile App Development", slug: "mobile-app-development" },
-  { label: "DevOps Services", slug: "devops" },
-  { label: "QA Services", slug: "qa-testing" },
+  { label: "DevOps Services", slug: "devops-consulting-services" },
+  { label: "QA Services", slug: "qa-testing-services" },
   { label: "AI Voicebot Connector", slug: "voice-ai-solutions" },
 ] as const;
 

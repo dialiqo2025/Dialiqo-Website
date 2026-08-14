@@ -744,7 +744,7 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: 'qa-testing',
-    slug: 'qa-testing',
+    slug: 'qa-testing-services',
     title: 'QA & Automated Software Testing',
     category: 'Consulting & Staffing',
     shortDesc: 'End-to-end automated test suites, performance load testing, API regression, and security vulnerability audits.',
