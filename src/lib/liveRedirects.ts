@@ -33,29 +33,6 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
     destination: "/services/ai-development",
   },
 
-  // Consulting / migration / hire
-  { source: "/hire-voip-developers", destination: "/services/staff-augmentation" },
-  {
-    source: "/hire-freeswitch-developers",
-    destination: "/services/staff-augmentation",
-  },
-  {
-    source: "/hire-asterisk-developers",
-    destination: "/services/staff-augmentation",
-  },
-  {
-    source: "/hire-kamailio-developers",
-    destination: "/services/staff-augmentation",
-  },
-  {
-    source: "/hire-open-sips-developers",
-    destination: "/services/staff-augmentation",
-  },
-  {
-    source: "/hire-webrtc-developers",
-    destination: "/services/staff-augmentation",
-  },
-
   // Products / VoIP solution suite → solutions
   { source: "/products", destination: "/solutions" },
   { source: "/products/voip-billing-solution", destination: "/solutions" },

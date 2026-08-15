@@ -19,7 +19,9 @@ export function VoipProcessSteps({
   const colClass =
     steps.length >= 6
       ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
-      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-5";
+      : steps.length === 4
+        ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+        : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-5";
 
   return (
     <ol className={`relative grid ${colClass} gap-6 list-none p-0 m-0`}>

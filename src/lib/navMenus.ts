@@ -119,27 +119,27 @@ export const SERVICES_MEGA_MENU = {
       items: [
         {
           label: "Hire WebRTC Developers",
-          href: "/services/staff-augmentation",
+          href: "/hire-webrtc-developers",
         },
         {
           label: "Hire VoIP Developers",
-          href: "/services/staff-augmentation",
+          href: "/hire-voip-developers",
         },
         {
           label: "Hire OpenSIPS Developers",
-          href: "/services/staff-augmentation",
+          href: "/hire-open-sips-developers",
         },
         {
           label: "Hire Kamailio Developers",
-          href: "/services/staff-augmentation",
+          href: "/hire-kamailio-developers",
         },
         {
           label: "Hire FreeSWITCH Developers",
-          href: "/services/staff-augmentation",
+          href: "/hire-freeswitch-developers",
         },
         {
           label: "Hire Asterisk Developers",
-          href: "/services/staff-augmentation",
+          href: "/hire-asterisk-developers",
         },
       ],
     },
