@@ -6,7 +6,7 @@ export function pageToPath(page: string, slug?: string): string {
     case "home":
       return "/";
     case "about":
-      return "/about";
+      return "/about-us";
     case "services":
       return "/services";
     case "service-detail":
@@ -60,14 +60,16 @@ export function pageToPath(page: string, slug?: string): string {
 /** Derive SPA-style page key from a pathname for active nav highlighting. */
 export function pathToPage(pathname: string): PageType {
   if (pathname === "/") return "home";
-  if (pathname === "/about") return "about";
+  if (pathname === "/about" || pathname === "/about-us") return "about";
   if (pathname === "/services") return "services";
   if (pathname.startsWith("/services/")) return "service-detail";
   if (pathname === "/industries") return "industries";
   if (pathname.startsWith("/industries/")) return "industry-detail";
   if (pathname === "/technologies") return "technologies";
   if (pathname.startsWith("/technologies/")) return "technology-detail";
-  if (pathname === "/solutions") return "solutions";
+  if (pathname === "/solutions" || pathname.startsWith("/products/")) {
+    return "solutions";
+  }
   if (pathname === "/voip-solution" || pathname.startsWith("/voip-solution/")) {
     return "voip-solution";
   }
@@ -98,6 +100,6 @@ export const PRIMARY_NAV = [
   { label: "VoIP Solution", href: "/voip-solution" },
   { label: "Industries", href: "/industries" },
   { label: "Blog", href: "/resources" },
-  { label: "About Us", href: "/about" },
+  { label: "About Us", href: "/about-us" },
   { label: "Contact Us", href: "/contact" },
 ] as const;

@@ -1,14 +1,32 @@
-import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/seo";
-import ContactPageClient from "./ContactPageClient";
+import { buildMetadata, breadcrumbJsonLd, localBusinessJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { ContactUsPage } from "@/components/contact/ContactUsPage";
+import { CONTACT_PAGE_SEO } from "@/lib/contactPageData";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Contact Engineering Desk",
-  description:
-    "Reach Dialiqo’s engineering desk for Voice AI, SIP infrastructure, and cloud telephony consultations. Global offices and 24/7 support channels.",
-  path: "/contact",
-});
+const PATH = "/contact";
+
+export async function generateMetadata() {
+  return buildMetadata({
+    title: CONTACT_PAGE_SEO.title,
+    description: CONTACT_PAGE_SEO.description,
+    path: PATH,
+    absoluteTitle: true,
+  });
+}
 
 export default function Contact() {
-  return <ContactPageClient />;
+  const jsonLd = [
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Contact Us", path: PATH },
+    ]),
+    localBusinessJsonLd,
+  ];
+
+  return (
+    <>
+      <JsonLd data={jsonLd} />
+      <ContactUsPage />
+    </>
+  );
 }

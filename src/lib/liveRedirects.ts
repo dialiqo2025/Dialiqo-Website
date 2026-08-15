@@ -10,9 +10,6 @@ export type RedirectRule = {
 
 /** Core live → Next mappings (sources without trailing slash). */
 export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
-  // Company
-  { source: "/about-us", destination: "/about" },
-
   // Blog
   { source: "/blog", destination: "/resources" },
 
@@ -35,8 +32,6 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
 
   // Products / VoIP solution suite → solutions
   { source: "/products", destination: "/solutions" },
-  { source: "/products/voip-billing-solution", destination: "/solutions" },
-  { source: "/products/contact-center-solutions", destination: "/solutions" },
   {
     source: "/voip-solution/session-border-controller",
     destination: "/solutions",
@@ -126,7 +121,7 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   },
 
   // Events / misc
-  { source: "/itexpo-2025", destination: "/about" },
+  { source: "/itexpo-2025", destination: "/about-us" },
 
   // Non-live Next routes → closest live-aligned destinations
   { source: "/careers", destination: "/about" },

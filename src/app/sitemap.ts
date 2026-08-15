@@ -19,10 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes = [
     "",
-    "/about",
+    "/about-us",
     "/services",
     "/industries",
     "/solutions",
+    "/products/contact-center-solutions",
+    "/products/voip-billing-solution",
     "/resources",
     "/contact",
     "/privacy-policy",

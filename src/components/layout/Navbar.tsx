@@ -147,7 +147,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Company — About Us & Contact Us stay here */}
             <li>
               <Link
-                href="/about"
+                href="/about-us"
                 onMouseEnter={() => setActiveMegaMenu('company')}
                 className={`px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
                   currentPage === 'about' || currentPage === 'contact' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
@@ -462,7 +462,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {activeMegaMenu === 'company' && (
                   <div className="grid grid-cols-2 gap-6">
                     <Link
-                      href="/about"
+                      href="/about-us"
                       onClick={() => setActiveMegaMenu(null)}
                       className="p-4 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900"
                     >
@@ -512,7 +512,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Link href="/resources" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 Blog
               </Link>
-              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
+              <Link href="/about-us" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 About Us
               </Link>
               <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">

@@ -86,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({
             <h5 className="text-sm font-bold text-white mb-4">Company</h5>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/about" className={linkClass}>
+                <Link href="/about-us" className={linkClass}>
                   About Us
                 </Link>
               </li>
@@ -108,12 +108,12 @@ export const Footer: React.FC<FooterProps> = ({
             <h5 className="text-sm font-bold text-white mb-4">Products</h5>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/solutions" className={linkClass}>
+                <Link href="/products/contact-center-solutions" className={linkClass}>
                   Contact Center
                 </Link>
               </li>
               <li>
-                <Link href="/solutions" className={linkClass}>
+                <Link href="/products/voip-billing-solution" className={linkClass}>
                   VoIP Billing
                 </Link>
               </li>

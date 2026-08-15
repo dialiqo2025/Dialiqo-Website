@@ -5,7 +5,19 @@ import { useRouter } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 import { typo } from "@/lib/typography";
 
-export function HomeContactForm() {
+type HomeContactFormProps = {
+  heading?: string;
+  note?: string;
+  phoneRequired?: boolean;
+  service?: string;
+};
+
+export function HomeContactForm({
+  heading,
+  note,
+  phoneRequired = false,
+  service = "Homepage Contact",
+}: HomeContactFormProps) {
   const router = useRouter();
   const [form, setForm] = useState({
     name: "",
@@ -19,6 +31,7 @@ export function HomeContactForm() {
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
+    if (phoneRequired && !form.phone) return;
     setFormSubmitting(true);
     try {
       await fetch("/api/consultation", {
@@ -28,7 +41,7 @@ export function HomeContactForm() {
           name: form.name,
           email: form.email,
           company: form.phone || "Website Inquiry",
-          service: "Homepage Contact",
+          service,
           notes: form.message,
           estimatedBudget: "TBD",
         }),
@@ -44,6 +57,16 @@ export function HomeContactForm() {
 
   return (
     <div className="rounded-3xl bg-slate-950 text-white p-6 sm:p-8 border border-slate-800 shadow-2xl">
+      {(heading || note) && !formSent ? (
+        <div className="mb-6">
+          {heading ? (
+            <h2 className={`${typo.sectionTitle} text-white`}>{heading}</h2>
+          ) : null}
+          {note ? (
+            <p className="mt-3 text-sm text-slate-300">{note}</p>
+          ) : null}
+        </div>
+      ) : null}
       {formSent ? (
         <div className="py-10 text-center">
           <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto mb-4" aria-hidden="true" />
@@ -91,11 +114,12 @@ export function HomeContactForm() {
               id="home-phone"
               name="phone"
               type="tel"
+              required={phoneRequired}
               autoComplete="tel"
               value={form.phone}
               onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
               className="w-full rounded-xl bg-slate-900 border border-slate-700 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Your Number"
+              placeholder={phoneRequired ? "Your Number *" : "Your Number"}
             />
           </div>
           <div>

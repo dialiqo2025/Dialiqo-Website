@@ -160,24 +160,24 @@ export const PRODUCTS_MEGA_MENU = {
   links: [
     {
       label: "Contact Center",
-      href: "/solutions",
+      href: "/products/contact-center-solutions",
     },
     {
       label: "VoIP Billing",
-      href: "/solutions",
+      href: "/products/voip-billing-solution",
     },
   ] as MegaMenuLink[],
   featured: [
     {
       label: "Contact Center",
-      href: "/solutions",
+      href: "/products/contact-center-solutions",
       tagline: "Omnichannel Contact Center",
       description:
         "AI-powered contact center with voice, chat, email, and 24/7 agent support — built for high-volume customer engagement.",
     },
     {
       label: "VoIP Billing",
-      href: "/solutions",
+      href: "/products/voip-billing-solution",
       tagline: "Real-Time Telecom Billing",
       description:
         "Prepaid and postpaid VoIP billing with CDR rating, analytics, invoicing, and usage insights for operators and MVNOs.",
