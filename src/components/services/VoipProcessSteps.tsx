@@ -5,11 +5,13 @@ import { typo } from "@/lib/typography";
 
 interface VoipProcessStepsProps {
   steps: readonly string[];
+  descriptions?: readonly string[];
   variant?: "cards" | "circles";
 }
 
 export function VoipProcessSteps({
   steps,
+  descriptions,
   variant = "cards",
 }: VoipProcessStepsProps) {
   const isCircles = variant === "circles";
@@ -56,6 +58,11 @@ export function VoipProcessSteps({
           <h3 className={`${typo.cardTitle} text-slate-900 dark:text-white`}>
             {step}
           </h3>
+          {descriptions?.[i] && (
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              {descriptions[i]}
+            </p>
+          )}
         </motion.li>
       ))}
     </ol>

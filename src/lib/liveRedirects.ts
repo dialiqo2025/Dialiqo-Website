@@ -29,20 +29,8 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
 
   // AI / QA / Mobile-Web children
   {
-    source: "/services/ai-ml-development-services/chatbot-services",
-    destination: "/services/ai-chatbot-development",
-  },
-  {
-    source: "/services/ai-ml-development-services/sentiment-analysis",
-    destination: "/services/ai-development",
-  },
-  {
     source: "/services/ai-ml-development-services/face-recognition-solution",
     destination: "/services/ai-development",
-  },
-  {
-    source: "/services/ai-voicebot-connector",
-    destination: "/services/voice-ai-solutions",
   },
 
   // Consulting / migration / hire

@@ -91,15 +91,15 @@ export const SERVICES_MEGA_MENU = {
       items: [
         {
           label: "Sentiment Analysis",
-          href: pageToPath("service-detail", "ai-development"),
+          href: "/services/ai-ml-development-services/sentiment-analysis",
         },
         {
           label: "Chatbot",
-          href: pageToPath("service-detail", "ai-chatbot-development"),
+          href: "/services/ai-ml-development-services/chatbot-services",
         },
         {
           label: "AI Voicebot Connector",
-          href: pageToPath("service-detail", "voice-ai-solutions"),
+          href: "/services/ai-voicebot-connector",
         },
       ],
     },
@@ -109,37 +109,37 @@ export const SERVICES_MEGA_MENU = {
       items: [
         {
           label: "Staff Augmentation",
-          href: pageToPath("service-detail", "staff-augmentation"),
+          href: "/services/staff-augmentation",
         },
       ],
     },
     {
       title: "Hire Developers",
-      href: pageToPath("service-detail", "staff-augmentation"),
+      href: "/services/staff-augmentation",
       items: [
         {
           label: "Hire WebRTC Developers",
-          href: pageToPath("service-detail", "staff-augmentation"),
+          href: "/services/staff-augmentation",
         },
         {
           label: "Hire VoIP Developers",
-          href: pageToPath("service-detail", "staff-augmentation"),
+          href: "/services/staff-augmentation",
         },
         {
           label: "Hire OpenSIPS Developers",
-          href: pageToPath("service-detail", "staff-augmentation"),
+          href: "/services/staff-augmentation",
         },
         {
           label: "Hire Kamailio Developers",
-          href: pageToPath("service-detail", "staff-augmentation"),
+          href: "/services/staff-augmentation",
         },
         {
           label: "Hire FreeSWITCH Developers",
-          href: pageToPath("service-detail", "staff-augmentation"),
+          href: "/services/staff-augmentation",
         },
         {
           label: "Hire Asterisk Developers",
-          href: pageToPath("service-detail", "staff-augmentation"),
+          href: "/services/staff-augmentation",
         },
       ],
     },
