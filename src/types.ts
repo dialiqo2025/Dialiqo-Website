@@ -9,6 +9,7 @@ export type PageType =
   | 'technology-detail'
   | 'solutions'
   | 'solution-detail'
+  | 'voip-solution'
   | 'case-studies' 
   | 'case-study-detail'
   | 'resources' 

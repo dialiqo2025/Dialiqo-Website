@@ -22,6 +22,8 @@ export function pageToPath(page: string, slug?: string): string {
     case "solutions":
     case "solution-detail":
       return slug ? `/solutions#${slug}` : "/solutions";
+    case "voip-solution":
+      return "/voip-solution";
     case "case-studies":
       return "/case-studies";
     case "case-study-detail":
@@ -66,6 +68,9 @@ export function pathToPage(pathname: string): PageType {
   if (pathname === "/technologies") return "technologies";
   if (pathname.startsWith("/technologies/")) return "technology-detail";
   if (pathname === "/solutions") return "solutions";
+  if (pathname === "/voip-solution" || pathname.startsWith("/voip-solution/")) {
+    return "voip-solution";
+  }
   if (pathname === "/case-studies") return "case-studies";
   if (pathname.startsWith("/case-studies/")) return "case-study-detail";
   if (pathname === "/resources") return "resources";
@@ -90,7 +95,7 @@ export const DEFAULT_OG_IMAGE =
 export const PRIMARY_NAV = [
   { label: "Service", href: "/services" },
   { label: "Our Products", href: "/solutions" },
-  { label: "VoIP Solution", href: "/solutions" },
+  { label: "VoIP Solution", href: "/voip-solution" },
   { label: "Industries", href: "/industries" },
   { label: "Blog", href: "/resources" },
   { label: "About Us", href: "/about" },

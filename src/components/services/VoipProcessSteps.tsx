@@ -16,8 +16,13 @@ export function VoipProcessSteps({
 }: VoipProcessStepsProps) {
   const isCircles = variant === "circles";
 
+  const colClass =
+    steps.length >= 6
+      ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
+      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-5";
+
   return (
-    <ol className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 list-none p-0 m-0">
+    <ol className={`relative grid ${colClass} gap-6 list-none p-0 m-0`}>
       {isCircles && (
         <div
           className="hidden lg:block absolute top-6 left-[10%] right-[10%] h-px bg-slate-200 dark:bg-slate-800"

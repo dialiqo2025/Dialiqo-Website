@@ -34,8 +34,6 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   },
 
   // Consulting / migration / hire
-  { source: "/voip-consulting", destination: "/services/software-consulting" },
-  { source: "/voip-migration", destination: "/services/voip-development" },
   { source: "/hire-voip-developers", destination: "/services/staff-augmentation" },
   {
     source: "/hire-freeswitch-developers",
@@ -62,7 +60,6 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   { source: "/products", destination: "/solutions" },
   { source: "/products/voip-billing-solution", destination: "/solutions" },
   { source: "/products/contact-center-solutions", destination: "/solutions" },
-  { source: "/voip-solution", destination: "/solutions" },
   {
     source: "/voip-solution/session-border-controller",
     destination: "/solutions",

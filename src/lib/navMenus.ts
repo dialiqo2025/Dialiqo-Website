@@ -19,14 +19,14 @@ export const SERVICES_MEGA_MENU = {
   coreServices: {
     title: "Core Services",
     items: [
-      { label: "VoIP Solutions", href: "/solutions" },
+      { label: "VoIP Solutions", href: "/voip-solution" },
       {
         label: "VoIP Consulting Services",
-        href: pageToPath("service-detail", "software-consulting"),
+        href: "/voip-consulting",
       },
       {
         label: "VoIP Migration Services",
-        href: pageToPath("service-detail", "voip-development"),
+        href: "/voip-migration",
       },
     ] as MegaMenuLink[],
   },
@@ -195,14 +195,14 @@ export const VOIP_SOLUTIONS_MEGA_MENU = {
   description:
     "Specialized VoIP platforms for carriers, enterprises, and communication providers.",
   items: [
-    { label: "IVR", number: "01", href: "/solutions" },
-    { label: "UC", number: "02", href: "/solutions" },
-    { label: "WebRTC", number: "03", href: "/solutions" },
-    { label: "SBC", number: "04", href: "/solutions" },
-    { label: "MVNO", number: "05", href: "/solutions" },
-    { label: "Class 5 Softswitch", number: "06", href: "/solutions" },
-    { label: "Class 4 Softswitch", number: "07", href: "/solutions" },
-    { label: "MVNO Billing", number: "08", href: "/solutions" },
+    { label: "IVR", number: "01", href: "/voip-solution" },
+    { label: "UC", number: "02", href: "/voip-solution" },
+    { label: "WebRTC", number: "03", href: "/voip-solution" },
+    { label: "SBC", number: "04", href: "/voip-solution" },
+    { label: "MVNO", number: "05", href: "/voip-solution" },
+    { label: "Class 5 Softswitch", number: "06", href: "/voip-solution" },
+    { label: "Class 4 Softswitch", number: "07", href: "/voip-solution" },
+    { label: "MVNO Billing", number: "08", href: "/voip-solution" },
   ] as VoipSolutionItem[],
 };
 

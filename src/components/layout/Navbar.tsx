@@ -104,11 +104,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* VoIP Solution */}
             <li className="relative">
               <Link
-                href="/solutions"
+                href="/voip-solution"
                 aria-expanded={activeMegaMenu === 'solutions'}
                 onMouseEnter={() => setActiveMegaMenu('solutions')}
                 className={`flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
-                  currentPage === 'solutions' || currentPage === 'solution-detail' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
+                  currentPage === 'voip-solution' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
                 VoIP Solution
@@ -425,7 +425,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         </p>
                       </div>
                       <Link
-                        href="/solutions"
+                        href="/voip-solution"
                         onClick={() => setActiveMegaMenu(null)}
                         className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline shrink-0"
                       >
@@ -503,7 +503,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Link href="/solutions" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 Our Products
               </Link>
-              <Link href="/solutions" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
+              <Link href="/voip-solution" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 VoIP Solution
               </Link>
               <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
