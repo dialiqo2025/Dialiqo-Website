@@ -32,16 +32,8 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
 
   // Products / VoIP solution suite → solutions
   { source: "/products", destination: "/solutions" },
-  {
-    source: "/voip-solution/mvno-billing-solution",
-    destination: "/solutions",
-  },
 
   // Industry landings (live slug → clean /industries/[slug])
-  {
-    source: "/voip-solutions-for-healthcare",
-    destination: "/industries/healthcare",
-  },
   {
     source: "/voip-solutions-for-fintech",
     destination: "/industries/finance",
@@ -55,34 +47,6 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
     destination: "/industries/retail",
   },
   {
-    source: "/voip-solutions-for-education",
-    destination: "/industries/education",
-  },
-  {
-    source: "/voip-solutions-for-telecom",
-    destination: "/industries/telecommunications",
-  },
-  {
-    source: "/voip-solutions-for-logistics",
-    destination: "/industries/logistics",
-  },
-  {
-    source: "/voip-solutions-for-real-estate",
-    destination: "/industries/real-estate",
-  },
-  {
-    source: "/voip-solutions-for-hotels",
-    destination: "/industries/hospitality",
-  },
-  {
-    source: "/voip-solutions-for-travel-agencies",
-    destination: "/industries/travel",
-  },
-  {
-    source: "/voip-solutions-for-call-centers",
-    destination: "/solutions",
-  },
-  {
     source: "/voip-solutions-for-enterprises",
     destination: "/industries",
   },
@@ -90,13 +54,43 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
     source: "/voip-solutions-for-saas-companies",
     destination: "/industries",
   },
-  {
-    source: "/voip-solutions-for-recruitment",
-    destination: "/industries",
-  },
 
   // Events / misc
   { source: "/itexpo-2025", destination: "/about-us" },
+
+  // Themed industry pages now live at original WordPress slugs
+  {
+    source: "/industries/real-estate",
+    destination: "/voip-solutions-for-real-estate",
+  },
+  {
+    source: "/industries/call-centers",
+    destination: "/voip-solutions-for-call-centers",
+  },
+  {
+    source: "/industries/logistics",
+    destination: "/voip-solutions-for-logistics",
+  },
+  {
+    source: "/industries/telecommunications",
+    destination: "/voip-solutions-for-telecom",
+  },
+  {
+    source: "/industries/hospitality",
+    destination: "/voip-solutions-for-hotels",
+  },
+  {
+    source: "/industries/education",
+    destination: "/voip-solutions-for-education",
+  },
+  {
+    source: "/industries/travel",
+    destination: "/voip-solutions-for-travel-agencies",
+  },
+  {
+    source: "/industries/healthcare",
+    destination: "/voip-solutions-for-healthcare",
+  },
 
   // Non-live Next routes → closest live-aligned destinations
   { source: "/careers", destination: "/about" },

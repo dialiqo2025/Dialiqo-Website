@@ -202,7 +202,7 @@ export const VOIP_SOLUTIONS_MEGA_MENU = {
     { label: "MVNO", number: "05", href: "/voip-solution/mobile-virtual-network-operator-solution" },
     { label: "Class 5 Softswitch", number: "06", href: "/voip-solution/class-5-softswitch-solutions" },
     { label: "Class 4 Softswitch", number: "07", href: "/voip-solution/class-4-softswitch-solution" },
-    { label: "MVNO Billing", number: "08", href: "/voip-solution" },
+    { label: "MVNO Billing", number: "08", href: "/voip-solution/mvno-billing-solution" },
   ] as VoipSolutionItem[],
 };
 
@@ -229,7 +229,7 @@ export const INDUSTRIES_MEGA_MENU = {
     },
     {
       label: "Centers",
-      href: "/solutions",
+      href: "/voip-solutions-for-call-centers",
     },
     {
       label: "Education",
@@ -249,7 +249,7 @@ export const INDUSTRIES_MEGA_MENU = {
     },
     {
       label: "Recruitment",
-      href: "/industries",
+      href: "/voip-solutions-for-recruitment",
     },
     {
       label: "Enterprises",

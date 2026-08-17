@@ -4,7 +4,7 @@ import {
   INDUSTRIES_DATA,
   RESOURCES_DATA,
 } from "@/data/dialiqoData";
-import { SITE_URL } from "@/lib/routes";
+import { SITE_URL, THEMED_INDUSTRY_PATHS } from "@/lib/routes";
 
 /** Tech pages kept as redirect targets from live VoIP stack URLs. */
 const INDEXED_TECH_SLUGS = [
@@ -22,6 +22,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about-us",
     "/services",
     "/industries",
+    "/voip-solutions-for-real-estate",
+    "/voip-solutions-for-call-centers",
+    "/voip-solutions-for-logistics",
+    "/voip-solutions-for-telecom",
+    "/voip-solutions-for-hotels",
+    "/voip-solutions-for-education",
+    "/voip-solutions-for-recruitment",
+    "/voip-solutions-for-travel-agencies",
+    "/voip-solutions-for-healthcare",
     "/solutions",
     "/products/contact-center-solutions",
     "/products/voip-billing-solution",
@@ -166,6 +175,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${SITE_URL}/voip-solution/mvno-billing-solution`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
       url: `${SITE_URL}/voip-consulting`,
       lastModified: now,
       changeFrequency: "monthly" as const,
@@ -213,7 +228,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
-    ...INDUSTRIES_DATA.map((i) => ({
+    ...INDUSTRIES_DATA.filter((i) => !THEMED_INDUSTRY_PATHS[i.slug]).map((i) => ({
       url: `${SITE_URL}/industries/${i.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,

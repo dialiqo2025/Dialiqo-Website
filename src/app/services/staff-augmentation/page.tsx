@@ -23,8 +23,7 @@ export default function StaffAugmentationPage() {
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
       { name: "Services", path: "/services" },
-      { name: "DevOps", path: "/services/devops-consulting-services" },
-      { name: "Staff Augmentation", path: PATH },
+      { name: "Hire Developers", path: PATH },
     ]),
     serviceJsonLd({
       name: "Staff Augmentation Services",

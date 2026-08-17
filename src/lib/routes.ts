@@ -1,5 +1,17 @@
 import type { PageType } from "@/types";
 
+/** Live WordPress industry landings that keep their original slugs. */
+export const THEMED_INDUSTRY_PATHS: Record<string, string> = {
+  "real-estate": "/voip-solutions-for-real-estate",
+  "call-centers": "/voip-solutions-for-call-centers",
+  logistics: "/voip-solutions-for-logistics",
+  telecommunications: "/voip-solutions-for-telecom",
+  hospitality: "/voip-solutions-for-hotels",
+  education: "/voip-solutions-for-education",
+  travel: "/voip-solutions-for-travel-agencies",
+  healthcare: "/voip-solutions-for-healthcare",
+};
+
 /** Map SPA page keys (+ optional slug) to canonical Next.js paths. */
 export function pageToPath(page: string, slug?: string): string {
   switch (page as PageType) {
@@ -14,7 +26,9 @@ export function pageToPath(page: string, slug?: string): string {
     case "industries":
       return "/industries";
     case "industry-detail":
-      return slug ? `/industries/${slug}` : "/industries";
+      return slug
+        ? (THEMED_INDUSTRY_PATHS[slug] ?? `/industries/${slug}`)
+        : "/industries";
     case "technologies":
       return "/technologies";
     case "technology-detail":
@@ -65,6 +79,7 @@ export function pathToPage(pathname: string): PageType {
   if (pathname.startsWith("/services/")) return "service-detail";
   if (pathname === "/industries") return "industries";
   if (pathname.startsWith("/industries/")) return "industry-detail";
+  if (pathname.startsWith("/voip-solutions-for-")) return "industry-detail";
   if (pathname === "/technologies") return "technologies";
   if (pathname.startsWith("/technologies/")) return "technology-detail";
   if (pathname === "/solutions" || pathname.startsWith("/products/")) {

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { INDUSTRIES_DATA } from "@/data/dialiqoData";
+import { THEMED_INDUSTRY_PATHS } from "@/lib/routes";
 import {
   buildMetadata,
   breadcrumbJsonLd,
@@ -10,7 +11,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import IndustryDetailClient from "./IndustryDetailClient";
 
 export function generateStaticParams() {
-  return INDUSTRIES_DATA.map((i) => ({ slug: i.slug }));
+  return INDUSTRIES_DATA.filter((i) => !THEMED_INDUSTRY_PATHS[i.slug]).map(
+    (i) => ({ slug: i.slug })
+  );
 }
 
 export async function generateMetadata({
@@ -20,7 +23,7 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const item = INDUSTRIES_DATA.find((i) => i.slug === slug);
-  if (!item) return {};
+  if (!item || THEMED_INDUSTRY_PATHS[slug]) return {};
   return buildMetadata({
     title: item.title,
     description: item.shortDesc || item.heroDesc,
@@ -35,7 +38,7 @@ export default async function IndustryDetail({
 }) {
   const { slug } = await params;
   const item = INDUSTRIES_DATA.find((i) => i.slug === slug);
-  if (!item) notFound();
+  if (!item || THEMED_INDUSTRY_PATHS[slug]) notFound();
 
   const jsonLd = [
     breadcrumbJsonLd([
