@@ -253,11 +253,11 @@ export const INDUSTRIES_MEGA_MENU = {
     },
     {
       label: "Enterprises",
-      href: "/industries",
+      href: "/voip-solutions-for-enterprises",
     },
     {
       label: "SaaS Companies",
-      href: "/industries",
+      href: "/voip-solutions-for-saas-companies",
     },
     {
       label: "Telecom",

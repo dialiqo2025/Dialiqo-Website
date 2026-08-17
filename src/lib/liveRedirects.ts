@@ -33,28 +33,6 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   // Products / VoIP solution suite → solutions
   { source: "/products", destination: "/solutions" },
 
-  // Industry landings (live slug → clean /industries/[slug])
-  {
-    source: "/voip-solutions-for-fintech",
-    destination: "/industries/finance",
-  },
-  {
-    source: "/voip-solutions-for-insurance",
-    destination: "/industries/insurance",
-  },
-  {
-    source: "/voip-solutions-for-ecommerce",
-    destination: "/industries/retail",
-  },
-  {
-    source: "/voip-solutions-for-enterprises",
-    destination: "/industries",
-  },
-  {
-    source: "/voip-solutions-for-saas-companies",
-    destination: "/industries",
-  },
-
   // Events / misc
   { source: "/itexpo-2025", destination: "/about-us" },
 
@@ -90,6 +68,18 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   {
     source: "/industries/healthcare",
     destination: "/voip-solutions-for-healthcare",
+  },
+  {
+    source: "/industries/finance",
+    destination: "/voip-solutions-for-fintech",
+  },
+  {
+    source: "/industries/retail",
+    destination: "/voip-solutions-for-ecommerce",
+  },
+  {
+    source: "/industries/insurance",
+    destination: "/voip-solutions-for-insurance",
   },
 
   // Non-live Next routes → closest live-aligned destinations

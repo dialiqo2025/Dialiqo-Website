@@ -10,6 +10,9 @@ export const THEMED_INDUSTRY_PATHS: Record<string, string> = {
   education: "/voip-solutions-for-education",
   travel: "/voip-solutions-for-travel-agencies",
   healthcare: "/voip-solutions-for-healthcare",
+  finance: "/voip-solutions-for-fintech",
+  retail: "/voip-solutions-for-ecommerce",
+  insurance: "/voip-solutions-for-insurance",
 };
 
 /** Map SPA page keys (+ optional slug) to canonical Next.js paths. */
