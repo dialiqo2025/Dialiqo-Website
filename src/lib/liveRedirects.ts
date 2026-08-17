@@ -33,31 +33,6 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   // Products / VoIP solution suite → solutions
   { source: "/products", destination: "/solutions" },
   {
-    source: "/voip-solution/session-border-controller",
-    destination: "/solutions",
-  },
-  { source: "/voip-solution/webrtc-solutions", destination: "/solutions" },
-  {
-    source: "/voip-solution/unified-communications-solutions",
-    destination: "/solutions",
-  },
-  {
-    source: "/voip-solution/interactive-voice-response-solutions",
-    destination: "/solutions",
-  },
-  {
-    source: "/voip-solution/class-4-softswitch-solution",
-    destination: "/solutions",
-  },
-  {
-    source: "/voip-solution/class-5-softswitch-solutions",
-    destination: "/solutions",
-  },
-  {
-    source: "/voip-solution/mobile-virtual-network-operator-solution",
-    destination: "/solutions",
-  },
-  {
     source: "/voip-solution/mvno-billing-solution",
     destination: "/solutions",
   },

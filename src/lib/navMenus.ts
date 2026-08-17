@@ -195,13 +195,13 @@ export const VOIP_SOLUTIONS_MEGA_MENU = {
   description:
     "Specialized VoIP platforms for carriers, enterprises, and communication providers.",
   items: [
-    { label: "IVR", number: "01", href: "/voip-solution" },
-    { label: "UC", number: "02", href: "/voip-solution" },
-    { label: "WebRTC", number: "03", href: "/voip-solution" },
-    { label: "SBC", number: "04", href: "/voip-solution" },
-    { label: "MVNO", number: "05", href: "/voip-solution" },
-    { label: "Class 5 Softswitch", number: "06", href: "/voip-solution" },
-    { label: "Class 4 Softswitch", number: "07", href: "/voip-solution" },
+    { label: "IVR", number: "01", href: "/voip-solution/interactive-voice-response-solutions" },
+    { label: "UC", number: "02", href: "/voip-solution/unified-communications-solutions" },
+    { label: "WebRTC", number: "03", href: "/voip-solution/webrtc-solutions" },
+    { label: "SBC", number: "04", href: "/voip-solution/session-border-controller" },
+    { label: "MVNO", number: "05", href: "/voip-solution/mobile-virtual-network-operator-solution" },
+    { label: "Class 5 Softswitch", number: "06", href: "/voip-solution/class-5-softswitch-solutions" },
+    { label: "Class 4 Softswitch", number: "07", href: "/voip-solution/class-4-softswitch-solution" },
     { label: "MVNO Billing", number: "08", href: "/voip-solution" },
   ] as VoipSolutionItem[],
 };
