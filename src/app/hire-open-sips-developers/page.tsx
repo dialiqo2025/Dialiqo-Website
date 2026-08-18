@@ -26,7 +26,6 @@ export default function HireOpensipsDevelopersPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: "Hire Developers", path: "/services/staff-augmentation" },
       { name: "Hire OpenSIPS Developers", path: PATH },
     ]),

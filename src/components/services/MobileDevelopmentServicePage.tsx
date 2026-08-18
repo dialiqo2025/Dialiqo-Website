@@ -64,12 +64,7 @@ export function MobileDevelopmentServicePage() {
           </li>
           <li aria-hidden="true">/</li>
           <li>
-            <Link
-              href="/services"
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              Services
-            </Link>
+            <span>Services</span>
           </li>
           <li aria-hidden="true">/</li>
           <li>

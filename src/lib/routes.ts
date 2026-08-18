@@ -23,22 +23,24 @@ export function pageToPath(page: string, slug?: string): string {
     case "about":
       return "/about-us";
     case "services":
-      return "/services";
+      return "/voip-solution";
     case "service-detail":
-      return slug ? `/services/${slug}` : "/services";
+      return slug ? `/services/${slug}` : "/voip-solution";
     case "industries":
-      return "/industries";
+      return "/voip-solutions-for-real-estate";
     case "industry-detail":
       return slug
         ? (THEMED_INDUSTRY_PATHS[slug] ?? `/industries/${slug}`)
-        : "/industries";
+        : "/voip-solutions-for-real-estate";
     case "technologies":
       return "/technologies";
     case "technology-detail":
       return slug ? `/technologies/${slug}` : "/technologies";
     case "solutions":
     case "solution-detail":
-      return slug ? `/solutions#${slug}` : "/solutions";
+      return slug
+        ? `/products/${slug}`
+        : "/products/contact-center-solutions";
     case "voip-solution":
       return "/voip-solution";
     case "case-studies":
@@ -78,14 +80,12 @@ export function pageToPath(page: string, slug?: string): string {
 export function pathToPage(pathname: string): PageType {
   if (pathname === "/") return "home";
   if (pathname === "/about" || pathname === "/about-us") return "about";
-  if (pathname === "/services") return "services";
   if (pathname.startsWith("/services/")) return "service-detail";
-  if (pathname === "/industries") return "industries";
   if (pathname.startsWith("/industries/")) return "industry-detail";
   if (pathname.startsWith("/voip-solutions-for-")) return "industry-detail";
   if (pathname === "/technologies") return "technologies";
   if (pathname.startsWith("/technologies/")) return "technology-detail";
-  if (pathname === "/solutions" || pathname.startsWith("/products/")) {
+  if (pathname.startsWith("/products/")) {
     return "solutions";
   }
   if (pathname === "/voip-solution" || pathname.startsWith("/voip-solution/")) {
@@ -113,10 +113,7 @@ export const DEFAULT_OG_IMAGE =
 
 /** Live-site-aligned primary nav destinations (clean Next paths). */
 export const PRIMARY_NAV = [
-  { label: "Service", href: "/services" },
-  { label: "Our Products", href: "/solutions" },
   { label: "VoIP Solution", href: "/voip-solution" },
-  { label: "Industries", href: "/industries" },
   { label: "Blog", href: "/resources" },
   { label: "About Us", href: "/about-us" },
   { label: "Contact Us", href: "/contact" },

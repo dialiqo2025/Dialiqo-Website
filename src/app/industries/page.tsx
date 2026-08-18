@@ -1,14 +1,6 @@
-import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/seo";
-import IndustriesPageClient from "./IndustriesPageClient";
+import { permanentRedirect } from "next/navigation";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Industry Solutions",
-  description:
-    "Industry-specific Voice AI and telecom solutions for healthcare, finance, retail, education, and enterprise contact centers.",
-  path: "/industries",
-});
-
-export default function Industries() {
-  return <IndustriesPageClient />;
+/** Listing hub removed — keep the URL as a permanent redirect. */
+export default function IndustriesHubRedirect() {
+  permanentRedirect("/voip-solutions-for-real-estate");
 }

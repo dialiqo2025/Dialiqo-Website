@@ -26,7 +26,6 @@ export default function HireWebrtcDevelopersPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: "Hire Developers", path: "/services/staff-augmentation" },
       { name: "Hire WebRTC Developers", path: PATH },
     ]),

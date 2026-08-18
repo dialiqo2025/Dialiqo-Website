@@ -23,7 +23,6 @@ export default function FreeswitchDevelopmentPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: "VoIP", path: "/services/voip-development" },
       { name: "FreeSWITCH", path: PATH },
     ]),

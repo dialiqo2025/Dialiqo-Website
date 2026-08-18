@@ -26,7 +26,6 @@ export default function VoipTestingPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: "QA Services", path: "/services/qa-testing-services" },
       { name: "VoIP Testing", path: PATH },
     ]),

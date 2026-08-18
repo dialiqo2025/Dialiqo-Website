@@ -67,12 +67,7 @@ export function VoipBillingProductPage() {
           </li>
           <li aria-hidden="true">/</li>
           <li>
-            <Link
-              href="/solutions"
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              Our Products
-            </Link>
+            <span>Our Products</span>
           </li>
           <li aria-hidden="true">/</li>
           <li

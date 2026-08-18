@@ -65,7 +65,7 @@ export function HomeHero() {
             Book Consultation
           </ServerLinkButton>
           <ServerLinkButton
-            href="/services"
+            href="/voip-solution"
             variant="outline"
             size="lg"
             className="!border-white/30 !text-white hover:!bg-white/10"

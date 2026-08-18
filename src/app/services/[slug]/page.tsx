@@ -127,7 +127,6 @@ export default async function ServiceDetail({
     const jsonLd = [
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
-        { name: "Services", path: "/services" },
         { name: "VoIP Development", path: `/services/${slug}` },
       ]),
       serviceJsonLd({
@@ -149,7 +148,6 @@ export default async function ServiceDetail({
     const jsonLd = [
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
-        { name: "Services", path: "/services" },
         { name: "QA Testing Services", path: `/services/${QA_SLUG}` },
       ]),
       serviceJsonLd({
@@ -171,7 +169,6 @@ export default async function ServiceDetail({
     const jsonLd = [
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
-        { name: "Services", path: "/services" },
         { name: "Mobile & Web", path: `/services/${MOBILE_WEB_SLUG}` },
       ]),
       serviceJsonLd({
@@ -193,7 +190,6 @@ export default async function ServiceDetail({
     const jsonLd = [
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
-        { name: "Services", path: "/services" },
         { name: "AI-ML", path: `/services/${AIML_SLUG}` },
       ]),
       serviceJsonLd({
@@ -215,7 +211,6 @@ export default async function ServiceDetail({
     const jsonLd = [
       breadcrumbJsonLd([
         { name: "Home", path: "/" },
-        { name: "Services", path: "/services" },
         { name: "DevOps", path: `/services/${DEVOPS_SLUG}` },
       ]),
       serviceJsonLd({
@@ -236,7 +231,6 @@ export default async function ServiceDetail({
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: item.title, path: `/services/${slug}` },
     ]),
     serviceJsonLd({

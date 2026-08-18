@@ -26,7 +26,6 @@ export default function FintechIndustryRoutePage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Industries", path: "/industries" },
       { name: "Fintech", path: PATH },
     ]),
     serviceJsonLd({

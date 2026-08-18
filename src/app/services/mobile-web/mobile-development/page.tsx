@@ -27,7 +27,6 @@ export default function MobileDevelopmentPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: "Mobile & Web", path: "/services/mobile-web" },
       { name: "Mobile Development", path: PATH },
     ]),

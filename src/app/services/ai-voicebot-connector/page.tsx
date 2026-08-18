@@ -26,7 +26,6 @@ export default function AiVoicebotConnectorPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: "AI-ML", path: "/services/ai-ml-development-services" },
       { name: "AI Voicebot Connector", path: PATH },
     ]),

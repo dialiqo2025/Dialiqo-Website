@@ -45,12 +45,7 @@ export function TelecomIndustryPage() {
           </li>
           <li aria-hidden="true">/</li>
           <li>
-            <Link
-              href="/industries"
-              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              Industries
-            </Link>
+            <span>Industries</span>
           </li>
           <li aria-hidden="true">/</li>
           <li

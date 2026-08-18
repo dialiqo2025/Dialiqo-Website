@@ -43,7 +43,6 @@ export default async function IndustryDetail({
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Industries", path: "/industries" },
       { name: item.title, path: `/industries/${slug}` },
     ]),
     serviceJsonLd({

@@ -27,7 +27,6 @@ export default function OpensipsDevelopmentPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: "VoIP", path: "/services/voip-development" },
       { name: "OpenSIPS", path: PATH },
     ]),

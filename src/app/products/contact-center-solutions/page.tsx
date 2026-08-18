@@ -26,7 +26,6 @@ export default function ContactCenterSolutionsPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Our Products", path: "/solutions" },
       { name: "Contact Center", path: PATH },
     ]),
     serviceJsonLd({

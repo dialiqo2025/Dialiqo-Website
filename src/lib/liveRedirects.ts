@@ -30,8 +30,13 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
     destination: "/services/ai-development",
   },
 
-  // Products / VoIP solution suite → solutions
-  { source: "/products", destination: "/solutions" },
+  // Removed listing hubs
+  { source: "/services", destination: "/" },
+  { source: "/solutions", destination: "/products/contact-center-solutions" },
+  { source: "/industries", destination: "/voip-solutions-for-real-estate" },
+
+  // Products index → first product
+  { source: "/products", destination: "/products/contact-center-solutions" },
 
   // Events / misc
   { source: "/itexpo-2025", destination: "/about-us" },

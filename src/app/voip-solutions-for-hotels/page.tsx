@@ -23,7 +23,6 @@ export default function HotelsIndustryRoutePage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Industries", path: "/industries" },
       { name: "Hotels", path: PATH },
     ]),
     serviceJsonLd({

@@ -26,7 +26,6 @@ export default function CallCentersIndustryRoutePage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Industries", path: "/industries" },
       { name: "Centers", path: PATH },
     ]),
     serviceJsonLd({

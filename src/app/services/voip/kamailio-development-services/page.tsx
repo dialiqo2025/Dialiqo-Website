@@ -27,7 +27,6 @@ export default function KamailioDevelopmentPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: "VoIP", path: "/services/voip-development" },
       { name: "Kamailio", path: PATH },
     ]),

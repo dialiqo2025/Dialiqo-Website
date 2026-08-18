@@ -8,7 +8,6 @@ import {
   Cloud,
   Code2,
 } from "lucide-react";
-import { ServerLinkButton } from "@/components/common/ServerLinkButton";
 import { HOME_SERVICES } from "@/lib/homeData";
 import { pageToPath } from "@/lib/routes";
 import { typo } from "@/lib/typography";
@@ -71,16 +70,6 @@ export function HomeServices() {
           })}
         </div>
 
-        <div className="mt-10 text-center">
-          <ServerLinkButton
-            href="/services"
-            variant="outline"
-            size="md"
-            icon={<ArrowRight className="w-4 h-4" aria-hidden="true" />}
-          >
-            View All Services
-          </ServerLinkButton>
-        </div>
       </div>
     </section>
   );

@@ -26,7 +26,6 @@ export default function HireVoipDevelopersPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: "Hire Developers", path: "/services/staff-augmentation" },
       { name: "Hire VoIP Developers", path: PATH },
     ]),

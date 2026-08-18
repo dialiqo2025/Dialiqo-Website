@@ -20,8 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/about-us",
-    "/services",
-    "/industries",
     "/voip-solutions-for-real-estate",
     "/voip-solutions-for-call-centers",
     "/voip-solutions-for-logistics",
@@ -36,7 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/voip-solutions-for-ecommerce",
     "/voip-solutions-for-insurance",
     "/voip-solutions-for-saas-companies",
-    "/solutions",
     "/products/contact-center-solutions",
     "/products/voip-billing-solution",
     "/resources",

@@ -22,7 +22,6 @@ export default function StaffAugmentationPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: "Hire Developers", path: PATH },
     ]),
     serviceJsonLd({

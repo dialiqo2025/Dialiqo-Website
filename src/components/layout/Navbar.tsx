@@ -29,6 +29,26 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [scrolled, setScrolled] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState<'services' | 'products' | 'solutions' | 'industries' | 'company' | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSection, setMobileSection] = useState<'services' | 'products' | 'industries' | null>(null);
+
+  const megaTriggerClass = (isOpen: boolean, isCurrent: boolean) =>
+    `flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all cursor-pointer ${
+      isOpen ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400' : ''
+    } ${isCurrent ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''}`;
+
+  const toggleMobileSection = (section: 'services' | 'products' | 'industries') => {
+    setMobileSection((current) => (current === section ? null : section));
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setMobileSection(null);
+  };
+
+  const mobileServiceLinks = [
+    ...SERVICES_MEGA_MENU.coreServices.items,
+    ...SERVICES_MEGA_MENU.groups.flatMap((group) => group.items),
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,36 +95,38 @@ export const Navbar: React.FC<NavbarProps> = ({
           <ul className="menu hidden lg:flex items-center gap-1 font-medium text-sm text-slate-700 dark:text-slate-300 list-none m-0 p-0">
             {/* Services Dropdown */}
             <li className="relative">
-              <Link
-                href="/services"
+              <button
+                type="button"
                 aria-expanded={activeMegaMenu === 'services'}
+                aria-haspopup="true"
                 onMouseEnter={() => setActiveMegaMenu('services')}
-                className={`flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
-                  activeMegaMenu === 'services' ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400' : ''
-                } ${
-                  currentPage === 'services' || currentPage === 'service-detail' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
-                }`}
+                onClick={() => setActiveMegaMenu(activeMegaMenu === 'services' ? null : 'services')}
+                className={megaTriggerClass(
+                  activeMegaMenu === 'services',
+                  currentPage === 'service-detail'
+                )}
               >
                 Service
                 <ChevronDown className="w-3.5 h-3.5 opacity-70" />
-              </Link>
+              </button>
             </li>
 
             {/* Our Products */}
             <li className="relative">
-              <Link
-                href="/solutions"
+              <button
+                type="button"
                 aria-expanded={activeMegaMenu === 'products'}
+                aria-haspopup="true"
                 onMouseEnter={() => setActiveMegaMenu('products')}
-                className={`flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
-                  activeMegaMenu === 'products' ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400' : ''
-                } ${
-                  currentPage === 'solutions' || currentPage === 'solution-detail' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
-                }`}
+                onClick={() => setActiveMegaMenu(activeMegaMenu === 'products' ? null : 'products')}
+                className={megaTriggerClass(
+                  activeMegaMenu === 'products',
+                  currentPage === 'solutions' || currentPage === 'solution-detail'
+                )}
               >
                 Our Products
                 <ChevronDown className="w-3.5 h-3.5 opacity-70" />
-              </Link>
+              </button>
             </li>
 
             {/* VoIP Solution */}
@@ -126,19 +148,20 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Industries Dropdown */}
             <li className="relative">
-              <Link
-                href="/industries"
+              <button
+                type="button"
                 aria-expanded={activeMegaMenu === 'industries'}
+                aria-haspopup="true"
                 onMouseEnter={() => setActiveMegaMenu('industries')}
-                className={`flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
-                  activeMegaMenu === 'industries' ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400' : ''
-                } ${
-                  currentPage === 'industries' || currentPage === 'industry-detail' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
-                }`}
+                onClick={() => setActiveMegaMenu(activeMegaMenu === 'industries' ? null : 'industries')}
+                className={megaTriggerClass(
+                  activeMegaMenu === 'industries',
+                  currentPage === 'industry-detail'
+                )}
               >
                 Industries
                 <ChevronDown className="w-3.5 h-3.5 opacity-70" />
-              </Link>
+              </button>
             </li>
 
             {/* Blog */}
@@ -211,7 +234,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               type="button"
               aria-label="Toggle mobile menu"
               aria-expanded={mobileMenuOpen}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => {
+                setMobileMenuOpen((open) => !open);
+                setMobileSection(null);
+              }}
               className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -249,7 +275,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div className="max-w-7xl mx-auto">
                 {activeMegaMenu === 'services' && (
                   <div>
-                    <div className="flex justify-between items-start gap-6 pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
+                    <div className="pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
                       <div className="max-w-xl">
                         <h4 className="text-base font-bold text-slate-900 dark:text-white">
                           {SERVICES_MEGA_MENU.heading}
@@ -258,13 +284,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                           {SERVICES_MEGA_MENU.description}
                         </p>
                       </div>
-                      <Link
-                        href="/services"
-                        onClick={() => setActiveMegaMenu(null)}
-                        className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 shrink-0"
-                      >
-                        View All Services &rarr;
-                      </Link>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -330,7 +349,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                 {activeMegaMenu === 'industries' && (
                   <div>
-                    <div className="flex justify-between items-start gap-6 pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
+                    <div className="pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
                       <div>
                         <h4 className="text-base font-bold text-slate-900 dark:text-white">
                           {INDUSTRIES_MEGA_MENU.heading}
@@ -339,13 +358,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                           {INDUSTRIES_MEGA_MENU.description}
                         </p>
                       </div>
-                      <Link
-                        href="/industries"
-                        onClick={() => setActiveMegaMenu(null)}
-                        className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline shrink-0"
-                      >
-                        Explore All Industries &rarr;
-                      </Link>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -370,7 +382,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                 {activeMegaMenu === 'products' && (
                   <div>
-                    <div className="flex justify-between items-start gap-6 pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
+                    <div className="pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
                       <div>
                         <h4 className="text-base font-bold text-slate-900 dark:text-white">
                           {PRODUCTS_MEGA_MENU.heading}
@@ -379,13 +391,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                           {PRODUCTS_MEGA_MENU.description}
                         </p>
                       </div>
-                      <Link
-                        href="/solutions"
-                        onClick={() => setActiveMegaMenu(null)}
-                        className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline shrink-0"
-                      >
-                        Browse All Products &rarr;
-                      </Link>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -521,33 +526,102 @@ export const Navbar: React.FC<NavbarProps> = ({
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-6 py-6 space-y-4 shadow-2xl"
             >
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
+              <Link href="/" onClick={closeMobileMenu} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 Home
               </Link>
-              <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
-                Service
-              </Link>
-              <Link href="/solutions" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
-                Our Products
-              </Link>
-              <Link href="/voip-solution" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
+              <div>
+                <button
+                  type="button"
+                  aria-expanded={mobileSection === 'services'}
+                  onClick={() => toggleMobileSection('services')}
+                  className="flex w-full items-center justify-between font-bold text-slate-900 dark:text-white py-2 cursor-pointer"
+                >
+                  Service
+                  <ChevronDown className={`w-4 h-4 opacity-70 transition-transform ${mobileSection === 'services' ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileSection === 'services' && (
+                  <ul className="pl-3 pb-2 space-y-1 list-none m-0">
+                    {mobileServiceLinks.map((item) => (
+                      <li key={`${item.label}-${item.href}`}>
+                        <Link
+                          href={item.href}
+                          onClick={closeMobileMenu}
+                          className="block py-1.5 text-sm text-slate-600 dark:text-slate-400"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              <div>
+                <button
+                  type="button"
+                  aria-expanded={mobileSection === 'products'}
+                  onClick={() => toggleMobileSection('products')}
+                  className="flex w-full items-center justify-between font-bold text-slate-900 dark:text-white py-2 cursor-pointer"
+                >
+                  Our Products
+                  <ChevronDown className={`w-4 h-4 opacity-70 transition-transform ${mobileSection === 'products' ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileSection === 'products' && (
+                  <ul className="pl-3 pb-2 space-y-1 list-none m-0">
+                    {PRODUCTS_MEGA_MENU.links.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          onClick={closeMobileMenu}
+                          className="block py-1.5 text-sm text-slate-600 dark:text-slate-400"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              <Link href="/voip-solution" onClick={closeMobileMenu} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 VoIP Solution
               </Link>
-              <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
-                Industries
-              </Link>
-              <Link href="/resources" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
+              <div>
+                <button
+                  type="button"
+                  aria-expanded={mobileSection === 'industries'}
+                  onClick={() => toggleMobileSection('industries')}
+                  className="flex w-full items-center justify-between font-bold text-slate-900 dark:text-white py-2 cursor-pointer"
+                >
+                  Industries
+                  <ChevronDown className={`w-4 h-4 opacity-70 transition-transform ${mobileSection === 'industries' ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileSection === 'industries' && (
+                  <ul className="pl-3 pb-2 space-y-1 list-none m-0">
+                    {INDUSTRIES_MEGA_MENU.items.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          onClick={closeMobileMenu}
+                          className="block py-1.5 text-sm text-slate-600 dark:text-slate-400"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              <Link href="/resources" onClick={closeMobileMenu} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 Blog
               </Link>
-              <Link href="/about-us" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
+              <Link href="/about-us" onClick={closeMobileMenu} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 About Us
               </Link>
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
+              <Link href="/contact" onClick={closeMobileMenu} className="block w-full text-left font-bold text-slate-900 dark:text-white py-2">
                 Contact Us
               </Link>
               <Link
                 href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={closeMobileMenu}
                 className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/25"
               >
                 Book Consultation

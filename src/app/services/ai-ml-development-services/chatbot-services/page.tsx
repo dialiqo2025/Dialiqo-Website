@@ -27,7 +27,6 @@ export default function ChatbotServicesPage() {
   const jsonLd = [
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
       { name: "AI-ML", path: "/services/ai-ml-development-services" },
       { name: "Chatbot", path: PATH },
     ]),

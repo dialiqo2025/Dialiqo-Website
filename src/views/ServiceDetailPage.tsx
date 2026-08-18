@@ -45,7 +45,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
         <ol className="flex items-center gap-2 text-xs font-mono text-slate-500">
           <li><Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</Link></li>
           <li aria-hidden="true">/</li>
-          <li><Link href="/services" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Services</Link></li>
+          <li><span>Services</span></li>
           <li aria-hidden="true">/</li>
           <li aria-current="page" className="text-slate-900 dark:text-white font-semibold truncate max-w-[200px]">{service.title}</li>
         </ol>
