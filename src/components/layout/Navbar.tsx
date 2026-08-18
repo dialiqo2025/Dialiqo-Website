@@ -58,7 +58,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         aria-label="Primary Navigation"
         onMouseLeave={() => setActiveMegaMenu(null)}
         className={`w-full transition-all duration-200 border-b ${
-          scrolled || activeMegaMenu
+          activeMegaMenu
+            ? 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 shadow-md'
+            : scrolled
             ? 'bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-slate-200/80 dark:border-slate-800 shadow-md'
             : 'bg-white/60 dark:bg-slate-950/60 backdrop-blur-sm border-slate-200/40 dark:border-slate-800/40'
         }`}
@@ -78,6 +80,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 aria-expanded={activeMegaMenu === 'services'}
                 onMouseEnter={() => setActiveMegaMenu('services')}
                 className={`flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
+                  activeMegaMenu === 'services' ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400' : ''
+                } ${
                   currentPage === 'services' || currentPage === 'service-detail' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
@@ -93,6 +97,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 aria-expanded={activeMegaMenu === 'products'}
                 onMouseEnter={() => setActiveMegaMenu('products')}
                 className={`flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
+                  activeMegaMenu === 'products' ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400' : ''
+                } ${
                   currentPage === 'solutions' || currentPage === 'solution-detail' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
@@ -108,6 +114,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 aria-expanded={activeMegaMenu === 'solutions'}
                 onMouseEnter={() => setActiveMegaMenu('solutions')}
                 className={`flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
+                  activeMegaMenu === 'solutions' ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400' : ''
+                } ${
                   currentPage === 'voip-solution' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
@@ -123,6 +131,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 aria-expanded={activeMegaMenu === 'industries'}
                 onMouseEnter={() => setActiveMegaMenu('industries')}
                 className={`flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
+                  activeMegaMenu === 'industries' ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400' : ''
+                } ${
                   currentPage === 'industries' || currentPage === 'industry-detail' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
@@ -150,6 +160,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href="/about-us"
                 onMouseEnter={() => setActiveMegaMenu('company')}
                 className={`px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all ${
+                  activeMegaMenu === 'company' ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400' : ''
+                } ${
                   currentPage === 'about' || currentPage === 'contact' ? 'text-blue-600 dark:text-blue-400 font-semibold' : ''
                 }`}
               >
@@ -207,6 +219,21 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </div>
 
+        {/* Dim the page so an open mega menu reads as a distinct layer */}
+        <AnimatePresence>
+          {activeMegaMenu && (
+            <motion.div
+              key="mega-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              aria-hidden="true"
+              className="fixed inset-0 top-20 z-30 bg-slate-950/45 dark:bg-black/55 pointer-events-none"
+            />
+          )}
+        </AnimatePresence>
+
         {/* Mega Menu Overlay (Desktop) */}
         <AnimatePresence>
           {activeMegaMenu && (
@@ -217,7 +244,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               transition={{ duration: 0.15 }}
               onMouseEnter={() => setActiveMegaMenu(activeMegaMenu)}
               onMouseLeave={() => setActiveMegaMenu(null)}
-              className="absolute top-full left-0 right-0 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-2xl py-8 px-6 sm:px-12 z-50"
+              className="absolute top-full left-0 right-0 z-50 bg-slate-50 dark:bg-slate-900 border-t border-b border-slate-200 dark:border-slate-700 shadow-[0_24px_60px_-12px_rgba(0,0,0,0.55)] ring-1 ring-inset ring-slate-200/70 dark:ring-white/10 py-8 px-6 sm:px-12"
             >
               <div className="max-w-7xl mx-auto">
                 {activeMegaMenu === 'services' && (
@@ -242,7 +269,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                       {/* Core Services */}
-                      <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-800">
+                      <div className="p-3 rounded-xl border border-slate-200 dark:border-slate-700 transition-all hover:border-blue-400 hover:shadow-[0_0_24px_rgba(59,130,246,0.35)] hover:bg-blue-50/40 dark:hover:bg-slate-800">
                         <div className="font-bold text-sm text-blue-600 dark:text-blue-400 mb-3 uppercase tracking-wide">
                           {SERVICES_MEGA_MENU.coreServices.title}
                         </div>
@@ -266,7 +293,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       {SERVICES_MEGA_MENU.groups.map((group) => (
                         <div
                           key={group.title}
-                          className="p-3 rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-900 transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-800"
+                          className="p-3 rounded-xl border border-slate-200 dark:border-slate-700 transition-all hover:border-blue-400 hover:shadow-[0_0_24px_rgba(59,130,246,0.35)] hover:bg-blue-50/40 dark:hover:bg-slate-800"
                         >
                           {group.href ? (
                             <Link
@@ -464,18 +491,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <Link
                       href="/about-us"
                       onClick={() => setActiveMegaMenu(null)}
-                      className="p-4 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900"
+                      className="group p-4 rounded-xl border border-slate-200 dark:border-slate-700 transition-all hover:border-blue-400 hover:shadow-[0_0_24px_rgba(59,130,246,0.35)] hover:bg-blue-50/40 dark:hover:bg-slate-800"
                     >
-                      <div className="font-bold text-sm text-slate-900 dark:text-white">About Us</div>
+                      <div className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">About Us</div>
                       <div className="text-xs text-slate-500 mt-1">Our story, mission, timeline, and leadership.</div>
                     </Link>
 
                     <Link
                       href="/contact"
                       onClick={() => setActiveMegaMenu(null)}
-                      className="p-4 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900"
+                      className="group p-4 rounded-xl border border-slate-200 dark:border-slate-700 transition-all hover:border-blue-400 hover:shadow-[0_0_24px_rgba(59,130,246,0.35)] hover:bg-blue-50/40 dark:hover:bg-slate-800"
                     >
-                      <div className="font-bold text-sm text-slate-900 dark:text-white">Contact Us</div>
+                      <div className="font-bold text-sm text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Contact Us</div>
                       <div className="text-xs text-slate-500 mt-1">San Francisco, London, Singapore, Dubai, Tokyo.</div>
                     </Link>
                   </div>
