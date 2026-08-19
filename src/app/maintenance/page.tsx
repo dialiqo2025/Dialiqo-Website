@@ -1,14 +1,5 @@
-import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/seo";
-import MaintenancePageClient from "./MaintenancePageClient";
+import { permanentRedirect } from "next/navigation";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Maintenance",
-  description: "Dialiqo is undergoing scheduled maintenance. We’ll be back shortly.",
-  path: "/maintenance",
-  noIndex: true,
-});
-
-export default function Maintenance() {
-  return <MaintenancePageClient />;
+export default function MaintenanceRedirect() {
+  permanentRedirect("/");
 }

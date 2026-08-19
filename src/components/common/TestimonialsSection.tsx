@@ -279,7 +279,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
         {/* CTA BUTTON TO CASE STUDIES */}
         <div className="pt-4 text-center">
           <Link
-            href="/case-studies"
+            href="/resources"
             className={`${linkButtonBase} ${linkButtonSizes.lg} ${linkButtonVariants.outline} gap-2`}
           >
             <span>View More Success Stories &amp; Case Studies</span>

@@ -13,7 +13,6 @@ import {
   Youtube,
 } from "lucide-react";
 import { Logo } from "../common/Logo";
-import { pageToPath } from "@/lib/routes";
 
 interface FooterProps {
   onNavigate: (page: string, slug?: string) => void;
@@ -23,13 +22,13 @@ interface FooterProps {
 const linkClass = "text-slate-400 hover:text-white transition-colors";
 
 const OUR_SERVICES = [
-  { label: "VoIP Development", slug: "voip-development" },
-  { label: "AI-ML Development", slug: "ai-ml-development-services" },
-  { label: "Web Development", slug: "web-development" },
-  { label: "Mobile App Development", slug: "mobile-app-development" },
-  { label: "DevOps Services", slug: "devops-consulting-services" },
-  { label: "QA Services", slug: "qa-testing-services" },
-  { label: "AI Voicebot Connector", slug: "voice-ai-solutions" },
+  { label: "VoIP Development", href: "/services/voip-development" },
+  { label: "AI-ML Development", href: "/services/ai-ml-development-services" },
+  { label: "Web Development", href: "/services/mobile-web/web-development" },
+  { label: "Mobile App Development", href: "/services/mobile-web/mobile-development" },
+  { label: "DevOps Services", href: "/services/devops-consulting-services" },
+  { label: "QA Services", href: "/services/qa-testing-services" },
+  { label: "AI Voicebot Connector", href: "/services/ai-voicebot-connector" },
 ] as const;
 
 const SOCIAL_LINKS = [
@@ -69,11 +68,8 @@ export const Footer: React.FC<FooterProps> = ({
             <h5 className="text-sm font-bold text-white mb-4">Our Services</h5>
             <ul className="space-y-2.5 text-sm">
               {OUR_SERVICES.map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    href={pageToPath("service-detail", s.slug)}
-                    className={linkClass}
-                  >
+                <li key={s.href}>
+                  <Link href={s.href} className={linkClass}>
                     {s.label}
                   </Link>
                 </li>

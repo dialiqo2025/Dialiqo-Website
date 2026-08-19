@@ -1,12 +1,17 @@
 import Link from "next/link";
-import { TECHNOLOGIES_DATA } from "@/data/dialiqoData";
 import { TECH_LOGOS } from "@/lib/homeData";
-import { pageToPath } from "@/lib/routes";
 
 type TechMarqueeProps = {
   items?: readonly string[];
   variant?: "links" | "chips";
   className?: string;
+};
+
+const TECH_HREFS: Record<string, string> = {
+  Asterisk: "/services/voip/asterisk",
+  FreeSWITCH: "/services/voip/freeswitch-development",
+  Kamailio: "/services/voip/kamailio-development-services",
+  OpenSIPS: "/services/voip/opensips",
 };
 
 export function TechMarquee({
@@ -44,14 +49,7 @@ export function TechMarquee({
         />
         <ul className="flex w-max animate-tech-marquee list-none m-0 p-0 items-center">
           {loop.map((name, idx) => {
-            const match = TECHNOLOGIES_DATA.find(
-              (t) =>
-                t.name.toLowerCase().includes(name.toLowerCase()) ||
-                name.toLowerCase().includes(t.slug)
-            );
-            const href = match
-              ? pageToPath("technology-detail", match.slug)
-              : "/technologies";
+            const href = TECH_HREFS[name];
 
             return (
               <li
@@ -62,13 +60,17 @@ export function TechMarquee({
                   <span className="inline-flex items-center justify-center min-w-[8.5rem] px-6 py-3 rounded-2xl bg-slate-900 border border-slate-800 text-sm font-bold text-white whitespace-nowrap">
                     {name}
                   </span>
-                ) : (
+                ) : href ? (
                   <Link
                     href={href}
                     className="text-sm sm:text-base font-bold tracking-wide text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase font-mono whitespace-nowrap"
                   >
                     {name}
                   </Link>
+                ) : (
+                  <span className="text-sm sm:text-base font-bold tracking-wide text-slate-400 uppercase font-mono whitespace-nowrap">
+                    {name}
+                  </span>
                 )}
               </li>
             );

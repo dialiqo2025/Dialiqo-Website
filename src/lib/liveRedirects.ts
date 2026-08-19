@@ -13,6 +13,72 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   // Blog
   { source: "/blog", destination: "/resources" },
 
+  // Old generic service slugs → live Dialiqo pages
+  {
+    source: "/services/web-development",
+    destination: "/services/mobile-web/web-development",
+  },
+  {
+    source: "/services/mobile-app-development",
+    destination: "/services/mobile-web/mobile-development",
+  },
+  {
+    source: "/services/flutter-development",
+    destination: "/services/mobile-web/mobile-development",
+  },
+  {
+    source: "/services/android-development",
+    destination: "/services/mobile-web/mobile-development",
+  },
+  {
+    source: "/services/ios-development",
+    destination: "/services/mobile-web/mobile-development",
+  },
+  {
+    source: "/services/react-development",
+    destination: "/services/mobile-web/web-development",
+  },
+  {
+    source: "/services/nextjs-development",
+    destination: "/services/mobile-web/web-development",
+  },
+  {
+    source: "/services/laravel-development",
+    destination: "/services/mobile-web/web-development",
+  },
+  {
+    source: "/services/nodejs-development",
+    destination: "/services/mobile-web/web-development",
+  },
+  {
+    source: "/services/ai-development",
+    destination: "/services/ai-ml-development-services",
+  },
+  {
+    source: "/services/ai-chatbot-development",
+    destination: "/services/ai-ml-development-services/chatbot-services",
+  },
+  {
+    source: "/services/ai-agent-development",
+    destination: "/services/ai-ml-development-services",
+  },
+  {
+    source: "/services/voice-ai-solutions",
+    destination: "/services/ai-voicebot-connector",
+  },
+  {
+    source: "/services/cloud-engineering",
+    destination: "/services/devops-consulting-services",
+  },
+  {
+    source: "/services/ui-ux-design",
+    destination: "/services/mobile-web",
+  },
+  {
+    source: "/services/software-consulting",
+    destination: "/voip-consulting",
+  },
+
   // Services hubs
   { source: "/services/voip", destination: "/services/voip-development" },
   {
@@ -27,7 +93,7 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   // AI / QA / Mobile-Web children
   {
     source: "/services/ai-ml-development-services/face-recognition-solution",
-    destination: "/services/ai-development",
+    destination: "/services/ai-ml-development-services",
   },
 
   // Removed listing hubs
@@ -88,10 +154,27 @@ export const LIVE_TO_NEXT_REDIRECTS: RedirectRule[] = [
   },
 
   // Non-live Next routes → closest live-aligned destinations
-  { source: "/careers", destination: "/about" },
+  { source: "/careers", destination: "/about-us" },
   { source: "/case-studies", destination: "/resources" },
   { source: "/coming-soon", destination: "/" },
   { source: "/maintenance", destination: "/" },
+  { source: "/technologies", destination: "/voip-solution" },
+  {
+    source: "/technologies/freeswitch",
+    destination: "/services/voip/freeswitch-development",
+  },
+  {
+    source: "/technologies/asterisk",
+    destination: "/services/voip/asterisk",
+  },
+  {
+    source: "/technologies/kamailio",
+    destination: "/services/voip/kamailio-development-services",
+  },
+  {
+    source: "/technologies/opensips",
+    destination: "/services/voip/opensips",
+  },
 ];
 
 /** Expand each rule to cover trailing-slash WordPress URLs. */
@@ -120,6 +203,26 @@ export function expandRedirects(
   out.push({
     source: "/case-studies/:slug/",
     destination: "/resources",
+    permanent: true,
+  });
+  out.push({
+    source: "/technologies/:slug",
+    destination: "/voip-solution",
+    permanent: true,
+  });
+  out.push({
+    source: "/technologies/:slug/",
+    destination: "/voip-solution",
+    permanent: true,
+  });
+  out.push({
+    source: "/industries/:slug",
+    destination: "/voip-solutions-for-real-estate",
+    permanent: true,
+  });
+  out.push({
+    source: "/industries/:slug/",
+    destination: "/voip-solutions-for-real-estate",
     permanent: true,
   });
 

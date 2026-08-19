@@ -13,6 +13,34 @@ export const THEMED_INDUSTRY_PATHS: Record<string, string> = {
   finance: "/voip-solutions-for-fintech",
   retail: "/voip-solutions-for-ecommerce",
   insurance: "/voip-solutions-for-insurance",
+  recruitment: "/voip-solutions-for-recruitment",
+  enterprises: "/voip-solutions-for-enterprises",
+  saas: "/voip-solutions-for-saas-companies",
+};
+
+/** Live Dialiqo service URLs that differ from `/services/{slug}`. */
+export const LIVE_SERVICE_PATHS: Record<string, string> = {
+  "web-development": "/services/mobile-web/web-development",
+  "mobile-app-development": "/services/mobile-web/mobile-development",
+  "flutter-development": "/services/mobile-web/mobile-development",
+  "android-development": "/services/mobile-web/mobile-development",
+  "ios-development": "/services/mobile-web/mobile-development",
+  "react-development": "/services/mobile-web/web-development",
+  "nextjs-development": "/services/mobile-web/web-development",
+  "laravel-development": "/services/mobile-web/web-development",
+  "nodejs-development": "/services/mobile-web/web-development",
+  "ai-development": "/services/ai-ml-development-services",
+  "ai-chatbot-development": "/services/ai-ml-development-services/chatbot-services",
+  "ai-agent-development": "/services/ai-ml-development-services",
+  "voice-ai-solutions": "/services/ai-voicebot-connector",
+  "ai-ml-development-services": "/services/ai-ml-development-services",
+  "mobile-web": "/services/mobile-web",
+  devops: "/services/devops-consulting-services",
+  "devops-consulting-services": "/services/devops-consulting-services",
+  "cloud-engineering": "/services/devops-consulting-services",
+  "qa-testing": "/services/qa-testing-services",
+  "ui-ux-design": "/services/mobile-web",
+  "software-consulting": "/voip-consulting",
 };
 
 /** Map SPA page keys (+ optional slug) to canonical Next.js paths. */
@@ -25,17 +53,25 @@ export function pageToPath(page: string, slug?: string): string {
     case "services":
       return "/voip-solution";
     case "service-detail":
-      return slug ? `/services/${slug}` : "/voip-solution";
+      if (!slug) return "/voip-solution";
+      return LIVE_SERVICE_PATHS[slug] ?? `/services/${slug}`;
     case "industries":
       return "/voip-solutions-for-real-estate";
     case "industry-detail":
       return slug
-        ? (THEMED_INDUSTRY_PATHS[slug] ?? `/industries/${slug}`)
+        ? (THEMED_INDUSTRY_PATHS[slug] ?? "/voip-solutions-for-real-estate")
         : "/voip-solutions-for-real-estate";
     case "technologies":
-      return "/technologies";
     case "technology-detail":
-      return slug ? `/technologies/${slug}` : "/technologies";
+      return slug === "freeswitch"
+        ? "/services/voip/freeswitch-development"
+        : slug === "asterisk"
+        ? "/services/voip/asterisk"
+        : slug === "kamailio"
+        ? "/services/voip/kamailio-development-services"
+        : slug === "opensips"
+        ? "/services/voip/opensips"
+        : "/voip-solution";
     case "solutions":
     case "solution-detail":
       return slug
@@ -44,15 +80,14 @@ export function pageToPath(page: string, slug?: string): string {
     case "voip-solution":
       return "/voip-solution";
     case "case-studies":
-      return "/case-studies";
     case "case-study-detail":
-      return slug ? `/case-studies/${slug}` : "/case-studies";
+      return "/resources";
     case "resources":
       return "/resources";
     case "resource-detail":
       return slug ? `/resources/${slug}` : "/resources";
     case "careers":
-      return "/careers";
+      return "/about-us";
     case "contact":
       return "/contact";
     case "privacy-policy":
@@ -66,9 +101,8 @@ export function pageToPath(page: string, slug?: string): string {
     case "search-results":
       return slug ? `/search?q=${encodeURIComponent(slug)}` : "/search";
     case "coming-soon":
-      return "/coming-soon";
     case "maintenance":
-      return "/maintenance";
+      return "/";
     case "not-found":
       return "/not-found";
     default:
@@ -81,29 +115,21 @@ export function pathToPage(pathname: string): PageType {
   if (pathname === "/") return "home";
   if (pathname === "/about" || pathname === "/about-us") return "about";
   if (pathname.startsWith("/services/")) return "service-detail";
-  if (pathname.startsWith("/industries/")) return "industry-detail";
   if (pathname.startsWith("/voip-solutions-for-")) return "industry-detail";
-  if (pathname === "/technologies") return "technologies";
-  if (pathname.startsWith("/technologies/")) return "technology-detail";
   if (pathname.startsWith("/products/")) {
     return "solutions";
   }
   if (pathname === "/voip-solution" || pathname.startsWith("/voip-solution/")) {
     return "voip-solution";
   }
-  if (pathname === "/case-studies") return "case-studies";
-  if (pathname.startsWith("/case-studies/")) return "case-study-detail";
   if (pathname === "/resources") return "resources";
   if (pathname.startsWith("/resources/")) return "resource-detail";
-  if (pathname === "/careers") return "careers";
   if (pathname === "/contact") return "contact";
   if (pathname === "/privacy-policy") return "privacy-policy";
   if (pathname === "/terms-conditions") return "terms-conditions";
   if (pathname === "/cookie-policy") return "cookie-policy";
   if (pathname === "/thank-you") return "thank-you";
   if (pathname === "/search") return "search-results";
-  if (pathname === "/coming-soon") return "coming-soon";
-  if (pathname === "/maintenance") return "maintenance";
   return "not-found";
 }
 

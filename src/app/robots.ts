@@ -10,10 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           "/thank-you",
           "/search",
-          "/coming-soon",
-          "/maintenance",
-          "/careers",
-          "/case-studies",
           "/api/",
         ],
       },

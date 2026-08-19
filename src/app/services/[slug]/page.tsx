@@ -1,23 +1,21 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { SERVICES_DATA } from "@/data/dialiqoData";
 import {
   buildMetadata,
   breadcrumbJsonLd,
   serviceJsonLd,
-  faqJsonLd,
 } from "@/lib/seo";
 import { VOIP_PAGE_SEO } from "@/lib/voipPageData";
 import { QA_PAGE_SEO } from "@/lib/qaPageData";
 import { MOBILE_WEB_PAGE_SEO } from "@/lib/mobileWebPageData";
 import { AIML_PAGE_SEO } from "@/lib/aiMlPageData";
-import { DEVOPS_PAGE_SEO } from "@/lib/devopsPageData";
+import { LIVE_SERVICE_PATHS } from "@/lib/routes";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { VoipServicePage } from "@/components/services/VoipServicePage";
 import { QaServicePage } from "@/components/services/QaServicePage";
 import { MobileWebServicePage } from "@/components/services/MobileWebServicePage";
 import { AiMlServicePage } from "@/components/services/AiMlServicePage";
 import { DevopsServicePage } from "@/components/services/DevopsServicePage";
-import ServiceDetailClient from "./ServiceDetailClient";
 
 const VOIP_SLUG = "voip-development";
 const QA_SLUG = "qa-testing-services";
@@ -43,13 +41,25 @@ function findService(slug: string) {
   return SERVICES_DATA.find((s) => s.slug === slug);
 }
 
+const THEMED_SLUGS = new Set([
+  VOIP_SLUG,
+  QA_SLUG,
+  "qa-testing",
+  MOBILE_WEB_SLUG,
+  AIML_SLUG,
+  DEVOPS_SLUG,
+  "devops",
+]);
+
 export function generateStaticParams() {
   return [
-    ...SERVICES_DATA.map((s) => ({ slug: s.slug })),
+    { slug: VOIP_SLUG },
+    { slug: QA_SLUG },
     { slug: "qa-testing" },
     { slug: MOBILE_WEB_SLUG },
     { slug: AIML_SLUG },
     { slug: DEVOPS_SLUG },
+    { slug: "devops" },
   ];
 }
 
@@ -107,11 +117,7 @@ export async function generateMetadata({
     });
   }
 
-  return buildMetadata({
-    title: item.title,
-    description: item.shortDesc || item.heroDescription,
-    path: `/services/${slug}`,
-  });
+  return {};
 }
 
 export default async function ServiceDetail({
@@ -120,6 +126,10 @@ export default async function ServiceDetail({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (LIVE_SERVICE_PATHS[slug] && LIVE_SERVICE_PATHS[slug] !== `/services/${slug}`) {
+    redirect(LIVE_SERVICE_PATHS[slug]);
+  }
+  if (!THEMED_SLUGS.has(slug)) notFound();
   const item = findService(slug);
   if (!item) notFound();
 
@@ -228,23 +238,5 @@ export default async function ServiceDetail({
     );
   }
 
-  const jsonLd = [
-    breadcrumbJsonLd([
-      { name: "Home", path: "/" },
-      { name: item.title, path: `/services/${slug}` },
-    ]),
-    serviceJsonLd({
-      name: item.title,
-      description: item.shortDesc,
-      path: `/services/${slug}`,
-    }),
-    faqJsonLd(item.faqs),
-  ].filter(Boolean);
-
-  return (
-    <>
-      <JsonLd data={jsonLd} />
-      <ServiceDetailClient slug={slug} />
-    </>
-  );
+  notFound();
 }

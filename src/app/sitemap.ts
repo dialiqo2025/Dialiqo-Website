@@ -1,18 +1,6 @@
 import type { MetadataRoute } from "next";
-import {
-  SERVICES_DATA,
-  INDUSTRIES_DATA,
-  RESOURCES_DATA,
-} from "@/data/dialiqoData";
-import { SITE_URL, THEMED_INDUSTRY_PATHS } from "@/lib/routes";
-
-/** Tech pages kept as redirect targets from live VoIP stack URLs. */
-const INDEXED_TECH_SLUGS = [
-  "freeswitch",
-  "asterisk",
-  "kamailio",
-  "opensips",
-] as const;
+import { RESOURCES_DATA } from "@/data/dialiqoData";
+import { SITE_URL } from "@/lib/routes";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -50,12 +38,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
-    ...SERVICES_DATA.map((s) => ({
-      url: `${SITE_URL}/services/${s.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    })),
     {
       url: `${SITE_URL}/services/voip/freeswitch-development`,
       lastModified: now,
@@ -230,18 +212,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
-    ...INDUSTRIES_DATA.filter((i) => !THEMED_INDUSTRY_PATHS[i.slug]).map((i) => ({
-      url: `${SITE_URL}/industries/${i.slug}`,
+    {
+      url: `${SITE_URL}/services/voip-development`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
-    })),
-    ...INDEXED_TECH_SLUGS.map((slug) => ({
-      url: `${SITE_URL}/technologies/${slug}`,
+    },
+    {
+      url: `${SITE_URL}/services/qa-testing-services`,
       lastModified: now,
       changeFrequency: "monthly" as const,
-      priority: 0.6,
-    })),
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/services/mobile-web`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/services/ai-ml-development-services`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/services/devops-consulting-services`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/services/staff-augmentation`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
     ...RESOURCES_DATA.map((r) => ({
       url: `${SITE_URL}/resources/${r.slug}`,
       lastModified: now,
