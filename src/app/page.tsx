@@ -30,7 +30,7 @@ export default function Home() {
       <HomeServices />
       <HomeAbout />
       <HomeCtaBand />
-      <HomeTestimonials />
+      {/* <HomeTestimonials /> */}
       <HomeContactSection />
     </>
   );
