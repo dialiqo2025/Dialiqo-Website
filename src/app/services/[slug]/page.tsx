@@ -9,6 +9,7 @@ import { VOIP_PAGE_SEO } from "@/lib/voipPageData";
 import { QA_PAGE_SEO } from "@/lib/qaPageData";
 import { MOBILE_WEB_PAGE_SEO } from "@/lib/mobileWebPageData";
 import { AIML_PAGE_SEO } from "@/lib/aiMlPageData";
+import { DEVOPS_PAGE_SEO } from "@/lib/devopsPageData";
 import { LIVE_SERVICE_PATHS } from "@/lib/routes";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { VoipServicePage } from "@/components/services/VoipServicePage";
