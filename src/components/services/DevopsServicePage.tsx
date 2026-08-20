@@ -14,6 +14,7 @@ import {
 import { ServerLinkButton } from "@/components/common/ServerLinkButton";
 import { ServiceIllustration } from "@/components/common/ServiceIllustration";
 import { HomeContactForm } from "@/components/home/HomeContactForm";
+import { DevopsFaq } from "@/components/services/DevopsFaq";
 import { VoipProcessSteps } from "@/components/services/VoipProcessSteps";
 import {
   DEVOPS_ABOUT,
@@ -349,6 +350,21 @@ export function DevopsServicePage() {
 
       <section
         className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-950"
+        aria-labelledby="devops-faq-heading"
+      >
+        <div className="max-w-7xl mx-auto">
+          <h2
+            id="devops-faq-heading"
+            className={`${typo.sectionTitle} text-slate-900 dark:text-white text-center mb-12`}
+          >
+            Frequently Asked Questions
+          </h2>
+          <DevopsFaq />
+        </div>
+      </section>
+
+      <section
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"
         aria-labelledby="devops-contact-heading"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

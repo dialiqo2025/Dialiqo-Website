@@ -1,107 +1,130 @@
 /**
- * Exact copy from https://dialiqo.com/services/devops-consulting-services/
- * Do not paraphrase — strings must match the live page character-for-character.
+ * Placeholder copy for /services/devops-consulting-services
+ * Replace with approved Dialiqo content when it is ready.
  */
 
 export const DEVOPS_PAGE_SEO = {
-  title: "DevOps Consulting Services | DevOps Automation Company",
+  title: "DevOps Consulting Services | CI/CD & Cloud Automation",
   description:
-    "Dialiqo delivers DevOps Consulting Services for automation, CI/CD, and cloud solutions. Our DevOps Services ensure scalability, faster deployments, and reliability from a trusted DevOps Company.",
+    "Placeholder description. Dialiqo DevOps consulting covers CI/CD, cloud automation, infrastructure as code, and production reliability. Replace with approved copy.",
 } as const;
 
 export const DEVOPS_HERO = {
-  title: "Customized DevOps Solutions for Superior Performance",
+  title: "DevOps Consulting Services for Faster, Safer Releases",
   paragraphs: [
-    "To stay competitive in today\u2019s fast-paced digital landscape, businesses require swift and efficient processes. At Dialiqo, we specialize in offering customized DevOps solutions that seamlessly bridge the gap between development and operations. Our DevOps services are designed to ensure faster delivery, enhanced collaboration, and superior performance.",
-    "Whether you\u2019re looking to enhance productivity, boost deployment rate, or optimize resources, our DevOps strategy and solutions ensure reliability, long-term success, and superior performance.",
+    "This is placeholder copy. Dummy overview: Dialiqo helps product and platform teams connect development and operations with automation, cloud tooling, and a clear delivery process.",
+    "Placeholder details: use this page to review layout, CTAs, and sections until approved DevOps content is provided.",
   ],
   cta: "Talk To Our Experts",
 } as const;
 
 export const DEVOPS_ABOUT = {
-  title: "All You Need to Know About DevOps",
+  title: "What Our DevOps Practice Covers",
   paragraphs: [
-    "DevOps the combination of development (Dev) and operations (Ops) teams is a transformative approach that bridges the gap between development and operations teams through collaboration, automation, and continuous improvement. Automating repetitive tasks, continuous integration and continuous delivery (CI/CD), and real-time monitoring are the key principles of DevOps.",
-    "This approach helps accelerate the delivery of software and services, enhance quality, and reduce errors. By adopting DevOps solutions, your organization can experience increased efficiency, scalability, and innovation potential, no matter what size your business.",
+    "Placeholder text. Dummy summary: DevOps work here includes pipeline design, environment automation, monitoring, and handover so engineering teams can ship without long manual release cycles.",
+    "Placeholder text. Dummy outcome: fewer failed deploys, clearer ownership between developers and operations, and infrastructure that can grow with traffic.",
   ],
 } as const;
 
 export const DEVOPS_WHY = {
-  eyebrow: "Our Key Benefits",
-  title: "Why Choose Our DevOps Services?",
+  eyebrow: "Key Benefits",
+  title: "Why Teams Use These DevOps Services",
   description:
-    "Whether it\u2019s designing a DevOps strategy or implementing DevOps practices, our team of professionals works closely with you to understand your unique requirements. Our custom DevOps solutions enable smooth collaboration between development and operations teams, empowering you to speed up software delivery while maintaining superior quality standards.",
+    "Placeholder intro. Dummy benefits below describe typical consulting outcomes until approved copy is available.",
   items: [
     {
-      title: "Faster Time to Market",
-      desc: "With automated processes and continuous integration, development cycles are streamlined and deployment times are reduced, resulting in faster time to market.",
+      title: "Shorter Release Cycles",
+      desc: "Placeholder. Dummy copy: automated build, test, and deploy steps cut wait time between a merge and a production release.",
     },
     {
-      title: "Enhanced Security and Compliance",
-      desc: "We ensure integrating security measures early in the development process to maintain compliance with industry standards.",
+      title: "Security Built Into Delivery",
+      desc: "Placeholder. Dummy copy: scans, secrets handling, and access controls are added to pipelines instead of being left as a final checklist.",
     },
     {
-      title: "Scalability and Flexibility",
-      desc: "With our DevOps Implementation, you can be assured of a flexible infrastructure that scales effortlessly with your business needs, supporting growth and future innovations.",
+      title: "Infrastructure That Scales",
+      desc: "Placeholder. Dummy copy: cloud and container setups are defined as code so environments stay consistent from staging to production.",
     },
     {
-      title: "Improved Collaboration",
-      desc: "DevOps Solutions offered by our professionals help create better communication and cooperation between development and operations teams, ensuring smoother and more efficient workflows.",
+      title: "Clearer Team Collaboration",
+      desc: "Placeholder. Dummy copy: shared runbooks, alerts, and environments reduce handoff friction between developers and operations.",
     },
   ],
 } as const;
 
 export const DEVOPS_EXPERTISE = {
-  title: "Our Expertise",
+  title: "Dummy Service Areas",
   description:
-    "With years of technical expertise and a strategic approach to DevOps Implementation, we specialize in delivering robust DevOps solutions and optimizing the overall software development lifecycle. From automating workflows to optimizing infrastructure, we leverage the best practices to help businesses achieve faster and more reliable outcomes.",
+    "Placeholder list of DevOps capabilities. Replace titles and descriptions with approved service offerings.",
   items: [
     {
-      title: "CI/CD Automation",
-      desc: "We automate continuous integration and continuous delivery processes efficiently for quick deployment.",
+      title: "CI/CD Pipelines",
+      desc: "Placeholder. Dummy copy: design and implement continuous integration and delivery workflows for your stack.",
     },
     {
-      title: "Infrastructure as Code (lac)",
-      desc: "Our professionals know the best practices to implement infrastructure automation, ensuring consistent environments and faster scaling.",
+      title: "Infrastructure as Code",
+      desc: "Placeholder. Dummy copy: Terraform, Ansible, or equivalent tooling to provision repeatable environments.",
     },
     {
-      title: "Monitoring and Optimization",
-      desc: "We ensure continuous monitoring and performance modification to maintain optimal system health.",
+      title: "Monitoring & Reliability",
+      desc: "Placeholder. Dummy copy: logging, metrics, and alerting so incidents are visible before customers feel them.",
     },
     {
-      title: "Cloud and Containerization",
-      desc: "Our experts leverage cloud platforms and container technologies like Docker and Kubernetes to deliver scalable solutions.",
+      title: "Cloud & Containers",
+      desc: "Placeholder. Dummy copy: Docker, Kubernetes, and cloud landing zones sized for your current and next stage of growth.",
     },
   ],
 } as const;
 
 export const DEVOPS_CONSULTING = {
-  title: "DevOps Consulting : Customized Business Solutions",
+  title: "How Consulting Engagements Start",
   description:
-    "At Dialiqo, our DevOps consulting services are designed to help you seamlessly integrate development and operations, enabling faster delivery, enhanced collaboration, and greater efficiency. Our professionals begin the process by thoroughly assessing your existing processes, identifying bottlenecks, and understanding your unique business needs. Based on the detailed assessment, we deliver customized DevOps solutions that align with your business objectives. Our consultants have deep expertise in automation, continuous integration, continuous delivery, cloud integration, and infrastructure management. We guide your organization in adopting industry best practices and advanced technologies to optimize your existing processes.",
+    "Placeholder. Dummy process: we review your current delivery path, list the highest-friction steps, then propose a phased automation plan. Approved copy should replace this paragraph.",
 } as const;
 
 export const DEVOPS_CTA_BAND = {
-  eyebrow: "Boost your digital transformation",
-  title: "Harness The Potential of Technology With Our Custom DevOps Solutions",
+  eyebrow: "Placeholder CTA",
+  title: "Ready to Review a DevOps Plan for Your Stack?",
   cta: "Get a Call Back",
 } as const;
 
 export const DEVOPS_PROCESS = {
-  title: "How We Work?",
+  title: "Dummy Delivery Steps",
   description:
-    "At Dialiqo, our DevOps services and solutions are designed to deliver seamless integration, efficiency, and continuous improvement. We follow a structured yet flexible DevOps strategy to ensure that your unique business requirements are met. From planning to deployment, we implement best practices and optimize every stage of the project development, ensuring reliability and scalability.",
+    "Placeholder process labels. Swap these for the approved engagement model.",
   steps: [
-    "Assessment & Strategy",
-    "Automation & Implementation",
-    "Infrastructure Optimization",
-    "Continuous Monitoring",
-    "Ongoing Support",
+    "Discover & Assess",
+    "Design the Pipeline",
+    "Automate Infrastructure",
+    "Observe & Tune",
+    "Support & Handover",
   ],
 } as const;
 
 export const DEVOPS_CONTACT = {
-  title: "Ready To Get Started?",
+  title: "Start a DevOps Conversation",
   description:
-    "With decades of experience and know-how of software development essentials, we build future-proof, intuitive, and highly scalable web, mobile, and VoIP solutions. Bring the ultimate success for your business with Next-Gen, Tech-Empowered Solutions.",
+    "Placeholder contact blurb. Dummy copy: share your stack, release pain points, and target environments. We will follow up with next steps.",
 } as const;
+
+export const DEVOPS_FAQS = [
+  {
+    question: "What is included in this placeholder DevOps page?",
+    answer:
+      "Dummy answer. This FAQ is sample content so the layout can be reviewed. Replace questions and answers with approved copy.",
+  },
+  {
+    question: "Do you work with existing cloud accounts?",
+    answer:
+      "Dummy answer. Placeholder: most engagements start from the tools and clouds you already use, then automate the gaps.",
+  },
+  {
+    question: "How long does a typical DevOps engagement take?",
+    answer:
+      "Dummy answer. Placeholder: duration depends on pipeline complexity, number of environments, and how much automation already exists.",
+  },
+  {
+    question: "Can this include Kubernetes or only virtual machines?",
+    answer:
+      "Dummy answer. Placeholder: both container platforms and VM-based estates can be covered once approved scope is defined.",
+  },
+] as const;

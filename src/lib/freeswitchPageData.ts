@@ -115,32 +115,32 @@ export const FREESWITCH_FAQS = [
   {
     question: "What is FreeSWITCH?",
     answer:
-      "FreeSWITCH is an open-source telephony platform used to build voice, video, and messaging systems. Dummy answer: it provides a modular core for custom VoIP, IVR, and unified communications platforms.",
+      "FreeSWITCH is an open-source telephony platform that supports voice, video, and messaging communications across a number of protocols. Its scalable and modular architecture makes it an ideal choice for creating custom communication solutions such as VoIP applications, call/contact center solutions, unified communications, and more.",
   },
   {
-    question: "Why should I choose FreeSWITCH for my communication system?",
+    question: "Why should I choose FreeSWITCH for my business communication system?",
     answer:
-      "Dummy answer: FreeSWITCH is chosen for its scalability, protocol support, and flexibility to customize call flows, media handling, and integrations around your business requirements.",
+      "FreeSWITCH provides a flexible, scalable, and reliable platform. Its open-source nature allows for highly customizable solutions to meet your unique business requirements.",
   },
   {
-    question: "Can I integrate FreeSWITCH with my existing infrastructure?",
+    question: "Can FreeSWITCH handle both small and large-scale deployments?",
     answer:
-      "Dummy answer: Yes. FreeSWITCH can be integrated with existing PBX, SIP trunks, CRMs, and business applications through standard telecom protocols and APIs.",
+      "Yes, FreeSWITCH solutions are highly scalable and are designed to easily handle small to large-scale deployments.",
   },
   {
-    question: "What services do you provide for FreeSWITCH development?",
+    question: "What communication features are offered with FreeSWITCH?",
     answer:
-      "Dummy answer: Dialiqo provides custom application development, SIP trunking, IVR design, call routing, unified communications setup, monitoring, and ongoing consulting.",
+      "With FreeSWITCH, businesses can implement features such as VoIP, video calling, conferencing, IVR systems, call routing, call recording, messaging, and more.",
   },
   {
-    question: "How do I get started with FreeSWITCH?",
+    question: "Does FreeSWITCH support integration?",
     answer:
-      "Dummy answer: Share your current stack and goals with our team. We assess requirements, propose an architecture, and begin design, development, and deployment.",
+      "Yes, FreeSwitch solutions support integration with CRM systems, ERPs, advanced analytics, and various essential business tools and systems via APIs.",
   },
   {
-    question: "Do you provide ongoing support for FreeSWITCH solutions?",
+    question: "Do you provide custom FreeSWITCH development services?",
     answer:
-      "Dummy answer: Yes. We provide ongoing support, monitoring, optimization, and feature enhancements after go-live.",
+      "Yes, at ByteBran we specialize in offering custom FreeSWITCH development services. Our team works closely with you to design and implement communication solutions customized to your specific business requirements.",
   },
 ] as const;
 

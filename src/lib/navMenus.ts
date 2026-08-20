@@ -108,6 +108,10 @@ export const SERVICES_MEGA_MENU = {
       href: pageToPath("service-detail", "devops-consulting-services"),
       items: [
         {
+          label: "DevOps Services",
+          href: "/services/devops-consulting-services",
+        },
+        {
           label: "Staff Augmentation",
           href: "/services/staff-augmentation",
         },
