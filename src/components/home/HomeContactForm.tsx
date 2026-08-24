@@ -24,32 +24,52 @@ export function HomeContactForm({
     email: "",
     phone: "",
     message: "",
+    website: "",
   });
   const [formSent, setFormSent] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
     if (phoneRequired && !form.phone) return;
+
     setFormSubmitting(true);
+    setFormError(null);
+
     try {
-      await fetch("/api/consultation", {
+      const res = await fetch("/api/consultation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          company: form.phone || "Website Inquiry",
+          phone: form.phone || undefined,
+          message: form.message,
           service,
-          notes: form.message,
-          estimatedBudget: "TBD",
+          pageUrl:
+            typeof window !== "undefined" ? window.location.pathname : undefined,
+          source: "HomeContactForm",
+          website: form.website,
         }),
       });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setFormError(
+          typeof data.error === "string"
+            ? data.error
+            : "Something went wrong. Please try again."
+        );
+        return;
+      }
+
       setFormSent(true);
       setTimeout(() => router.push("/thank-you"), 600);
     } catch {
-      setFormSent(true);
+      setFormError("Something went wrong. Please try again.");
     } finally {
       setFormSubmitting(false);
     }
@@ -75,6 +95,16 @@ export function HomeContactForm({
         </div>
       ) : (
         <form onSubmit={handleContactSubmit} className="space-y-4" noValidate>
+          <input
+            type="text"
+            name="website"
+            value={form.website}
+            onChange={(e) => setForm((f) => ({ ...f, website: e.target.value }))}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute left-[-9999px] opacity-0 h-0 w-0 pointer-events-none"
+          />
           <div>
             <label htmlFor="home-name" className="block text-xs font-semibold text-slate-400 mb-1.5">
               Name
@@ -137,6 +167,11 @@ export function HomeContactForm({
               placeholder="Message..."
             />
           </div>
+          {formError ? (
+            <p className="text-sm text-red-400" role="alert">
+              {formError}
+            </p>
+          ) : null}
           <button
             type="submit"
             disabled={formSubmitting}

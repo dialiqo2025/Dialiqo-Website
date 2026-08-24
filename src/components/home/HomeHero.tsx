@@ -57,7 +57,7 @@ export function HomeHero() {
 
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <ServerLinkButton
-            href="/contact"
+            href="/contact#schedule"
             variant="glow"
             size="lg"
             icon={<ArrowRight className="w-5 h-5" aria-hidden="true" />}

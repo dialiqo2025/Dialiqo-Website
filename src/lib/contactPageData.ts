@@ -50,3 +50,9 @@ export const CONTACT_FORM = {
   note: "Your email address will not be published. Required fields are marked *",
   submit: "SEND MESSAGE",
 } as const;
+
+export const CONTACT_SCHEDULE = {
+  title: "Schedule a call",
+  description:
+    "Pick a time that works for you. Our team will confirm your consultation and send a calendar invite with meeting details.",
+} as const;

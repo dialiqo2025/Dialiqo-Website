@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Globe, Mail, Phone } from "lucide-react";
+import { GoogleAppointmentEmbed } from "@/components/contact/GoogleAppointmentEmbed";
 import { HomeContactForm } from "@/components/home/HomeContactForm";
 import {
   CONTACT_DETAILS,
   CONTACT_FORM,
   CONTACT_HERO,
   CONTACT_INTRO,
+  CONTACT_SCHEDULE,
 } from "@/lib/contactPageData";
 import { typo } from "@/lib/typography";
 
@@ -122,6 +124,29 @@ export function ContactUsPage() {
             phoneRequired
             service="Contact Page"
           />
+        </div>
+      </section>
+
+      <section
+        id="schedule"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950 scroll-mt-28"
+        aria-labelledby="contact-schedule-heading"
+      >
+        <div className="max-w-4xl mx-auto">
+          <h2
+            id="contact-schedule-heading"
+            className={`${typo.sectionTitle} text-white text-center`}
+          >
+            {CONTACT_SCHEDULE.title}
+          </h2>
+          <p
+            className={`mt-4 ${typo.subtitle} text-slate-400 text-center max-w-2xl mx-auto`}
+          >
+            {CONTACT_SCHEDULE.description}
+          </p>
+          <div className="mt-10">
+            <GoogleAppointmentEmbed />
+          </div>
         </div>
       </section>
     </div>

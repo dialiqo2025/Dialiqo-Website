@@ -211,7 +211,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Schedule Demo CTA */}
             <LinkButton
-              href="/contact"
+              href="/contact#schedule"
               variant="glow"
               size="sm"
               icon={<ArrowRight className="w-3.5 h-3.5" />}
@@ -620,7 +620,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 Contact Us
               </Link>
               <Link
-                href="/contact"
+                href="/contact#schedule"
                 onClick={closeMobileMenu}
                 className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-lg shadow-cyan-500/25"
               >

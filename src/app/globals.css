@@ -62,3 +62,9 @@
 .animate-tech-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Google appointment pages are light-only inside iframes; invert to match site theme */
+.google-appointment-embed {
+  filter: invert(0.93) hue-rotate(180deg) brightness(0.96) contrast(0.98);
+  background: #020617;
+}
