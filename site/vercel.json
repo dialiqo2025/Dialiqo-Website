@@ -1,0 +1,134 @@
+{
+  "redirects": [
+    {
+      "source": "/blog",
+      "destination": "/resources/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/",
+      "destination": "/resources/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/about",
+      "destination": "/about-us/",
+      "statusCode": 301
+    },
+    {
+      "source": "/about/",
+      "destination": "/about-us/",
+      "statusCode": 301
+    },
+    {
+      "source": "/careers",
+      "destination": "/about-us/",
+      "statusCode": 301
+    },
+    {
+      "source": "/careers/",
+      "destination": "/about-us/",
+      "statusCode": 301
+    },
+    {
+      "source": "/case-studies",
+      "destination": "/resources/",
+      "statusCode": 301
+    },
+    {
+      "source": "/case-studies/",
+      "destination": "/resources/",
+      "statusCode": 301
+    },
+    {
+      "source": "/technologies",
+      "destination": "/voip-solution/",
+      "statusCode": 301
+    },
+    {
+      "source": "/technologies/",
+      "destination": "/voip-solution/",
+      "statusCode": 301
+    },
+    {
+      "source": "/solutions",
+      "destination": "/products/contact-center-solutions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/solutions/",
+      "destination": "/products/contact-center-solutions/",
+      "statusCode": 301
+    },
+    {
+      "source": "/industries",
+      "destination": "/voip-solutions-for-real-estate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/industries/",
+      "destination": "/voip-solutions-for-real-estate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/web-development",
+      "destination": "/services/mobile-web/web-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/web-development/",
+      "destination": "/services/mobile-web/web-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/mobile-app-development",
+      "destination": "/services/mobile-web/mobile-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/mobile-app-development/",
+      "destination": "/services/mobile-web/mobile-development/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/ai-development",
+      "destination": "/services/ai-ml-development-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/ai-development/",
+      "destination": "/services/ai-ml-development-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/devops",
+      "destination": "/services/devops-consulting-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/devops/",
+      "destination": "/services/devops-consulting-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/qa-testing",
+      "destination": "/services/qa-testing-services/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/qa-testing/",
+      "destination": "/services/qa-testing-services/",
+      "statusCode": 301
+    }
+  ]
+}
