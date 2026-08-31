@@ -248,7 +248,7 @@ function buildNav() {
         <li class="relative">
           <button type="button" class="mega-trigger flex items-center gap-1 px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all cursor-pointer" data-mega="industries" aria-expanded="false" aria-haspopup="true">Industries ${ICON.chevron}</button>
         </li>
-        <li><a href="/resources/" class="px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all">Blog</a></li>
+        <li><a href="/blog/" class="px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all">Blog</a></li>
         <li><a href="/about-us/" class="px-3.5 py-2 rounded-lg hover:text-blue-600 dark:hover:text-blue-400 transition-all" data-mega="company">Company</a></li>
       </ul>
       <div class="hidden sm:flex items-center gap-3">
@@ -334,7 +334,7 @@ function buildNav() {
         <button type="button" class="flex w-full items-center justify-between font-bold text-slate-900 dark:text-white py-2 cursor-pointer" data-mobile-section="industries">Industries ${ICON.chevron}</button>
         <ul class="hidden pl-3 pb-2 space-y-1 list-none m-0" data-mobile-panel="industries">${INDUSTRIES.items.map((i) => `<li><a href="${i.href}" class="block py-1.5 text-sm text-slate-600 dark:text-slate-400" data-close-mobile>${i.label}</a></li>`).join("")}</ul>
       </div>
-      <a href="/resources/" class="block font-bold text-slate-900 dark:text-white py-2" data-close-mobile>Blog</a>
+      <a href="/blog/" class="block font-bold text-slate-900 dark:text-white py-2" data-close-mobile>Blog</a>
       <a href="/about-us/" class="block font-bold text-slate-900 dark:text-white py-2" data-close-mobile>About Us</a>
       <a href="/contact/" class="block font-bold text-slate-900 dark:text-white py-2" data-close-mobile>Contact Us</a>
       <a href="/contact/#schedule" class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white" data-close-mobile>Book Consultation</a>
@@ -369,7 +369,7 @@ function buildFooter() {
         <h5 class="text-sm font-bold text-white mb-4">Company</h5>
         <ul class="space-y-2.5 text-sm">
           <li><a href="/about-us/" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
-          <li><a href="/resources/" class="text-slate-400 hover:text-white transition-colors">Blog</a></li>
+          <li><a href="/blog/" class="text-slate-400 hover:text-white transition-colors">Blog</a></li>
           <li><a href="/contact/" class="text-slate-400 hover:text-white transition-colors">Contact Us</a></li>
         </ul>
       </div>
